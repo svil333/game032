@@ -533,7 +533,7 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:
 
 /* ===== первый экран v3: аватар по центру, имя-плашка, инфа по бокам ===== */
 .hero{padding-block:18px 90px}
-.hero-stage{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) clamp(280px,min(31vw,52vh),430px) minmax(0,1fr);gap:clamp(18px,3vw,44px);align-items:center;margin-top:clamp(14px,3vw,34px)}
+.hero-stage{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) clamp(300px,min(38vw,72vh),520px) minmax(0,1fr);gap:clamp(18px,3vw,44px);align-items:center;margin-top:clamp(14px,3vw,34px)}
 .hero-left{align-self:center}
 .hero-left .eyebrow{display:inline-block;margin-bottom:14px}
 .hero h1{font-size:clamp(2.4rem,4.6vw,4.6rem)}
@@ -541,26 +541,22 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:
 .hero-facts{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
 .hero-facts span{font-family:var(--f-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;padding:6px 10px;border-radius:999px;border:2px solid var(--ink);background:var(--white);box-shadow:2px 2px 0 var(--ink)}
 .hero-facts span:nth-child(2){background:var(--lemon)}.hero-facts span:nth-child(3){background:var(--lime)}
-.me-col{position:relative;padding-top:8%}
+.me-col{position:relative;padding-top:34px}
 .me{position:relative;cursor:pointer;outline-offset:8px}
-.me-card{position:absolute;left:3%;right:3%;top:24%;bottom:0;border-radius:36px;border:3px solid var(--ink);background:radial-gradient(circle at 30% 20%,rgba(255,255,255,.55),transparent 45%),var(--pink);box-shadow:8px 8px 0 var(--ink);overflow:hidden}
-.me-card::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(20,20,20,.18) 1.6px,transparent 1.8px);background-size:16px 16px}
-.me-clip{position:relative;clip-path:inset(-60% -40% 0 -40% round 0 0 36px 36px)}
-.me-body{position:relative;aspect-ratio:900/1100;transform-origin:50% 100%;animation:breathe 4.2s ease-in-out infinite}
-.me-body img{position:absolute;inset:0;width:100%;height:100%;max-width:none}
-.me-hand{animation:wave 3.6s ease-in-out infinite}
-.me.waving .me-hand{animation:wave-fast .9s ease-in-out 2}
+.me-card{position:relative;aspect-ratio:760/582;border-radius:32px;border:3px solid var(--ink);background:var(--pink) url(a/av-poster.jpg) center/cover;box-shadow:8px 8px 0 var(--ink);overflow:hidden;transform:rotate(-2deg);transition:transform .4s cubic-bezier(.3,1.6,.5,1)}
+.me:hover .me-card{transform:rotate(0) scale(1.02)}
+.me-card video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
 @keyframes breathe{50%{transform:scale(1.012,1.018)}}
 @keyframes wave{0%,52%,100%{transform:rotate(0)}60%{transform:rotate(-14deg)}68%{transform:rotate(9deg)}76%{transform:rotate(-11deg)}84%{transform:rotate(6deg)}92%{transform:rotate(-3deg)}}
 @keyframes wave-fast{0%,100%{transform:rotate(0)}25%{transform:rotate(-16deg)}50%{transform:rotate(11deg)}75%{transform:rotate(-12deg)}}
-.me .say{position:absolute;z-index:4;right:-10%;top:-2%;max-width:200px;padding:11px 15px;border-radius:20px 20px 20px 6px;background:var(--white);border:2px solid var(--ink);font-weight:700;line-height:1.25;transform:rotate(4deg);box-shadow:3px 3px 0 var(--ink);white-space:normal}
-.name-plate{position:relative;z-index:3;width:122%;margin:-19% -11% 0;pointer-events:none}
+.me .say{position:absolute;z-index:4;right:-6%;top:-30px;max-width:200px;padding:11px 15px;border-radius:20px 20px 20px 6px;background:var(--white);border:2px solid var(--ink);font-weight:700;line-height:1.25;transform:rotate(4deg);box-shadow:3px 3px 0 var(--ink);white-space:normal}
+.name-plate{position:relative;z-index:3;width:108%;margin:-11% -4% 0;pointer-events:none}
 .name-plate .logo-img{width:100%;height:auto;display:block;transform-origin:50% 80%;filter:drop-shadow(0 10px 10px rgba(0,0,0,.18))}
 @media (max-width:900px){
   .hero-stage{grid-template-columns:1fr;justify-items:center;text-align:left}
-  .me-col{order:-1;width:min(340px,78vw);padding-top:16%}
+  .me-col{order:-1;width:min(380px,88vw);padding-top:30px}
   .hero-left,.hero-right{justify-self:stretch}
-  .me .say{right:-8%;top:-4%;max-width:150px;font-size:.82rem;padding:8px 11px}
+  .me .say{right:-2%;top:-26px;max-width:160px;font-size:.82rem;padding:8px 11px}
   .hero .stk[data-s="heart"],.hero .stk[data-s="sparkle"]{display:none}
 }
 /* бот-телефон слоями */
@@ -657,11 +653,7 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:
       </div>
       <div class="me-col">
         <div class="me" id="avatarCard" role="button" tabindex="0" aria-label="Мой 3D-аватар, нажми, чтобы он помахал">
-          <div class="me-card" aria-hidden="true"></div>
-          <div class="me-clip"><div class="me-body">
-            <img class="me-base" src="a/av-base.webp" alt="" width="900" height="1100">
-            <img class="me-hand" src="a/av-hand.webp" alt="" width="900" height="1100" style="transform-origin:16.0% 65.0%">
-          </div></div>
+          <div class="me-card"><video id="meVid" src="a/av-loop.mp4" poster="a/av-poster.jpg" muted loop playsinline autoplay preload="auto" aria-hidden="true"></video></div>
           <span class="say" id="say">Хей! Я Никита 👋</span>
         </div>
         <div class="name-plate logo-wrap"><img class="logo-img" src="a/02-logo.webp" alt="NIKITA" width="1600" height="530"></div>
@@ -677,7 +669,7 @@ footer.foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:
     </div>
   </div>
   <span class="stk" data-s="star" style="left:4%;top:90px;--r:-12deg;--s:70px"></span>
-  <span class="stk" data-s="heart" style="right:6%;top:96px;--r:14deg;--s:64px"></span>
+  <span class="stk" data-s="heart" style="right:5%;bottom:110px;--r:14deg;--s:64px"></span>
   <span class="stk" data-s="bolt" style="left:8%;bottom:70px;--r:10deg;--s:60px"></span>
   <span class="stk" data-s="sparkle" style="left:30%;top:150px;--r:-8deg;--s:52px"></span>
 </section>
@@ -1248,7 +1240,8 @@ lb.addEventListener('click',e=>{if(e.target===lb)closeModal(lb)});
   }catch(e){}
 })();
 const LINES=['Хей! Я Никита 👋','Делаю ботов 🤖','И сайты с 3D ✨','А ещё игры 🎮','Листай вниз ↓','Есть идея? Пиши!'];let li=0;
-function poke(){const a=$('#avatarCard');a.classList.remove('waving');void a.offsetWidth;a.classList.add('waving');li=(li+1)%LINES.length;$('#say').textContent=LINES[li]}
+function poke(){const v=$('#meVid');if(v){try{v.currentTime=0;v.play().catch(()=>{})}catch(e){}}li=(li+1)%LINES.length;$('#say').textContent=LINES[li]}
+{const v=$('#meVid');if(v){if(reduce){v.removeAttribute('autoplay');v.pause()}else v.play().catch(()=>{})}}
 $('#avatarCard').addEventListener('click',poke);$('#avatarCard').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();poke()}});
 
 /* ---------- движение ---------- */

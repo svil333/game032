@@ -1043,7 +1043,7 @@ const PART=(function(){
     if(!drag){dragY*=.985;dragX*=.97}
     spin+=.006;                                                     // вращение вокруг своей оси — видно, что она круглая
     ry+=((Math.sin(t/3400)*.5+mx*.9+dragY)-ry)*.06;rx+=((.25+Math.sin(t/4300)*.15-my*.5+dragX)-rx)*.06;
-    const cs=Math.cos(spin),ss=Math.sin(spin),cy=Math.cos(ry),sy=Math.sin(ry),cx=Math.cos(rx),sx=Math.sin(rx),Fp=2.2,SC=Math.min(W2,H2)*.78,ox=W2/2,oy=H2/2;
+    const cs=Math.cos(spin),ss=Math.sin(spin),cy=Math.cos(ry),sy=Math.sin(ry),cx=Math.cos(rx),sx=Math.sin(rx),Fp=2.2,SC=Math.min(W2,H2)*.66,ox=W2*.44,oy=H2*.42;
     const proj=(X0,Y0,Z0)=>{                                       // ось → наклон → взгляд → перспектива
       const X1=X0*cs+Z0*ss,Z1=-X0*ss+Z0*cs;
       const X2=X1*ct-Y0*st,Y2=X1*st+Y0*ct;
@@ -1061,7 +1061,7 @@ const PART=(function(){
     // пламя из сопла
     for(const q of flame){
       q.life+=.018+Math.random()*.01;
-      if(q.life>=1||q.a==null){q.life=q.life%1;q.a=Math.random()*6.283;q.rr=Math.random()*.06;q.sp=.25+Math.random()*.35}
+      if(q.life>=1||q.a==null){q.life=q.life%1;q.a=Math.random()*6.283;q.rr=Math.random()*.06;q.sp=.18+Math.random()*.24}
       const l=q.life,yy=.5+l*q.sp,rr=q.rr*(1+l*2.2)+Math.sin(t/90+q.a*5)*.006;
       const[X,Y,Z,s]=proj(Math.cos(q.a)*rr,yy,Math.sin(q.a)*rr);
       const c=l<.25?'#fff4c2':l<.5?'#ffe14a':l<.75?'#ff7a1a':'#ff5fa2';

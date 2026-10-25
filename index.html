@@ -1027,23 +1027,30 @@ const PART=(function(){
   function size(){const r=cv.getBoundingClientRect();DPR=Math.min(devicePixelRatio,2);W2=cv.width=Math.max(1,r.width*DPR);H2=cv.height=Math.max(1,r.height*DPR)}
   const rel=e=>{const r=cv.getBoundingClientRect();return[(e.clientX-r.left)/r.width-.5,(e.clientY-r.top)/r.height-.5]};
   function burst(px,py){for(const p of pts){const dx=p.sx-px,dy=p.sy-py,dd=dx*dx+dy*dy;if(dd<.06){const f=(.06-dd)*1.8/(Math.sqrt(dd)+.05);p.vx+=dx*f;p.vy+=dy*f}}}
+  // вращение вокруг своей оси: крутится само; тянешь — передняя сторона едет за пальцем/мышью; отпустил — докручивается по инерции
+  let yaw=0,yawV=0,AUTO=.007;const g={on:false,x:0,y:0,lx:0,lt:0,lock:null,v:0};
+  function gStart(cx,cy){g.on=true;g.x=g.lx=cx;g.y=cy;g.lt=performance.now();g.lock=null;g.v=0}
+  function gMove(cx,cy){const dx=cx-g.lx,now=performance.now();yaw-=dx/110;g.v=-dx/110/Math.max(8,now-g.lt)*16;g.lx=cx;g.lt=now}
+  function gEnd(){if(!g.on)return;g.on=false;yawV=Math.max(-.25,Math.min(.25,g.v))}
   cv.style.touchAction='pan-y';cv.style.cursor='grab';
-  cv.addEventListener('pointerdown',e=>{const[a,b]=rel(e);hx=a;hy=b;burst(a,b);drag={x:e.clientX,y:e.clientY,ry:dragY,rx:dragX}});
-  addEventListener('pointermove',e=>{
-    if(drag){const dx=e.clientX-drag.x,dy=e.clientY-drag.y;dragY=drag.ry+dx/120;dragX=drag.rx-dy/240}
-    if(e.target!==cv&&!drag)return;const[a,b]=rel(e);mx=a;my=b;hx=a;hy=b});
-  const up=()=>{drag=null;setTimeout(()=>{if(!drag){hx=hy=-9}},500)};
-  addEventListener('pointerup',up);addEventListener('pointercancel',up);
-  cv.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse'&&!drag){hx=hy=-9;mx=my=0}});
+  // мышь
+  cv.addEventListener('pointerdown',e=>{if(e.pointerType!=='mouse')return;const[a,b]=rel(e);burst(a,b);gStart(e.clientX,e.clientY);cv.style.cursor='grabbing'});
+  addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;if(g.on)gMove(e.clientX,e.clientY);if(e.target===cv||g.on){const[a,b]=rel(e);my=b;hx=a;hy=b}});
+  addEventListener('pointerup',e=>{if(e.pointerType!=='mouse')return;gEnd();cv.style.cursor='grab'});
+  cv.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse'&&!g.on){hx=hy=-9;my=0}});
+  // палец: горизонтальный жест крутит ракету, вертикальный листает страницу
+  cv.addEventListener('touchstart',e=>{const t=e.touches[0];const[a,b]=rel(t);burst(a,b);hx=a;hy=b;gStart(t.clientX,t.clientY)},{passive:true});
+  cv.addEventListener('touchmove',e=>{if(!g.on)return;const t=e.touches[0],dx=t.clientX-g.x,dy=t.clientY-g.y;
+    if(!g.lock&&Math.hypot(dx,dy)>8)g.lock=Math.abs(dx)>Math.abs(dy)?'h':'v';
+    if(g.lock==='h'){e.preventDefault();gMove(t.clientX,t.clientY);const[a,b]=rel(t);hx=a;hy=b}else if(g.lock==='v')g.on=false},{passive:false});
+  cv.addEventListener('touchend',()=>{gEnd();setTimeout(()=>{hx=hy=-9},400)});cv.addEventListener('touchcancel',()=>{gEnd();hx=hy=-9});
   const TILT=-Math.PI/4,ct=Math.cos(TILT),st=Math.sin(TILT);   // ракета летит по диагонали вправо-вверх
   function frame(t){
     if(!vis)return;requestAnimationFrame(frame);
     x.clearRect(0,0,W2,H2);
     const k=Math.min(1,(t-t0)/2000),ease=1-Math.pow(1-k,3),sp=.025+.075*ease;
-    if(!drag){dragY*=.985;dragX*=.97}
-    spin+=.006;                                                     // вращение вокруг своей оси — видно, что она круглая
-    ry+=((Math.sin(t/3400)*.5+mx*.9+dragY)-ry)*.06;rx+=((.25+Math.sin(t/4300)*.15-my*.5+dragX)-rx)*.06;
-    const cs=Math.cos(spin),ss=Math.sin(spin),cy=Math.cos(ry),sy=Math.sin(ry),cx=Math.cos(rx),sx=Math.sin(rx),Fp=2.2,SC=Math.min(W2,H2)*.66,ox=W2*.44,oy=H2*.42;
+    if(!g.on){yaw+=AUTO*(reduce?0:1)+yawV;yawV*=.95}ry=Math.sin(t/3800)*.35;rx+=((.22+Math.sin(t/4300)*.12-my*.3)-rx)*.06;
+    const cs=Math.cos(yaw),ss=Math.sin(yaw),cy=Math.cos(ry),sy=Math.sin(ry),cx=Math.cos(rx),sx=Math.sin(rx),Fp=2.2,SC=Math.min(W2,H2)*.66,ox=W2*.44,oy=H2*.42;
     const proj=(X0,Y0,Z0)=>{                                       // ось → наклон → взгляд → перспектива
       const X1=X0*cs+Z0*ss,Z1=-X0*ss+Z0*cs;
       const X2=X1*ct-Y0*st,Y2=X1*st+Y0*ct;

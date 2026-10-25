@@ -378,7 +378,7 @@ img,video{max-width:100%;display:block}
 @media (max-width:860px){.hero-grid{grid-template-columns:1fr}.avatar-card{width:min(360px,88%);margin-top:20px}.avatar-card .say{left:-6px}}
 
 /* сигнальные ленты */
-.tapes{position:relative;height:150px;margin-top:-80px;z-index:4;pointer-events:none;overflow:hidden;overflow:clip;overflow-clip-margin:20px}
+.tapes{position:relative;height:150px;margin-top:-80px;margin-bottom:-70px;z-index:4;pointer-events:none;overflow:hidden;overflow:clip;overflow-clip-margin:20px}
 .tape{position:absolute;left:-10%;width:120%;overflow:hidden;border-block:3px solid var(--ink);padding-block:9px;white-space:nowrap;font-family:var(--f-display);font-size:1rem;text-transform:uppercase}
 .tape .run{display:inline-flex;gap:34px;animation:tape 30s linear infinite;padding-left:34px}
 .tape .run span::after{content:"✦";margin-left:34px}
@@ -990,73 +990,93 @@ function stickers(){
 
 /* ---------- частицы: объёмная ракета ---------- */
 const PART=(function(){
-  const cv=$('#particles'),x=cv.getContext('2d');let W2,H2,pts=[],vis=false,built=false,mx=0,my=0,hx=-9,hy=-9,t0=0,DPR=1,ry=0,rx=0,dragY=0,dragX=0,drag=null,lastTouch=0;
-  function maskFrom(src){
-    const S=240,c=document.createElement('canvas');c.width=c.height=S;const g=c.getContext('2d');
-    g.fillStyle='#000';g.fillRect(0,0,S,S);
-    if(src)g.drawImage(src,0,0,S,S);
-    else{g.translate(S/2,S/2);g.rotate(Math.PI/4);g.fillStyle='#fff';g.beginPath();g.moveTo(0,-95);g.bezierCurveTo(38,-62,40,-10,32,44);g.lineTo(-32,44);g.bezierCurveTo(-40,-10,-38,-62,0,-95);g.fill();
-      g.beginPath();g.moveTo(-32,12);g.lineTo(-60,58);g.lineTo(-32,50);g.fill();g.beginPath();g.moveTo(32,12);g.lineTo(60,58);g.lineTo(32,50);g.fill();
-      for(let i=0;i<90;i++){g.beginPath();g.arc((Math.random()-.5)*36,54+Math.random()*60,2+Math.random()*5,0,7);g.fill()}}
-    const d=g.getImageData(0,0,S,S).data,m=new Float32Array(S*S);for(let i=0;i<S*S;i++)m[i]=d[i*4]>110?1:0;
-    const b=m.slice(),tmp=new Float32Array(S*S),R=9,n=2*R+1,cl=v=>v<0?0:v>S-1?S-1:v;
-    for(let pass=0;pass<3;pass++){
-      for(let y=0;y<S;y++){let acc=0;for(let k=-R;k<=R;k++)acc+=b[y*S+cl(k)];for(let xx=0;xx<S;xx++){tmp[y*S+xx]=acc/n;acc+=b[y*S+cl(xx+R+1)]-b[y*S+cl(xx-R)]}}
-      for(let xx=0;xx<S;xx++){let acc=0;for(let k=-R;k<=R;k++)acc+=tmp[cl(k)*S+xx];for(let y=0;y<S;y++){b[y*S+xx]=acc/n;acc+=tmp[cl(y+R+1)*S+xx]-tmp[cl(y-R)*S+xx]}}
-    }
-    return {S,m,b};
+  // Ракета — настоящее тело вращения: точки на поверхности корпуса, плавники-пластины, иллюминатор и живое пламя
+  const cv=$('#particles'),x=cv.getContext('2d');let W2,H2,pts=[],flame=[],vis=false,built=false,mx=0,my=0,hx=-9,hy=-9,t0=0,DPR=1,ry=0,rx=0,dragY=0,dragX=0,drag=null,spin=0;
+  const R=.13,L=1;                       // радиус корпуса и длина (ось Y: 0 — нос, 1 — сопло)
+  function prof(t){                      // профиль радиуса по длине
+    if(t<.32)return R*Math.pow(Math.sin(t/.32*Math.PI/2),.75);
+    if(t<.86)return R;
+    if(t<.95)return R-(t-.86)/.09*.035;
+    return .072+(t-.95)/.05*.02;
   }
-  // объём: передняя и задняя оболочки + боковые стенки по контуру + редкое наполнение внутри
-  function build(src){
-    const {S,m,b}=maskFrom(src);pts=[];
-    const small=innerWidth<760,step=small?3:2;
-    for(let y=0;y<S;y+=step)for(let xx=0;xx<S;xx+=step){const i=y*S+xx;if(!m[i])continue;
-      const u=xx/S-.5,v=y/S-.5,dep=.03+Math.sqrt(b[i])*.16;
-      const flame=(v>.02&&u<.02&&(v-u)>.22);
-      const pal=flame?['#ff7a1a','#ffe14a','#ff5fa2','#ffb020']:['#f6f6f2','#f6f6f2','#d9deff','#9fb4ff','#ff5fa2'];
-      const edge=!m[i-step]||!m[i+step]||!m[i-step*S]||!m[i+step*S];
-      const add=(z,shade)=>pts.push({tx:u,ty:v,tz:z,x:(Math.random()-.5)*2,y:(Math.random()-.5)*2,z:(Math.random()-.5)*2,vx:0,vy:0,vz:0,c:pal[Math.floor(Math.random()*pal.length)],r:.8+Math.random()*1.1,ph:Math.random()*6.28,fl:flame,sh:shade});
-      add(dep,1);add(-dep,.8);
-      if(edge){const k=small?3:5;for(let j=1;j<k;j++)add(dep*(-1+2*j/k)+(Math.random()-.5)*.01,.9)}
-      else if(Math.random()<(small?.06:.1))add((Math.random()*2-1)*dep*.8,.55);
-    }
+  const gauss=()=>{let u=0,v=0;while(!u)u=Math.random();while(!v)v=Math.random();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v)};
+  function startPos(p){const r=.35+Math.random()*.4,th=Math.random()*6.283,ph=Math.acos(2*Math.random()-1);p.x=r*Math.sin(ph)*Math.cos(th);p.y=r*Math.cos(ph);p.z=r*Math.sin(ph)*Math.sin(th)}
+  function add(tx,ty,tz,c,sz){const p={tx,ty,tz,x:0,y:0,z:0,ox:0,oy:0,vx:0,vy:0,c,r:sz||(.9+Math.random()*.9),ph:Math.random()*6.28};startPos(p);pts.push(p)}
+  function build(){
+    pts=[];const small=innerWidth<760,N=small?2600:4800;
+    // корпус: выборка по площади (вес = радиус)
+    let made=0;while(made<N){const t=Math.random(),r=prof(t);if(Math.random()*R>r)continue;made++;
+      const a=Math.random()*6.283,y=t*L-.5;
+      let c=Math.random()<.75?'#f4f4f0':(Math.random()<.5?'#d9deff':'#b8c4ff');
+      if(t>.6&&t<.65)c='#ff5fa2';                                   // розовая полоса
+      if(t<.07)c='#ff5fa2';                                          // кончик носа
+      if(t>.95)c=Math.random()<.5?'#8a8f9c':'#c4c8d2';               // сопло
+      const wy=.42,da=Math.atan2(Math.sin(a),Math.cos(a)),dw=Math.hypot(da*R,(t-wy)*L);
+      if(dw<.075)c=dw<.055?(dw<.03?'#9fb4ff':'#4b4bf5'):'#ffffff';                       // иллюминатор с рамкой
+      add(Math.cos(a)*r,y,Math.sin(a)*r,c)}
+    // плавники: 3 тонкие пластины-трапеции под 120°
+    const FN1=small?260:460,inFin=(t,w)=>w>=0&&w<=.15&&t<=1.04&&t>=.66+w/.15*.26&&t<=1.0+w/.15*.04;
+    for(let f=0;f<3;f++){const a=f*2.094+.35,ca=Math.cos(a),sa=Math.sin(a);let n=0;
+      while(n<FN1){const t=.66+Math.random()*.38,w=Math.random()*.15;if(!inFin(t,w))continue;n++;
+        const rr=prof(Math.min(t,.99))*.97+w,th=(Math.random()-.5)*.01,edge=!inFin(t-.012,w)||!inFin(t+.012,w)||w>.14;
+        add(ca*rr-sa*th,t*L-.5,sa*rr+ca*th,edge?'#ffd1e6':(Math.random()<.7?'#ff5fa2':'#ff3d8f'),.8+Math.random()*.6)}}
+    // пламя: отдельный поток, частицы рождаются у сопла и улетают
+    flame=[];const FN=small?380:700;for(let i=0;i<FN;i++){const q={life:Math.random()};flame.push(q)}
     built=true;
   }
   function size(){const r=cv.getBoundingClientRect();DPR=Math.min(devicePixelRatio,2);W2=cv.width=Math.max(1,r.width*DPR);H2=cv.height=Math.max(1,r.height*DPR)}
   const rel=e=>{const r=cv.getBoundingClientRect();return[(e.clientX-r.left)/r.width-.5,(e.clientY-r.top)/r.height-.5]};
-  // удар: частицы разлетаются от точки касания и возвращаются на место
-  function burst(px,py){for(const p of pts){const dx=p.x-px,dy=p.y-py,dd=dx*dx+dy*dy;if(dd<.08){const f=(.08-dd)*1.6/(Math.sqrt(dd)+.04);p.vx+=dx*f;p.vy+=dy*f;p.vz+=(Math.random()-.5)*.08}}}
+  function burst(px,py){for(const p of pts){const dx=p.sx-px,dy=p.sy-py,dd=dx*dx+dy*dy;if(dd<.06){const f=(.06-dd)*1.8/(Math.sqrt(dd)+.05);p.vx+=dx*f;p.vy+=dy*f}}}
   cv.style.touchAction='pan-y';cv.style.cursor='grab';
-  cv.addEventListener('pointerdown',e=>{const[a,b]=rel(e);hx=a;hy=b;burst(a,b);drag={x:e.clientX,y:e.clientY,ry:dragY,rx:dragX,moved:false};if(e.pointerType!=='mouse')lastTouch=performance.now()});
+  cv.addEventListener('pointerdown',e=>{const[a,b]=rel(e);hx=a;hy=b;burst(a,b);drag={x:e.clientX,y:e.clientY,ry:dragY,rx:dragX}});
   addEventListener('pointermove',e=>{
-    if(drag){const dx=e.clientX-drag.x,dy=e.clientY-drag.y;if(Math.abs(dx)>4)drag.moved=true;dragY=drag.ry+dx/140;dragX=drag.rx-dy/260}
+    if(drag){const dx=e.clientX-drag.x,dy=e.clientY-drag.y;dragY=drag.ry+dx/120;dragX=drag.rx-dy/240}
     if(e.target!==cv&&!drag)return;const[a,b]=rel(e);mx=a;my=b;hx=a;hy=b});
   const up=()=>{drag=null;setTimeout(()=>{if(!drag){hx=hy=-9}},500)};
   addEventListener('pointerup',up);addEventListener('pointercancel',up);
   cv.addEventListener('pointerleave',e=>{if(e.pointerType==='mouse'&&!drag){hx=hy=-9;mx=my=0}});
+  const TILT=-Math.PI/4,ct=Math.cos(TILT),st=Math.sin(TILT);   // ракета летит по диагонали вправо-вверх
   function frame(t){
     if(!vis)return;requestAnimationFrame(frame);
-    x.clearRect(0,0,W2,H2);x.globalCompositeOperation='lighter';
-    const k=Math.min(1,(t-t0)/1800),ease=1-Math.pow(1-k,3),sp=.03+.06*ease;
-    dragY*=drag?1:.985;dragX*=drag?1:.97;
-    ry+=((Math.sin(t/3000)*1.05+mx*1.2+dragY)-ry)*.06;rx+=((Math.sin(t/4100)*.25-my*.6+dragX)-rx)*.06;
-    const cy=Math.cos(ry),sy=Math.sin(ry),cx=Math.cos(rx),sx=Math.sin(rx),F=1.8,SC=Math.min(W2,H2)*.95,ox=W2/2,oy=H2/2;
+    x.clearRect(0,0,W2,H2);
+    const k=Math.min(1,(t-t0)/2000),ease=1-Math.pow(1-k,3),sp=.025+.075*ease;
+    if(!drag){dragY*=.985;dragX*=.97}
+    spin+=.006;                                                     // вращение вокруг своей оси — видно, что она круглая
+    ry+=((Math.sin(t/3400)*.5+mx*.9+dragY)-ry)*.06;rx+=((.25+Math.sin(t/4300)*.15-my*.5+dragX)-rx)*.06;
+    const cs=Math.cos(spin),ss=Math.sin(spin),cy=Math.cos(ry),sy=Math.sin(ry),cx=Math.cos(rx),sx=Math.sin(rx),Fp=2.2,SC=Math.min(W2,H2)*.78,ox=W2/2,oy=H2/2;
+    const proj=(X0,Y0,Z0)=>{                                       // ось → наклон → взгляд → перспектива
+      const X1=X0*cs+Z0*ss,Z1=-X0*ss+Z0*cs;
+      const X2=X1*ct-Y0*st,Y2=X1*st+Y0*ct;
+      const X3=X2*cy+Z1*sy,Z3=-X2*sy+Z1*cy;
+      const Y4=Y2*cx-Z3*sx,Z4=Y2*sx+Z3*cx;
+      const s=Fp/(Fp+Z4);return[X3*s,Y4*s,Z4,s]};
+    const draw=[];
     for(const p of pts){
-      const wob=p.fl?Math.sin(t/110+p.ph)*.014:Math.sin(t/900+p.ph)*.003;
-      p.vx*=.86;p.vy*=.86;p.vz*=.86;
-      p.x+=(p.tx+wob-p.x)*sp+p.vx;p.y+=(p.ty+wob*.6-p.y)*sp+p.vy;p.z+=(p.tz-p.z)*sp+p.vz;
-      const X=p.x*cy+p.z*sy,Z0=-p.x*sy+p.z*cy,Y=p.y*cx-Z0*sx,Z=p.y*sx+Z0*cx;
-      const s=F/(F+Z),px=ox+X*SC*s,py=oy+Y*SC*s;
-      const dx=X-hx,dy=Y-hy,dd=dx*dx+dy*dy;if(dd<.014){const f=(.014-dd)*5;p.vx+=dx*f*.5;p.vy+=dy*f*.5}
-      const r=p.r*DPR*s*1.5;x.globalAlpha=Math.max(.1,Math.min(1,(.55-Z*2.4)*p.sh));x.fillStyle=p.c;x.fillRect(px-r/2,py-r/2,r,r);
-    }
-    x.globalAlpha=1;x.globalCompositeOperation='source-over';
+      p.x+=(p.tx-p.x)*sp;p.y+=(p.ty-p.y)*sp;p.z+=(p.tz-p.z)*sp;
+      const[X,Y,Z,s]=proj(p.x,p.y,p.z);
+      p.vx*=.86;p.vy*=.86;p.ox=p.ox*.9+p.vx;p.oy=p.oy*.9+p.vy;
+      const sxp=X+p.ox,syp=Y+p.oy;p.sx=sxp;p.sy=syp;
+      const dx=sxp-hx,dy=syp-hy,dd=dx*dx+dy*dy;if(dd<.012){const f=(.012-dd)*4;p.vx+=dx*f*.4;p.vy+=dy*f*.4}
+      draw.push([Z,sxp,syp,s,p.c,p.r])}
+    // пламя из сопла
+    for(const q of flame){
+      q.life+=.018+Math.random()*.01;
+      if(q.life>=1||q.a==null){q.life=q.life%1;q.a=Math.random()*6.283;q.rr=Math.random()*.06;q.sp=.25+Math.random()*.35}
+      const l=q.life,yy=.5+l*q.sp,rr=q.rr*(1+l*2.2)+Math.sin(t/90+q.a*5)*.006;
+      const[X,Y,Z,s]=proj(Math.cos(q.a)*rr,yy,Math.sin(q.a)*rr);
+      const c=l<.25?'#fff4c2':l<.5?'#ffe14a':l<.75?'#ff7a1a':'#ff5fa2';
+      draw.push([Z,X,Y,s,c,(1.6-l)*1.3,1-l])}
+    draw.sort((a,b)=>b[0]-a[0]);                                   // дальние сначала
+    for(const d of draw){const[Z,X,Y,s,c,r,al]=d;const px=ox+X*SC,py=oy+Y*SC,rad=r*DPR*s*1.4;
+      x.globalAlpha=Math.max(.18,Math.min(1,.78-Z*1.6))*(al==null?.25+.75*ease:al*ease);x.fillStyle=c;
+      x.beginPath();x.arc(px,py,rad,0,6.283);x.fill()}
+    x.globalAlpha=1;
   }
   size();addEventListener('resize',size);
-  new IntersectionObserver(([en])=>{const was=vis;vis=en.isIntersecting;if(vis&&!was){size();if(!built)build(null);
-    if(!reduce){pts.forEach(p=>{p.x=(Math.random()-.5)*2;p.y=(Math.random()-.5)*2;p.z=(Math.random()-.5)*2});t0=performance.now()}else pts.forEach(p=>{p.x=p.tx;p.y=p.ty;p.z=p.tz});
+  new IntersectionObserver(([en])=>{const was=vis;vis=en.isIntersecting;if(vis&&!was){size();if(!built)build();
+    if(!reduce){pts.forEach(startPos);t0=performance.now()}else{pts.forEach(p=>{p.x=p.tx;p.y=p.ty;p.z=p.tz});t0=-1e9}
     requestAnimationFrame(frame)}},{threshold:.1}).observe(cv);
-  return {useImage(url){const im=new Image();im.onload=()=>{try{build(im)}catch(e){if(!built)build(null)}};im.onerror=()=>{if(!built)build(null)};im.src=url}};
+  return {useImage(){}};
 })();
 
 const BOTS=[

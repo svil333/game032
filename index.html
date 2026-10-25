@@ -13,7 +13,7 @@
 <link rel="icon" href="/a/favicon.png">
 <title>НИКИТА · Портфолио</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Onest:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Pixelify+Sans:wght@400;600;700&family=Caveat:wght@600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Onest:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Pixelify+Sans:wght@400;600;700&family=Caveat:wght@600&family=Instrument+Serif:ital@0;1&family=Unbounded:wght@400;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&display=swap">
 <style>
 /* Layout: мятая миллиметровка как основа; чёрные полосы с сеткой между ярусами, рваные края; кислотные плашки, папки с вылезающими 3D-объектами, стикеры. Один светлый «бумажный» мир, тёмные полосы — часть композиции. */
 :root{
@@ -159,50 +159,551 @@ img,video{max-width:100%;display:block}
 @media (max-width:600px){.vw-hint{display:none}}
 
 /* демо-сайты */
-.ds{background:var(--b);color:var(--f);font-family:var(--bf);min-height:100%}
-.ds-nav{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:24px 44px;position:sticky;top:0;background:var(--b);z-index:2;border-bottom:1px solid color-mix(in srgb,var(--f) 10%,transparent)}
-.ds-logo{font-family:var(--hf);font-size:22px;font-weight:700;letter-spacing:-.01em}
-.ds-nav nav{display:flex;gap:24px;font-size:14px}
-.ds-nav nav a{cursor:pointer;opacity:.6;text-decoration:none;transition:.2s}
-.ds-nav nav a.on,.ds-nav nav a:hover{opacity:1}
-.ds-btn{display:inline-block;padding:14px 26px;border-radius:var(--rad);background:var(--a);color:var(--on);font-weight:600;font-size:15px;cursor:pointer;border:0;text-decoration:none;font-family:var(--bf)}
-.ds-hero{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center;padding:60px 44px 80px;min-height:580px}
-.ds-hero.center{grid-template-columns:1fr;text-align:center;justify-items:center}
-.ds-hero .k{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--m)}
-.ds-hero h1{font-family:var(--hf);font-size:78px;line-height:.98;letter-spacing:-.02em;margin:16px 0 20px;font-weight:700;max-width:12ch}
-.ds-hero p{font-size:18px;color:var(--m);max-width:42ch;margin-bottom:28px}
-.ds-art{position:relative;height:440px;width:100%;border-radius:var(--rad);overflow:hidden;background:var(--c)}
-.ds-hero.center .ds-art{height:300px;max-width:820px;margin-top:40px}
-.ds-sec{padding:70px 44px;border-top:1px solid color-mix(in srgb,var(--f) 10%,transparent)}
-.ds-sec h2{font-family:var(--hf);font-size:44px;line-height:1;margin-bottom:32px;font-weight:700}
-.ds-feat{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.ds-feat div{padding:24px;border-radius:var(--rad);background:var(--c)}
-.ds-feat b{display:block;font-family:var(--hf);font-size:22px;margin-bottom:8px}
-.ds-feat p{color:var(--m);font-size:15px}
-.ds-gal{display:grid;grid-template-columns:2fr 1fr 1fr;grid-auto-rows:180px;gap:14px}
-.ds-gal i{border-radius:var(--rad);display:block}
-.ds-gal i:first-child{grid-row:span 2}
-.ds-quote{font-family:var(--hf);font-size:36px;line-height:1.2;max-width:24ch}
-.ds-quote small{display:block;font-family:var(--bf);font-size:14px;color:var(--m);margin-top:18px}
-.ds-price{display:flex;flex-direction:column}
-.ds-price div{display:grid;grid-template-columns:1fr auto;gap:16px;padding:22px 0;border-bottom:1px solid color-mix(in srgb,var(--f) 14%,transparent);cursor:default;transition:padding .25s}
-.ds-price div:hover{padding-left:12px}
-.ds-price b{font-family:var(--hf);font-size:24px}
-.ds-price span{font-size:15px;color:var(--m)}
-.ds-price em{font-style:normal;font-family:var(--hf);font-size:24px;color:var(--a)}
-.ds-form{display:grid;grid-template-columns:1fr 1fr;gap:30px}
-.ds-form form{display:flex;flex-direction:column;gap:12px}
-.ds-form input,.ds-form textarea{padding:14px 16px;border-radius:var(--rad);border:1px solid color-mix(in srgb,var(--f) 18%,transparent);background:transparent;color:var(--f);font:15px var(--bf)}
-.ds-form .ok{color:var(--a);font-size:14px}
-.ds-foot{padding:30px 44px;display:flex;justify-content:space-between;font-size:13px;color:var(--m);border-top:1px solid color-mix(in srgb,var(--f) 10%,transparent)}
-@container (max-width:680px){
-  .ds-nav{padding:16px 18px}.ds-nav nav{gap:14px;font-size:13px}
-  .ds-hero{grid-template-columns:1fr;padding:36px 18px 50px;min-height:0}
-  .ds-hero h1{font-size:44px}.ds-art{height:260px}
-  .ds-sec{padding:44px 18px}.ds-sec h2{font-size:32px}
-  .ds-feat,.ds-form{grid-template-columns:1fr}
-  .ds-gal{grid-template-columns:1fr 1fr;grid-auto-rows:120px}
-  .ds-quote{font-size:26px}.ds-foot{padding:20px 18px;flex-direction:column;gap:6px}
+/* ===== демо-сайты v2: у каждого свой стиль; контейнерные запросы, чтобы окно на телефоне тоже было «мобильной версией» ===== */
+.ds{container:ds/inline-size;min-height:100%;position:relative;overflow:clip;-webkit-font-smoothing:antialiased}
+.ds *{box-sizing:border-box}
+:where(.ds) a{color:inherit;text-decoration:none;cursor:pointer}
+:where(.ds) button{font:inherit;color:inherit;cursor:pointer}
+.ds img,.ds svg{display:block;max-width:100%}
+.ds .rv{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.ds .rv.in,.ds.static .rv{opacity:1;transform:none}
+.ds .rv.d1{transition-delay:.08s}.ds .rv.d2{transition-delay:.16s}.ds .rv.d3{transition-delay:.24s}.ds .rv.d4{transition-delay:.32s}
+.ds .mq{display:flex;overflow:hidden;white-space:nowrap}
+.ds .mq>div{display:flex;flex:none;gap:var(--mqg,40px);padding-right:var(--mqg,40px);animation:dsMq var(--mqt,28s) linear infinite}
+@keyframes dsMq{to{transform:translateX(-100%)}}
+@keyframes dsSpin{to{transform:rotate(360deg)}}
+@keyframes dsFloat{50%{transform:translateY(-10px)}}
+.ds .ok{display:block;font-size:14px;margin-top:6px}
+.ds [hidden]{display:none!important}
+.ds .hide{display:none!important}
+
+/* ---------- NORD: тихая роскошь, редакционная вёрстка ---------- */
+.sn{--bg:#eeece6;--ink:#151513;--mute:#7b7a74;--line:rgba(21,21,19,.14);background:var(--bg);color:var(--ink);font-family:"Onest",sans-serif}
+.sn .serif{font-family:"Instrument Serif",Georgia,serif;font-weight:400}
+.sn-nav{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;padding:18px 40px;background:color-mix(in srgb,var(--bg) 82%,transparent);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.sn-logo{font:600 15px/1 "Onest",sans-serif;letter-spacing:.32em}
+.sn-nav nav{display:flex;gap:28px;font-size:13px;letter-spacing:.02em}
+.sn-nav nav a{opacity:.55;transition:.25s}.sn-nav nav a.on,.sn-nav nav a:hover{opacity:1}
+.sn-btn{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border:1px solid var(--ink);border-radius:999px;font-size:13px;transition:.3s;background:none}
+.sn-btn:hover,.sn-btn.solid{background:var(--ink);color:var(--bg)}
+.sn-btn.solid:hover{background:transparent;color:var(--ink)}
+.sn-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:26px 40px 0;font-size:12px;color:var(--mute);text-transform:uppercase;letter-spacing:.08em}
+.sn-meta b{display:block;color:var(--ink);font-weight:500;margin-top:4px;text-transform:none;letter-spacing:0;font-size:14px}
+.sn-h1{font-size:132px;line-height:.88;letter-spacing:-.03em;padding:40px 40px 30px}
+.sn-h1 i{font-style:italic;color:var(--mute)}
+.sn-hero-img{position:relative;margin:0 40px;height:430px;border-radius:4px;overflow:hidden}
+.sn-hero-img svg{width:100%;height:100%;transform:scale(1.04);animation:snZoom 18s ease-in-out infinite alternate}
+@keyframes snZoom{to{transform:scale(1.12) translateX(-2%)}}
+.sn-hero-img .cap{position:absolute;left:20px;bottom:18px;color:#fff;font-size:12px;letter-spacing:.06em;display:flex;gap:16px;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.sn-hero-foot{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:end;padding:30px 40px 70px}
+.sn-hero-foot p{font-size:18px;line-height:1.55;max-width:40ch;color:#3b3a36}
+.sn-hero-foot .act{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap}
+.sn-sec{padding:90px 40px;border-top:1px solid var(--line)}
+.sn-lbl{display:flex;justify-content:space-between;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin-bottom:40px}
+.sn-intro{font-size:52px;line-height:1.08;letter-spacing:-.015em;max-width:20ch}
+.sn-intro .chip{display:inline-block;width:110px;height:48px;border-radius:999px;vertical-align:middle;overflow:hidden;margin:0 4px}
+.sn-intro .chip svg{width:100%;height:100%}
+.sn-stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);margin-top:70px}
+.sn-stats div{padding:26px 20px 0 0;border-right:1px solid var(--line)}
+.sn-stats div:last-child{border:0}
+.sn-stats b{display:block;font:400 68px/1 "Instrument Serif",serif}
+.sn-stats span{font-size:13px;color:var(--mute)}
+.sn-list a{position:relative;display:grid;grid-template-columns:60px 1.4fr 1fr 80px 30px;gap:20px;align-items:center;padding:26px 0;border-top:1px solid var(--line);transition:padding .4s}
+.sn-list a:last-child{border-bottom:1px solid var(--line)}
+.sn-list a:hover{padding-left:16px}
+.sn-list .n{font-size:12px;color:var(--mute)}
+.sn-list .t{font:400 34px/1 "Instrument Serif",serif}
+.sn-list .p{font-size:14px;color:var(--mute)}
+.sn-list .pv{position:absolute;right:120px;top:50%;width:220px;height:150px;border-radius:4px;overflow:hidden;opacity:0;transform:translateY(-50%) scale(.85) rotate(-3deg);transition:.45s cubic-bezier(.2,.8,.2,1);pointer-events:none;z-index:2;box-shadow:0 30px 60px -20px rgba(0,0,0,.4)}
+.sn-list a:hover .pv{opacity:1;transform:translateY(-50%) scale(1) rotate(-3deg)}
+.sn-list .pv svg{width:100%;height:100%}
+.sn-svc{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.sn-svc div{border-top:1px solid var(--ink);padding-top:22px}
+.sn-svc em{font-style:normal;font-size:12px;color:var(--mute)}
+.sn-svc b{display:block;font:400 34px/1.05 "Instrument Serif",serif;margin:14px 0 12px}
+.sn-svc p{font-size:15px;line-height:1.6;color:#4a4944}
+.sn-quote{display:grid;grid-template-columns:200px 1fr;gap:50px;align-items:center}
+.sn-quote .ph{width:200px;height:250px;border-radius:200px 200px 4px 4px;background:linear-gradient(160deg,#a69c8d,#3d3a34);position:relative;overflow:hidden}
+.sn-quote .ph::after{content:"";position:absolute;left:50%;top:26%;width:70px;height:70px;margin-left:-35px;border-radius:50%;background:#d8cdbd;box-shadow:0 120px 0 50px #2b2925}
+.sn-quote q{font:400 46px/1.1 "Instrument Serif",serif;quotes:"«" "»"}
+.sn-quote small{display:block;margin-top:22px;font-size:13px;color:var(--mute)}
+.sn-cta{text-align:center;padding:120px 40px;background:var(--ink);color:var(--bg)}
+.sn-cta h2{font:400 96px/.95 "Instrument Serif",serif;letter-spacing:-.02em;margin-bottom:34px}
+.sn-cta h2 i{color:#a8a59c}
+.sn-cta .sn-btn{border-color:var(--bg);color:var(--bg)}.sn-cta .sn-btn:hover{background:var(--bg);color:var(--ink)}
+.sn-foot{padding:50px 40px 26px;background:var(--ink);color:#8d8b84;border-top:1px solid rgba(255,255,255,.1)}
+.sn-foot .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;font-size:13px;line-height:1.8}
+.sn-foot .cols b{color:var(--bg);font-weight:500;display:block;margin-bottom:6px}
+.sn-foot .big{font:600 19cqw/1 "Onest",sans-serif;letter-spacing:.06em;color:var(--bg);margin-top:40px;line-height:.8;white-space:nowrap}
+.sn-chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:34px}
+.sn-chips button{border:1px solid var(--line);background:none;padding:9px 16px;border-radius:999px;font-size:13px;transition:.25s}
+.sn-chips button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.sn-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:46px 30px}
+.sn-card .img{height:300px;border-radius:4px;overflow:hidden}
+.sn-card .img svg{width:100%;height:100%;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.sn-card:hover .img svg{transform:scale(1.06)}
+.sn-card .row{display:flex;justify-content:space-between;align-items:baseline;margin-top:16px}
+.sn-card b{font:400 30px/1 "Instrument Serif",serif}
+.sn-card span{font-size:13px;color:var(--mute)}
+.sn-form{display:grid;grid-template-columns:1.2fr 1fr;gap:60px}
+.sn-form form{display:flex;flex-direction:column;gap:22px}
+.sn-form label{font-size:12px;color:var(--mute);letter-spacing:.06em;text-transform:uppercase}
+.sn-form input,.sn-form textarea{width:100%;border:0;border-bottom:1px solid var(--line);background:none;padding:12px 0;font:400 22px "Instrument Serif",serif;color:var(--ink);outline:none;transition:border-color .3s}
+.sn-form input:focus,.sn-form textarea:focus{border-color:var(--ink)}
+.sn-form aside{font-size:15px;line-height:1.8;color:#4a4944}
+.sn-form aside b{display:block;font:400 30px/1.1 "Instrument Serif",serif;color:var(--ink);margin:6px 0 20px}
+.sn-map{height:200px;border-radius:4px;overflow:hidden;margin-top:24px}
+@container ds (max-width:720px){
+  .sn-nav{padding:14px 18px}.sn-nav nav{gap:14px;font-size:12px}.sn-nav .sn-btn{display:none}
+  .sn-meta{grid-template-columns:1fr 1fr;padding:20px 18px 0}
+  .sn-h1{font-size:62px;padding:26px 18px 20px}
+  .sn-hero-img{margin:0 18px;height:260px}
+  .sn-hero-foot{grid-template-columns:1fr;padding:24px 18px 50px;gap:20px}.sn-hero-foot .act{justify-content:flex-start}
+  .sn-sec{padding:60px 18px}.sn-intro{font-size:30px}.sn-intro .chip{width:70px;height:32px}
+  .sn-stats{grid-template-columns:1fr 1fr}.sn-stats div{padding:20px 10px 20px 0;border-bottom:1px solid var(--line)}.sn-stats b{font-size:48px}
+  .sn-list a{grid-template-columns:30px 1fr 24px;gap:12px}.sn-list .p,.sn-list .y,.sn-list .pv{display:none}.sn-list .t{font-size:26px}
+  .sn-svc,.sn-grid,.sn-form,.sn-foot .cols{grid-template-columns:1fr}.sn-svc{gap:30px}
+  .sn-quote{grid-template-columns:1fr;gap:26px}.sn-quote q{font-size:30px}
+  .sn-cta{padding:80px 18px}.sn-cta h2{font-size:52px}.sn-foot{padding:40px 18px 20px}.sn-card .img{height:220px}
+}
+
+/* ---------- ЗЕРНО: тёплый брутальный бренд, стикеры, бенто ---------- */
+.sz{--bg:#f4ead9;--ink:#24160f;--acc:#ff6a2b;--grn:#2f5d50;--card:#fbf4e8;background:var(--bg);color:var(--ink);font-family:"Onest",sans-serif}
+.sz .uf{font-family:"Unbounded",sans-serif}
+.sz-bar{background:var(--ink);color:var(--bg);font-size:12px;padding:8px 0;--mqt:22s;--mqg:30px}
+.sz-bar span::after{content:"✺";margin-left:30px;color:var(--acc)}
+.sz-nav{position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 28px;background:var(--bg)}
+.sz-logo{font:800 24px/1 "Unbounded",sans-serif;letter-spacing:-.04em;display:flex;align-items:center;gap:6px}
+.sz-logo i{width:12px;height:16px;border-radius:50%;background:var(--acc);transform:rotate(30deg);display:inline-block}
+.sz-nav nav{display:flex;gap:6px;background:var(--card);border:2px solid var(--ink);border-radius:999px;padding:4px}
+.sz-nav nav a{padding:8px 16px;border-radius:999px;font-size:13px;font-weight:600}
+.sz-nav nav a.on{background:var(--ink);color:var(--bg)}
+.sz-cart{display:flex;align-items:center;gap:8px;padding:9px 14px;border:2px solid var(--ink);border-radius:999px;background:var(--acc);font-weight:700;font-size:13px;box-shadow:3px 3px 0 var(--ink)}
+.sz-cart b{background:var(--ink);color:var(--bg);border-radius:999px;min-width:22px;height:22px;display:grid;place-items:center;font-size:12px;transition:transform .3s cubic-bezier(.3,1.8,.5,1)}
+.sz-cart.bump b{transform:scale(1.4)}
+.sz-hero{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center;padding:30px 28px 50px}
+.sz-hero h1{font:800 76px/.95 "Unbounded",sans-serif;letter-spacing:-.045em;text-transform:lowercase}
+.sz-hero h1 span{display:inline-block;background:var(--acc);border:3px solid var(--ink);border-radius:22px;padding:0 .14em .06em;transform:rotate(-3deg);box-shadow:5px 5px 0 var(--ink)}
+.sz-hero p{font-size:18px;line-height:1.5;margin:22px 0 26px;max-width:34ch;color:#5a4334}
+.sz-btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:999px;border:2px solid var(--ink);background:var(--ink);color:var(--bg);font-weight:700;font-size:15px;box-shadow:4px 4px 0 var(--acc);transition:transform .2s,box-shadow .2s}
+.sz-btn:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--acc)}
+.sz-btn.ghost{background:var(--card);color:var(--ink);box-shadow:4px 4px 0 var(--ink)}
+.sz-acts{display:flex;gap:12px;flex-wrap:wrap}
+.sz-rate{display:flex;align-items:center;gap:12px;margin-top:26px;font-size:13px;color:#6b5243}
+.sz-rate .av{display:flex}.sz-rate .av i{width:30px;height:30px;border-radius:50%;border:2px solid var(--bg);margin-left:-8px}
+.sz-rate .av i:first-child{margin:0}
+.sz-art{position:relative;height:440px;display:grid;place-items:center}
+.sz-art .plate{width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,#fff 0 57%,#efe2cf 58% 70%,#fbf4e8 71%);box-shadow:0 40px 70px -30px rgba(36,22,15,.45),inset 0 -6px 0 rgba(0,0,0,.05);display:grid;place-items:center;position:relative}
+.sz-art .cup{width:230px;height:230px;border-radius:50%;background:radial-gradient(circle at 50% 50%,#c88a5a 0 30%,#8a4f2c 52%,#5b2f17 66%,#fff 67% 76%,#e8dccb 77%);position:relative;animation:dsSpin 40s linear infinite}
+.sz-art .cup svg{position:absolute;inset:18%;width:64%;height:64%}
+.sz-art .handle{position:absolute;right:-26px;top:50%;width:56px;height:34px;margin-top:-17px;border:12px solid #fff;border-left:0;border-radius:0 30px 30px 0}
+.sz-art .badge{position:absolute;right:4%;top:4%;width:130px;height:130px;animation:dsSpin 16s linear infinite}
+.sz-art .badge text{font:700 11.5px "Unbounded",sans-serif;letter-spacing:.12em;fill:var(--ink);text-transform:uppercase}
+.sz-art .sz-promo{position:absolute;left:0;bottom:14%;background:#ffd84a;border:2px solid var(--ink);border-radius:16px;padding:12px 16px;font:800 13px/1.15 "Unbounded",sans-serif;transform:rotate(-8deg);box-shadow:4px 4px 0 var(--ink);animation:dsFloat 5s ease-in-out infinite}
+.sz-art .bean{position:absolute;width:34px;height:46px;border-radius:50%;background:#5b2f17;animation:dsFloat 6s ease-in-out infinite}
+.sz-art .bean::after{content:"";position:absolute;left:47%;top:10%;bottom:10%;width:3px;border-radius:3px;background:#2f170b;transform:rotate(10deg)}
+.sz-strip{border-block:2px solid var(--ink);background:var(--acc);padding:16px 0;font:800 30px/1 "Unbounded",sans-serif;text-transform:lowercase;--mqt:30s;--mqg:34px}
+.sz-strip span::after{content:"✺";margin-left:34px}
+.sz-sec{padding:80px 28px}
+.sz-h2{font:800 52px/1 "Unbounded",sans-serif;letter-spacing:-.04em;text-transform:lowercase;margin-bottom:34px;display:flex;justify-content:space-between;align-items:end;gap:20px}
+.sz-h2 small{font:500 14px "Onest",sans-serif;letter-spacing:0;text-transform:none;color:#6b5243;max-width:30ch}
+.sz-bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:210px;gap:14px}
+.sz-b{border:2px solid var(--ink);border-radius:26px;background:var(--card);padding:22px;position:relative;overflow:hidden}
+.sz-b h3{font:800 22px/1.05 "Unbounded",sans-serif;letter-spacing:-.03em;text-transform:lowercase}
+.sz-b p{font-size:14px;color:#6b5243;margin-top:8px;max-width:28ch}
+.sz-b.w2{grid-column:span 2}.sz-b.h2{grid-row:span 2}
+.sz-b.dark{background:var(--ink);color:var(--bg)}.sz-b.dark p{color:#c8b39d}
+.sz-b.orange{background:var(--acc)}.sz-b.orange p{color:#3a1e10}
+.sz-b.green{background:var(--grn);color:var(--bg)}.sz-b.green p{color:#c7dccf}
+.sz-roast{position:absolute;left:22px;right:22px;bottom:18px;height:46%}
+.sz-stamps{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-top:18px}
+.sz-stamps button{aspect-ratio:1;padding:0;min-width:0;border-radius:50%;border:2px dashed var(--ink);background:none;display:grid;place-items:center;font-size:18px;transition:.25s cubic-bezier(.3,1.8,.5,1)}
+.sz-stamps button.on{background:var(--ink);border-style:solid;color:var(--acc);transform:rotate(-12deg) scale(1.05)}
+.sz-stamps button:last-child{border-color:var(--acc);color:var(--acc)}
+.sz-stamps button:last-child.on{background:var(--acc);color:var(--ink)}
+.sz-phone{position:absolute;right:20px;bottom:-40px;width:150px;height:230px;border-radius:26px;border:6px solid #120a06;background:#e8dfd2;padding:24px 10px;display:flex;flex-direction:column;gap:6px;transform:rotate(6deg)}
+.sz-phone i{font-style:normal;color:#24160f;font-size:10px;padding:6px 8px;border-radius:10px;background:#fff;max-width:85%}
+.sz-phone i.me{align-self:flex-end;background:#d7f5c5}
+.sz-map{position:absolute;inset:auto 0 0 0;height:60%;background-image:linear-gradient(rgba(244,234,217,.15) 1px,transparent 1px),linear-gradient(90deg,rgba(244,234,217,.15) 1px,transparent 1px);background-size:22px 22px}
+.sz-map i{position:absolute;width:16px;height:16px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--acc);border:2px solid var(--bg)}
+.sz-big{font:800 78px/.9 "Unbounded",sans-serif;letter-spacing:-.05em;position:absolute;right:20px;bottom:14px}
+.sz-menu{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.sz-item{border:2px solid var(--ink);border-radius:26px;background:var(--card);padding:14px 14px 16px;display:flex;flex-direction:column;transition:transform .3s cubic-bezier(.3,1.6,.5,1)}
+.sz-item:hover{transform:rotate(-1.5deg) translateY(-4px)}
+.sz-item .pic{height:150px;border-radius:18px;display:grid;place-items:center;position:relative;overflow:hidden}
+.sz-item .pic .c{width:96px;height:96px;border-radius:50%;box-shadow:0 18px 28px -14px rgba(0,0,0,.5);transition:transform .6s}
+.sz-item:hover .pic .c{transform:rotate(90deg) scale(1.06)}
+.sz-item .tag{position:absolute;left:10px;top:10px;background:var(--bg);border:2px solid var(--ink);border-radius:999px;padding:3px 9px;font-size:11px;font-weight:700}
+.sz-item b{font:800 17px/1.1 "Unbounded",sans-serif;letter-spacing:-.02em;margin-top:14px;text-transform:lowercase}
+.sz-item p{font-size:13px;color:#6b5243;margin-top:4px;flex:1}
+.sz-item .row{display:flex;justify-content:space-between;align-items:center;margin-top:14px}
+.sz-item .row span{font-weight:800;font-size:16px}
+.sz-add{width:40px;height:40px;border-radius:50%;border:2px solid var(--ink);background:var(--acc);font-size:22px;font-weight:700;line-height:1;transition:.2s}
+.sz-add:hover{transform:rotate(90deg)}.sz-add.done{background:var(--grn);color:var(--bg)}
+.sz-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px}
+.sz-tabs button{border:2px solid var(--ink);background:var(--card);border-radius:999px;padding:10px 18px;font-weight:700;font-size:14px}
+.sz-tabs button.on{background:var(--ink);color:var(--bg)}
+.sz-revs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.sz-rev{border:2px solid var(--ink);border-radius:26px;padding:22px;background:var(--card)}
+.sz-rev:nth-child(2){background:#ffd84a;transform:rotate(1.5deg)}
+.sz-rev q{font-size:17px;line-height:1.4;quotes:"«" "»";display:block}
+.sz-rev small{display:block;margin-top:16px;font-weight:700;font-size:13px}
+.sz-checkout{position:sticky;bottom:14px;margin:30px auto 0;max-width:520px;display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--ink);color:var(--bg);border-radius:999px;padding:10px 10px 10px 24px;box-shadow:0 20px 40px -16px rgba(0,0,0,.5);font-weight:700}
+.sz-checkout .sz-btn{background:var(--acc);color:var(--ink);border-color:var(--acc);box-shadow:none;padding:12px 20px}
+.sz-locs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.sz-loc{border:2px solid var(--ink);border-radius:26px;overflow:hidden;background:var(--card)}
+.sz-loc .m{height:150px;position:relative;background:#e9dcc5}
+.sz-loc .m::before{content:"";position:absolute;inset:0;background-image:linear-gradient(90deg,transparent 46%,#fbf4e8 46% 54%,transparent 54%),linear-gradient(transparent 60%,#fbf4e8 60% 66%,transparent 66%);opacity:.9}
+.sz-loc .m i{position:absolute;left:50%;top:44%;width:26px;height:26px;margin:-13px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:var(--acc);border:3px solid var(--ink)}
+.sz-loc div.t{padding:18px}
+.sz-loc b{font:800 18px "Unbounded",sans-serif;text-transform:lowercase}
+.sz-loc p{font-size:14px;color:#6b5243;margin-top:6px;line-height:1.5}
+.sz-loc .open{display:inline-block;margin-top:10px;font-size:12px;font-weight:700;background:#cfe8d6;color:var(--grn);padding:4px 10px;border-radius:999px}
+.sz-foot{background:var(--ink);color:var(--bg);padding:50px 28px 24px;margin-top:40px}
+.sz-foot .big{font:800 18cqw/.8 "Unbounded",sans-serif;letter-spacing:-.06em;color:var(--acc);text-transform:lowercase}
+.sz-foot .row{display:flex;justify-content:space-between;font-size:13px;color:#c8b39d;margin-top:30px;gap:12px;flex-wrap:wrap}
+.sz-form{display:grid;gap:12px;max-width:520px}
+.sz-form input,.sz-form textarea{border:2px solid var(--ink);border-radius:18px;background:var(--card);padding:14px 16px;font:inherit;font-size:15px;outline:none}
+.sz-form input:focus,.sz-form textarea:focus{box-shadow:4px 4px 0 var(--acc)}
+@container ds (max-width:720px){
+  .sz-nav{padding:12px 16px}.sz-nav nav{display:none}
+  .sz-hero{grid-template-columns:1fr;padding:20px 16px 30px}.sz-hero h1{font-size:44px}
+  .sz-art{height:320px}.sz-art .plate{width:270px;height:270px}.sz-art .cup{width:170px;height:170px}.sz-art .badge{width:96px;height:96px}
+  .sz-sec{padding:56px 16px}.sz-h2{font-size:32px;flex-direction:column;align-items:flex-start}
+  .sz-bento{grid-template-columns:1fr 1fr;grid-auto-rows:190px}.sz-b.w2{grid-column:span 2}
+  .sz-art .sz-promo{left:2%;bottom:2%}.sz-map{height:42%}.sz-b.green{grid-column:span 2}
+  .sz-menu{grid-template-columns:1fr 1fr}.sz-revs,.sz-locs{grid-template-columns:1fr}.sz-strip{font-size:22px}.sz-big{font-size:54px}
+}
+
+/* ---------- PULSE: тёмный спорт-тех, неон, стекло ---------- */
+.sp{--bg:#0a0b0a;--ink:#f3f3f1;--lime:#c8ff3d;--mute:#8d918a;--card:#151714;--line:rgba(255,255,255,.09);background:var(--bg);color:var(--ink);font-family:"Space Grotesk","Onest",sans-serif}
+.sp::before{content:"";position:absolute;left:50%;top:-200px;width:900px;height:700px;margin-left:-450px;background:radial-gradient(closest-side,rgba(200,255,61,.18),transparent);pointer-events:none}
+.sp-nav{position:sticky;top:12px;z-index:5;margin:12px 24px 0;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 10px 10px 20px;border-radius:999px;background:rgba(21,23,20,.7);border:1px solid var(--line);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}
+.sp-logo{font:700 18px/1 "Space Grotesk",sans-serif;letter-spacing:.04em;display:flex;align-items:center;gap:8px}
+.sp-logo i{width:10px;height:10px;border-radius:50%;background:var(--lime);box-shadow:0 0 14px var(--lime);animation:spBeat 1.1s ease-in-out infinite}
+@keyframes spBeat{0%,100%{transform:scale(1)}15%{transform:scale(1.5)}30%{transform:scale(1)}45%{transform:scale(1.3)}}
+.sp-nav nav{display:flex;gap:4px}
+.sp-nav nav a{padding:8px 14px;border-radius:999px;font-size:14px;color:var(--mute);transition:.2s}
+.sp-nav nav a.on,.sp-nav nav a:hover{color:var(--ink);background:rgba(255,255,255,.06)}
+.sp-btn{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:999px;background:var(--lime);color:#0a0b0a;font-weight:700;font-size:15px;border:0;transition:.25s}
+.sp-btn:hover{box-shadow:0 0 0 6px rgba(200,255,61,.18),0 10px 30px -6px rgba(200,255,61,.5)}
+.sp-btn.ghost{background:rgba(255,255,255,.06);color:var(--ink);border:1px solid var(--line)}
+.sp-hero{display:grid;grid-template-columns:1.15fr .85fr;gap:30px;align-items:center;padding:60px 40px 60px;position:relative}
+.sp-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 12px 6px 6px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.04);font-size:13px;color:var(--mute)}
+.sp-pill b{background:var(--lime);color:#0a0b0a;border-radius:999px;padding:3px 9px;font-size:11px}
+.sp-hero h1{font:700 92px/.9 "Space Grotesk",sans-serif;letter-spacing:-.05em;margin:22px 0}
+.sp-hero h1 span{color:var(--lime)}
+.sp-hero p{font-size:18px;line-height:1.5;color:var(--mute);max-width:36ch;margin-bottom:28px}
+.sp-acts{display:flex;gap:10px;flex-wrap:wrap}
+.sp-store{display:inline-flex;align-items:center;gap:10px;padding:10px 18px;border-radius:14px;background:#fff;color:#000;font-size:11px;line-height:1.1}
+.sp-store b{display:block;font-size:16px}
+.sp-store.dk{background:transparent;color:var(--ink);border:1px solid rgba(255,255,255,.25)}
+.sp-users{display:flex;align-items:center;gap:12px;margin-top:30px;font-size:13px;color:var(--mute)}
+.sp-users .av{display:flex}.sp-users .av i{width:32px;height:32px;border-radius:50%;border:2px solid var(--bg);margin-left:-9px}.sp-users .av i:first-child{margin:0}
+.sp-users b{color:var(--ink)}
+.sp-phone-w{position:relative;height:540px;display:grid;place-items:center}
+.sp-phone{width:260px;height:530px;border-radius:44px;background:#000;border:1px solid #2b2e29;padding:12px;box-shadow:0 60px 120px -40px rgba(200,255,61,.35),inset 0 0 0 2px #1a1c19;transform:rotate(-4deg)}
+.sp-screen{height:100%;border-radius:34px;background:linear-gradient(180deg,#121411,#0a0b0a);padding:34px 16px 16px;display:flex;flex-direction:column;gap:12px;overflow:hidden;position:relative}
+.sp-screen::before{content:"";position:absolute;left:50%;top:10px;width:80px;height:22px;margin-left:-40px;border-radius:20px;background:#000}
+.sp-screen .hi{font-size:12px;color:var(--mute)}.sp-screen .hi b{display:block;color:var(--ink);font-size:18px}
+.sp-ring{position:relative;width:150px;height:150px;margin:4px auto}
+.sp-ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.sp-ring .bar{stroke-dasharray:377;stroke-dashoffset:377;animation:spRing 2.2s cubic-bezier(.2,.8,.2,1) .4s forwards}
+.ds.static .sp-ring .bar{stroke-dashoffset:90;animation:none}
+@keyframes spRing{to{stroke-dashoffset:90}}
+.sp-ring div{position:absolute;inset:0;display:grid;place-content:center;text-align:center}
+.sp-ring b{font-size:30px;letter-spacing:-.03em}.sp-ring span{font-size:10px;color:var(--mute)}
+.sp-mini{background:var(--card);border-radius:18px;padding:12px;border:1px solid var(--line)}
+.sp-mini small{font-size:10px;color:var(--mute);display:flex;justify-content:space-between}
+.sp-mini svg{width:100%;height:46px;margin-top:6px}
+.sp-ecg{stroke-dasharray:6 600;animation:spEcg 2.4s linear infinite}
+.sp-ecg2{stroke-dasharray:420;stroke-dashoffset:420;animation:spDraw 2.4s linear infinite}
+@keyframes spDraw{to{stroke-dashoffset:0}}
+@keyframes spEcg{to{stroke-dashoffset:-606}}
+.sp-wk{display:flex;align-items:center;gap:10px;background:var(--lime);color:#0a0b0a;border-radius:18px;padding:12px}
+.sp-wk i{width:34px;height:34px;border-radius:10px;background:#0a0b0a;color:var(--lime);display:grid;place-items:center;font-style:normal}
+.sp-wk b{font-size:13px;display:block}.sp-wk span{font-size:10px}
+.sp-float{position:absolute;padding:12px 14px;border-radius:18px;background:rgba(28,31,26,.72);border:1px solid rgba(255,255,255,.12);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);font-size:12px;color:var(--mute);animation:dsFloat 5s ease-in-out infinite;box-shadow:0 20px 40px -20px #000}
+.sp-float b{display:block;font-size:20px;color:var(--ink);letter-spacing:-.02em}
+.sp-float b em{font-style:normal;color:var(--lime)}
+.sp-logos{display:flex;align-items:center;gap:20px;padding:26px 40px;border-block:1px solid var(--line);color:var(--mute);font-size:13px}
+.sp-logos .mq{flex:1;--mqg:46px;--mqt:24s;font:600 18px "Space Grotesk",sans-serif;color:#5d615a}
+.sp-sec{padding:90px 40px}
+.sp-h2{font:700 56px/.95 "Space Grotesk",sans-serif;letter-spacing:-.045em;max-width:16ch;margin-bottom:40px}
+.sp-h2 span{color:var(--mute)}
+.sp-bento{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:220px;gap:14px}
+.sp-b{grid-column:span 2;border-radius:28px;background:var(--card);border:1px solid var(--line);padding:24px;position:relative;overflow:hidden;transition:border-color .3s}
+.sp-b:hover{border-color:rgba(200,255,61,.4)}
+.sp-b.w3{grid-column:span 3}.sp-b.w4{grid-column:span 4}.sp-b.h2{grid-row:span 2}
+.sp-b h3{font-size:22px;letter-spacing:-.02em}
+.sp-b p{font-size:14px;color:var(--mute);margin-top:6px;max-width:30ch;line-height:1.5}
+.sp-b.lime{background:var(--lime);color:#0a0b0a}.sp-b.lime p{color:#2c3a10}
+.sp-chat{position:absolute;left:24px;right:24px;bottom:22px;display:flex;flex-direction:column;gap:8px}
+.sp-chat i{font-style:normal;font-size:13px;padding:10px 13px;border-radius:16px;background:#20231e;max-width:80%;line-height:1.35}
+.sp-chat i.ai{background:rgba(200,255,61,.12);color:var(--lime);align-self:flex-end;border:1px solid rgba(200,255,61,.25)}
+.sp-bars{position:absolute;left:24px;right:24px;bottom:22px;height:45%;display:flex;align-items:flex-end;gap:8px}
+.sp-bars i{flex:1;border-radius:8px 8px 3px 3px;background:#262a23;position:relative}
+.sp-bars i.on{background:var(--lime)}
+.sp-bars i::after{content:attr(data-d);position:absolute;bottom:-18px;left:0;right:0;text-align:center;font-size:10px;color:var(--mute);font-style:normal}
+.sp-big{position:absolute;right:22px;bottom:14px;font:700 84px/1 "Space Grotesk",sans-serif;letter-spacing:-.06em}
+.sp-sleep{position:absolute;left:24px;right:24px;bottom:24px;height:60px;display:flex;gap:3px;align-items:flex-end}
+.sp-sleep i{flex:1;border-radius:3px;background:#6b7cff}
+.sp-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;counter-reset:st}
+.sp-steps div{padding:26px;border-radius:28px;border:1px solid var(--line);counter-increment:st}
+.sp-steps div::before{content:"0" counter(st);display:block;font:700 14px "Space Grotesk",sans-serif;color:var(--lime);margin-bottom:40px}
+.sp-steps b{font-size:22px;letter-spacing:-.02em}.sp-steps p{color:var(--mute);font-size:14px;margin-top:8px;line-height:1.5}
+.sp-nums{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:14px}
+.sp-nums div{padding:24px;border-radius:24px;background:var(--card)}
+.sp-nums b{font:700 48px/1 "Space Grotesk",sans-serif;letter-spacing:-.05em;display:block}
+.sp-nums span{font-size:13px;color:var(--mute)}
+.sp-revs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.sp-rev{padding:24px;border-radius:24px;background:var(--card);border:1px solid var(--line)}
+.sp-rev .st{color:var(--lime);letter-spacing:3px;font-size:14px}
+.sp-rev q{display:block;margin:14px 0 20px;font-size:16px;line-height:1.5;quotes:"«" "»"}
+.sp-rev .who{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--mute)}
+.sp-rev .who i{width:36px;height:36px;border-radius:50%}
+.sp-rev .who b{display:block;color:var(--ink)}
+.sp-cta{margin:0 40px 60px;border-radius:36px;background:var(--lime);color:#0a0b0a;padding:70px 50px;position:relative;overflow:hidden}
+.sp-cta h2{font:700 70px/.9 "Space Grotesk",sans-serif;letter-spacing:-.05em;max-width:12ch}
+.sp-cta p{margin:18px 0 26px;font-size:17px;max-width:40ch}
+.sp-cta .sp-btn{background:#0a0b0a;color:var(--lime)}
+.sp-cta svg{position:absolute;right:-40px;top:50%;width:420px;transform:translateY(-50%);opacity:.9}
+.sp-foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:26px 40px;border-top:1px solid var(--line);font-size:13px;color:var(--mute)}
+.sp-toggle{display:inline-flex;padding:5px;border-radius:999px;background:var(--card);border:1px solid var(--line);margin-bottom:34px}
+.sp-toggle button{border:0;background:none;padding:10px 20px;border-radius:999px;font-weight:600;font-size:14px;color:var(--mute)}
+.sp-toggle button.on{background:var(--ink);color:#0a0b0a}
+.sp-toggle em{font-style:normal;background:var(--lime);color:#0a0b0a;border-radius:999px;padding:2px 7px;font-size:11px;margin-left:6px}
+.sp-plans{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:stretch}
+.sp-plan{border-radius:30px;border:1px solid var(--line);background:var(--card);padding:28px;display:flex;flex-direction:column}
+.sp-plan.hot{background:linear-gradient(180deg,#1d2414,#141812);border-color:rgba(200,255,61,.5);box-shadow:0 30px 80px -40px rgba(200,255,61,.5);position:relative}
+.sp-plan .tg{position:absolute;top:-12px;right:24px;background:var(--lime);color:#0a0b0a;font-size:12px;font-weight:700;padding:5px 12px;border-radius:999px}
+.sp-plan h3{font-size:18px;color:var(--mute);font-weight:500}
+.sp-plan .pr{font:700 52px/1 "Space Grotesk",sans-serif;letter-spacing:-.05em;margin:18px 0 4px}
+.sp-plan .pr small{font-size:15px;color:var(--mute);letter-spacing:0;font-weight:500}
+.sp .yr{display:none}.sp.yearly .yr{display:inline}.sp.yearly .mo{display:none}
+.sp-plan ul{list-style:none;padding:0;margin:22px 0 26px;display:flex;flex-direction:column;gap:12px;font-size:14px;flex:1}
+.sp-plan li{display:flex;gap:10px;align-items:flex-start}
+.sp-plan li::before{content:"✓";width:20px;height:20px;flex:none;border-radius:50%;background:rgba(200,255,61,.15);color:var(--lime);display:grid;place-items:center;font-size:11px;font-weight:700}
+.sp-plan .sp-btn{justify-content:center}
+.sp-faq{max-width:760px}
+.sp-faq details{border-bottom:1px solid var(--line);padding:22px 0}
+.sp-faq summary{list-style:none;display:flex;justify-content:space-between;gap:20px;font-size:19px;font-weight:600;cursor:pointer}
+.sp-faq summary::-webkit-details-marker{display:none}
+.sp-faq summary::after{content:"+";font-size:24px;color:var(--lime);transition:transform .3s}
+.sp-faq details[open] summary::after{transform:rotate(45deg)}
+.sp-faq p{color:var(--mute);margin-top:12px;line-height:1.6;font-size:15px}
+.sp-form{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.sp-form form{display:grid;gap:12px}
+.sp-form input,.sp-form textarea{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:15px 16px;font:inherit;font-size:15px;color:var(--ink);outline:none}
+.sp-form input:focus,.sp-form textarea:focus{border-color:var(--lime)}
+.sp-form .ok{color:var(--lime)}
+@container ds (max-width:720px){
+  .sp-nav{margin:10px 12px 0;padding-left:14px}.sp-nav nav{display:none}
+  .sp-hero{grid-template-columns:1fr;padding:36px 18px 30px}.sp-hero h1{font-size:52px}
+  .sp-phone-w{height:470px}.sp-phone{width:220px;height:450px}.sp-ring{width:120px;height:120px}
+  .sp-logos{padding:20px 18px;flex-direction:column;align-items:flex-start}.sp-logos .mq{width:100%}
+  .sp-sec{padding:60px 18px}.sp-h2{font-size:36px}
+  .sp-bento{grid-template-columns:1fr 1fr;grid-auto-rows:200px}.sp-b,.sp-b.w3,.sp-b.w4{grid-column:span 2}
+  .sp-steps,.sp-revs,.sp-plans,.sp-form{grid-template-columns:1fr}.sp-nums{grid-template-columns:1fr 1fr}
+  .sp-cta{margin:0 12px 40px;padding:44px 24px}.sp-cta h2{font-size:42px}.sp-cta svg{display:none}.sp-foot{padding:20px 18px}
+}
+
+/* ---------- AURORA LAB: космос, градиентная сетка, стекло, курсор-прожектор ---------- */
+.sa{--bg:#06061a;--ink:#eeeefb;--mute:#9a9ac0;--c1:#5ee0ff;--c2:#9b8aff;--c3:#ff7ad9;--line:rgba(255,255,255,.1);--mx:50%;--my:30%;background:var(--bg);color:var(--ink);font-family:"Onest",sans-serif}
+.sa .uf{font-family:"Unbounded",sans-serif}
+.sa-aur{position:absolute;inset:0 0 auto 0;height:900px;overflow:hidden;pointer-events:none}
+.sa-aur i{position:absolute;width:620px;height:620px;border-radius:50%;filter:blur(90px);opacity:.55;animation:saBlob 18s ease-in-out infinite alternate}
+.sa-aur i:nth-child(1){background:var(--c2);left:-120px;top:-160px}
+.sa-aur i:nth-child(2){background:var(--c1);right:-160px;top:40px;animation-duration:22s;opacity:.4}
+.sa-aur i:nth-child(3){background:var(--c3);left:35%;top:260px;width:460px;height:460px;animation-duration:26s;opacity:.35}
+@keyframes saBlob{50%{transform:translate(80px,60px) scale(1.15)}100%{transform:translate(-40px,120px) scale(.9)}}
+.sa-spot{position:absolute;inset:0;pointer-events:none;background:radial-gradient(600px circle at var(--mx) var(--my),rgba(155,138,255,.16),transparent 60%);z-index:1}
+.sa-grain{position:absolute;inset:0;pointer-events:none;opacity:.12;background-image:radial-gradient(rgba(255,255,255,.6) 1px,transparent 1px);background-size:3px 3px;mix-blend-mode:overlay}
+.sa>*{position:relative;z-index:2}
+.sa .sa-aur,.sa .sa-spot,.sa .sa-grain{position:absolute}
+.sa-nav{position:sticky;top:14px;z-index:6;margin:14px auto 0;width:calc(100% - 40px);max-width:920px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:9px 9px 9px 20px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid var(--line);-webkit-backdrop-filter:blur(18px) saturate(1.4);backdrop-filter:blur(18px) saturate(1.4)}
+.sa-logo{font:700 15px "Unbounded",sans-serif;display:flex;align-items:center;gap:9px}
+.sa-logo i{width:18px;height:18px;border-radius:50%;background:conic-gradient(var(--c1),var(--c2),var(--c3),var(--c1));animation:dsSpin 6s linear infinite}
+.sa-nav nav{display:flex;gap:4px}
+.sa-nav nav a{padding:8px 14px;border-radius:999px;font-size:14px;color:var(--mute);transition:.2s}
+.sa-nav nav a.on,.sa-nav nav a:hover{color:var(--ink);background:rgba(255,255,255,.08)}
+.sa-btn{display:inline-flex;align-items:center;gap:10px;padding:13px 22px;border-radius:999px;border:0;background:linear-gradient(120deg,var(--c1),var(--c2) 50%,var(--c3));background-size:200% 100%;color:#06061a;font-weight:700;font-size:14px;transition:background-position .6s,box-shadow .3s}
+.sa-btn:hover{background-position:100% 0;box-shadow:0 10px 40px -8px rgba(155,138,255,.8)}
+.sa-btn.ghost{background:rgba(255,255,255,.06);color:var(--ink);border:1px solid var(--line)}
+.sa-hero{text-align:center;padding:90px 30px 40px}
+.sa-pill{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.05);font-size:13px;color:var(--mute)}
+.sa-pill i{width:7px;height:7px;border-radius:50%;background:#4dffa6;box-shadow:0 0 10px #4dffa6}
+.sa-hero h1{font:700 96px/.92 "Unbounded",sans-serif;letter-spacing:-.05em;margin:28px auto 22px;max-width:11ch}
+.sa-grad{background:linear-gradient(100deg,var(--c1),var(--c2) 45%,var(--c3));-webkit-background-clip:text;background-clip:text;color:transparent;background-size:200% 100%;animation:saGrad 6s ease-in-out infinite alternate}
+@keyframes saGrad{to{background-position:100% 0}}
+.sa-hero p{font-size:18px;line-height:1.55;color:var(--mute);max-width:46ch;margin:0 auto 32px}
+.sa-acts{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.sa-stage{position:relative;height:420px;margin-top:30px;perspective:900px}
+.sa-orb{position:absolute;left:50%;top:50%;width:230px;height:230px;margin:-115px;border-radius:50%;background:radial-gradient(circle at 32% 26%,#fff,#d6ceff 14%,#8f7dff 38%,#3a2aa8 64%,#0c0830 86%);box-shadow:0 0 120px 20px rgba(155,138,255,.45),inset -20px -30px 60px rgba(0,0,0,.5);animation:dsFloat 7s ease-in-out infinite}
+.sa-ring{position:absolute;left:50%;top:50%;border-radius:50%;border:1.5px solid rgba(238,238,251,.35);transform-style:preserve-3d}
+.sa-ring.r1{width:520px;height:520px;margin:-260px;transform:rotateX(74deg);animation:saR1 14s linear infinite}
+.sa-ring.r2{width:400px;height:400px;margin:-200px;border-color:rgba(94,224,255,.5);transform:rotateX(70deg) rotateY(30deg);animation:saR2 10s linear infinite}
+.sa-ring.r3{width:640px;height:640px;margin:-320px;border-style:dashed;border-color:rgba(255,122,217,.35);transform:rotateX(78deg) rotateY(-20deg);animation:saR1 30s linear infinite reverse}
+.sa-ring::after{content:"";position:absolute;left:50%;top:-6px;width:12px;height:12px;margin-left:-6px;border-radius:50%;background:var(--c1);box-shadow:0 0 16px var(--c1)}
+.sa-ring.r3::after{background:var(--c3);box-shadow:0 0 16px var(--c3)}
+@keyframes saR1{from{transform:rotateX(74deg) rotateZ(0)}to{transform:rotateX(74deg) rotateZ(360deg)}}
+@keyframes saR2{from{transform:rotateX(70deg) rotateY(30deg) rotateZ(0)}to{transform:rotateX(70deg) rotateY(30deg) rotateZ(360deg)}}
+.sa-glass{position:absolute;padding:14px 16px;border-radius:20px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);font-size:12px;color:var(--mute);text-align:left;animation:dsFloat 6s ease-in-out infinite}
+.sa-glass b{display:block;font:700 22px "Unbounded",sans-serif;color:var(--ink);letter-spacing:-.03em}
+.sa-clients{padding:30px 0;border-block:1px solid var(--line);--mqg:56px;--mqt:30s;font:600 22px "Unbounded",sans-serif;color:#6e6e98;letter-spacing:-.02em}
+.sa-sec{padding:100px 40px}
+.sa-h2{font:700 58px/.98 "Unbounded",sans-serif;letter-spacing:-.045em;max-width:14ch;margin-bottom:46px}
+.sa-k{font-size:13px;color:var(--c1);letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px;display:block}
+.sa-cases{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.sa-case{border-radius:30px;border:1px solid var(--line);background:rgba(255,255,255,.03);overflow:hidden;transition:transform .5s cubic-bezier(.2,.8,.2,1),border-color .3s}
+.sa-case:hover{transform:translateY(-6px);border-color:rgba(155,138,255,.5)}
+.sa-case .art{height:300px;position:relative;overflow:hidden}
+.sa-case .art>*{position:absolute}
+.sa-case .meta{padding:22px 24px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px}
+.sa-case b{font:700 22px "Unbounded",sans-serif;letter-spacing:-.03em;display:block}
+.sa-case span{font-size:13px;color:var(--mute)}
+.sa-case em{font-style:normal;font:700 30px "Unbounded",sans-serif;letter-spacing:-.04em}
+.sa-svc{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.sa-svc div{padding:26px;border-radius:26px;background:rgba(255,255,255,.04);border:1px solid var(--line);transition:background .3s}
+.sa-svc div:hover{background:rgba(255,255,255,.08)}
+.sa-svc i{display:grid;place-items:center;width:46px;height:46px;border-radius:14px;font-style:normal;font-size:20px;background:linear-gradient(135deg,rgba(94,224,255,.25),rgba(255,122,217,.25));margin-bottom:46px}
+.sa-svc b{font:700 18px "Unbounded",sans-serif;letter-spacing:-.02em}.sa-svc p{font-size:14px;color:var(--mute);margin-top:8px;line-height:1.5}
+.sa-proc{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.sa-proc::before{content:"";position:absolute;left:0;right:0;top:9px;height:1px;background:linear-gradient(90deg,var(--c1),var(--c2),var(--c3))}
+.sa-proc div{padding-right:24px}
+.sa-proc div::before{content:"";display:block;width:19px;height:19px;border-radius:50%;background:var(--bg);border:2px solid var(--c2);margin-bottom:24px;box-shadow:0 0 14px var(--c2)}
+.sa-proc em{font-style:normal;font-size:12px;color:var(--mute)}
+.sa-proc b{display:block;font:700 20px "Unbounded",sans-serif;letter-spacing:-.02em;margin:6px 0 8px}
+.sa-proc p{font-size:14px;color:var(--mute);line-height:1.5}
+.sa-cta{margin:0 30px 50px;border-radius:40px;padding:90px 30px;text-align:center;position:relative;overflow:hidden;background:radial-gradient(60% 120% at 20% 0%,rgba(94,224,255,.35),transparent),radial-gradient(60% 120% at 80% 100%,rgba(255,122,217,.35),transparent),#100f2c;border:1px solid var(--line)}
+.sa-cta h2{font:700 76px/.92 "Unbounded",sans-serif;letter-spacing:-.05em;margin-bottom:30px}
+.sa-foot{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:26px 40px 30px;font-size:13px;color:var(--mute)}
+.sa-big{display:grid;gap:18px}
+.sa-big .sa-case{display:grid;grid-template-columns:1.3fr 1fr}
+.sa-big .sa-case .art{height:340px}
+.sa-big .sa-case .meta{flex-direction:column;align-items:flex-start;justify-content:center;padding:36px}
+.sa-big .sa-case p{color:var(--mute);font-size:15px;line-height:1.6;margin:10px 0 20px}
+.sa-tags{display:flex;gap:6px;flex-wrap:wrap}
+.sa-tags span{font-size:12px;padding:5px 11px;border-radius:999px;border:1px solid var(--line);color:var(--ink)}
+.sa-form{max-width:760px}
+.sa-opts{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 28px}
+.sa-opts button{border:1px solid var(--line);background:rgba(255,255,255,.04);border-radius:999px;padding:10px 18px;font-size:14px;transition:.25s}
+.sa-opts button.on{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.sa-form label{font-size:13px;color:var(--mute)}
+.sa-form input,.sa-form textarea{width:100%;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:18px;padding:16px 18px;font:inherit;font-size:16px;color:var(--ink);outline:none;margin:8px 0 18px}
+.sa-form input:focus,.sa-form textarea:focus{border-color:var(--c2);box-shadow:0 0 0 4px rgba(155,138,255,.15)}
+.sa-form .ok{color:var(--c1)}
+@container ds (max-width:720px){
+  .sa-nav{width:calc(100% - 24px);padding-left:14px}.sa-nav nav{display:none}
+  .sa-hero{padding:60px 18px 20px}.sa-hero h1{font-size:46px}
+  .sa-stage{height:300px}.sa-orb{width:150px;height:150px;margin:-75px}.sa-ring.r1{width:330px;height:330px;margin:-165px}.sa-ring.r2{width:250px;height:250px;margin:-125px}.sa-ring.r3{width:400px;height:400px;margin:-200px}
+  .sa-glass{display:none}
+  .sa-sec{padding:64px 18px}.sa-h2{font-size:34px}
+  .sa-cases,.sa-svc,.sa-big .sa-case{grid-template-columns:1fr}.sa-case .art{height:220px}.sa-big .sa-case .art{height:220px}.sa-big .sa-case .meta{padding:24px}
+  .sa-proc{grid-template-columns:1fr 1fr;gap:30px 0}.sa-proc::before{display:none}
+  .sa-cta{margin:0 12px 30px;padding:60px 20px}.sa-cta h2{font-size:40px}.sa-foot{padding:20px 18px}
+}
+
+/* ---------- ФЛОРА: нежная редакционная флористика, арки, серифы ---------- */
+.sf{--bg:#fbf3ee;--ink:#3a1621;--acc:#d9476d;--sage:#8fa98d;--card:#fff;--soft:#f6e1e3;--mute:#8a6670;background:var(--bg);color:var(--ink);font-family:"Onest",sans-serif}
+.sf .serif{font-family:"Fraunces",Georgia,serif;font-optical-sizing:auto}
+.sf-top{background:var(--ink);color:#f6dfe4;font-size:12px;text-align:center;padding:9px 14px;letter-spacing:.02em}
+.sf-nav{position:sticky;top:0;z-index:5;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:16px 34px;background:color-mix(in srgb,var(--bg) 86%,transparent);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid rgba(58,22,33,.08)}
+.sf-nav nav{display:flex;gap:24px;font-size:14px}
+.sf-nav nav a{opacity:.6}.sf-nav nav a.on,.sf-nav nav a:hover{opacity:1}
+.sf-logo{font:italic 400 30px/1 "Fraunces",serif;letter-spacing:-.02em;text-align:center}
+.sf-logo b{color:var(--acc);font-weight:400}
+.sf-cart{justify-self:end;display:flex;align-items:center;gap:8px;font-size:14px;padding:9px 16px;border-radius:999px;background:var(--card);box-shadow:0 6px 20px -10px rgba(58,22,33,.3)}
+.sf-cart b{background:var(--acc);color:#fff;border-radius:999px;min-width:22px;height:22px;display:grid;place-items:center;font-size:12px;transition:transform .3s cubic-bezier(.3,1.8,.5,1)}
+.sf-cart.bump b{transform:scale(1.4)}
+.sf-btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 26px;border-radius:999px;border:0;background:var(--acc);color:#fff;font-weight:600;font-size:15px;transition:.3s}
+.sf-btn:hover{background:var(--ink);transform:translateY(-2px)}
+.sf-btn.light{background:var(--card);color:var(--ink);box-shadow:0 6px 20px -10px rgba(58,22,33,.3)}
+.sf-hero>div{min-width:0}
+.sf-hero{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;padding:50px 34px 70px}
+.sf-hero .k{display:inline-flex;gap:8px;align-items:center;font-size:13px;color:var(--mute);padding:7px 14px;border-radius:999px;background:var(--soft)}
+.sf-hero h1{font:400 84px/.95 "Fraunces",serif;letter-spacing:-.035em;margin:22px 0}
+.sf-hero h1 i{color:var(--acc);font-weight:300}
+.sf-hero p{font-size:18px;line-height:1.55;color:var(--mute);max-width:36ch}
+.sf-check{display:flex;gap:6px;margin-top:30px;padding:6px;border-radius:999px;background:var(--card);box-shadow:0 14px 34px -18px rgba(58,22,33,.4);max-width:460px}
+.sf-check input{flex:1;min-width:0;border:0;background:none;padding:0 16px;font:inherit;font-size:15px;outline:none;color:var(--ink)}
+.sf-check .sf-btn{padding:12px 20px}
+.sf-res{margin-top:12px;font-size:14px;color:#3f7a4a;display:flex;align-items:center;gap:8px}
+.sf-trust{display:flex;gap:26px;margin-top:34px;font-size:13px;color:var(--mute)}
+.sf-trust b{display:block;font:400 30px "Fraunces",serif;color:var(--ink)}
+.sf-arch{position:relative;height:540px;display:flex;justify-content:center}
+.sf-arch .fr{width:380px;height:100%;border-radius:200px 200px 24px 24px;background:linear-gradient(180deg,#f7d3d9,#efb8c3);overflow:hidden;position:relative}
+.sf-arch .fr svg{position:absolute;left:50%;bottom:-6px;width:118%;margin-left:-59%;animation:sfSway 7s ease-in-out infinite;transform-origin:50% 100%}
+@keyframes sfSway{50%{transform:rotate(1.6deg)}}
+.sf-arch .bdg{position:absolute;left:0;bottom:60px;background:var(--card);border-radius:20px;padding:14px 16px;display:flex;gap:10px;align-items:center;font-size:13px;box-shadow:0 20px 40px -20px rgba(58,22,33,.45);animation:dsFloat 6s ease-in-out infinite}
+.sf-arch .bdg i{width:40px;height:40px;border-radius:12px;background:var(--soft);display:grid;place-items:center;font-style:normal;font-size:18px}
+.sf-arch .bdg b{display:block}
+.sf-arch .seal{position:absolute;right:0;top:40px;width:120px;height:120px;animation:dsSpin 18s linear infinite}
+.sf-arch .seal text{font:500 11px "Onest",sans-serif;letter-spacing:.2em;fill:var(--ink);text-transform:uppercase}
+.sf-sec{padding:80px 34px}
+.sf-h2{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:36px}
+.sf-h2 h2{font:400 56px/1 "Fraunces",serif;letter-spacing:-.03em}
+.sf-h2 h2 i{color:var(--acc)}
+.sf-h2 a{font-size:14px;border-bottom:1px solid;padding-bottom:2px;white-space:nowrap}
+.sf-cats{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;text-align:center}
+.sf-cats a{display:block}
+.sf-cats .c{aspect-ratio:1;border-radius:50%;overflow:hidden;background:var(--soft);transition:transform .5s cubic-bezier(.2,.8,.2,1);display:grid;place-items:end center}
+.sf-cats a:hover .c{transform:scale(1.05) rotate(-4deg)}
+.sf-cats .c svg{width:120%}
+.sf-cats b{display:block;margin-top:12px;font:400 20px "Fraunces",serif}
+.sf-prods{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.sf-prod .pic{position:relative;height:340px;border-radius:24px;overflow:hidden;display:grid;place-items:end center}
+.sf-prod .pic svg{width:115%;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.sf-prod:hover .pic svg{transform:scale(1.06) translateY(-6px)}
+.sf-prod .tg{position:absolute;left:14px;top:14px;background:var(--card);border-radius:999px;padding:5px 12px;font-size:12px}
+.sf-prod .like{position:absolute;right:14px;top:14px;width:38px;height:38px;border-radius:50%;background:var(--card);border:0;display:grid;place-items:center;font-size:16px;color:var(--acc)}
+.sf-prod .like.on{background:var(--acc);color:#fff}
+.sf-prod .row{display:flex;justify-content:space-between;align-items:baseline;margin-top:16px;gap:10px}
+.sf-prod b{font:400 26px/1.1 "Fraunces",serif}
+.sf-prod .pr{font-weight:600;font-size:17px;white-space:nowrap}
+.sf-prod p{font-size:14px;color:var(--mute);margin:4px 0 14px}
+.sf-prod .sf-btn{width:100%;padding:13px}
+.sf-prod .sf-btn.done{background:#3f7a4a}
+.sf-sub{display:grid;grid-template-columns:1fr 1fr;gap:0;border-radius:32px;overflow:hidden;background:var(--ink);color:#f6dfe4}
+.sf-sub .l{padding:54px}
+.sf-sub h2{font:400 52px/1 "Fraunces",serif;letter-spacing:-.03em;color:#fff}
+.sf-sub h2 i{color:#f2a7b8}
+.sf-sub p{margin:16px 0 26px;color:#d6b3bc;line-height:1.6}
+.sf-plans{display:grid;gap:10px;margin-bottom:26px}
+.sf-plans button{display:flex;justify-content:space-between;align-items:center;border:1px solid rgba(255,255,255,.18);background:none;color:#f6dfe4;border-radius:18px;padding:16px 18px;font-size:15px;text-align:left;transition:.25s}
+.sf-plans button b{font:400 22px "Fraunces",serif;color:#fff}
+.sf-plans button.on{background:#f6dfe4;color:var(--ink);border-color:#f6dfe4}.sf-plans button.on b{color:var(--ink)}
+.sf-sub .r{background:linear-gradient(180deg,#f2a7b8,#d9476d);position:relative;min-height:380px;display:grid;place-items:end center;overflow:hidden}
+.sf-sub .r svg{width:110%}
+.sf-revs{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.sf-rev{background:var(--card);border-radius:24px;padding:26px;box-shadow:0 14px 40px -26px rgba(58,22,33,.4)}
+.sf-rev .st{color:var(--acc);letter-spacing:3px}
+.sf-rev q{display:block;font:400 21px/1.35 "Fraunces",serif;margin:14px 0 18px;quotes:"«" "»"}
+.sf-rev small{font-size:13px;color:var(--mute)}
+.sf-chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:30px}
+.sf-chips button{border:0;background:var(--card);padding:10px 18px;border-radius:999px;font-size:14px;box-shadow:0 4px 14px -8px rgba(58,22,33,.3);transition:.25s}
+.sf-chips button.on{background:var(--ink);color:#fff}
+.sf-foot{background:var(--soft);padding:54px 34px 26px;margin-top:20px}
+.sf-foot .big{font:italic 300 16cqw/.85 "Fraunces",serif;letter-spacing:-.04em;color:var(--acc);text-align:center}
+.sf-foot .row{display:flex;justify-content:space-between;font-size:13px;color:var(--mute);margin-top:26px;gap:12px;flex-wrap:wrap}
+.sf-contact{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.sf-contact form{display:grid;gap:12px;background:var(--card);padding:30px;border-radius:28px;box-shadow:0 20px 50px -30px rgba(58,22,33,.4)}
+.sf-contact input,.sf-contact textarea{border:1px solid #ecd6da;border-radius:16px;padding:14px 16px;font:inherit;font-size:15px;background:var(--bg);outline:none;color:var(--ink)}
+.sf-contact input:focus,.sf-contact textarea:focus{border-color:var(--acc)}
+.sf-contact .ok{color:#3f7a4a}
+.sf-info{display:grid;gap:14px;align-content:start}
+.sf-info div{background:var(--card);border-radius:22px;padding:20px 22px}
+.sf-info small{font-size:12px;color:var(--mute);text-transform:uppercase;letter-spacing:.08em}
+.sf-info b{display:block;font:400 24px/1.2 "Fraunces",serif;margin-top:6px}
+@container ds (max-width:720px){
+  .sf-nav{grid-template-columns:auto 1fr auto;padding:12px 16px;gap:10px}.sf-nav nav{display:none}.sf-logo{text-align:left}
+  .sf-hero{grid-template-columns:1fr;padding:30px 16px 40px}.sf-hero h1{font-size:48px}
+  .sf-arch{height:400px}.sf-arch .fr{width:280px}.sf-arch .seal{width:86px;height:86px;right:6px}.sf-check .sf-btn{padding:12px 14px;font-size:14px}.sf-check input{padding:0 10px;font-size:14px}
+  .sf-trust{gap:16px}.sf-sec{padding:56px 16px}.sf-h2 h2{font-size:36px}.sf-h2{flex-direction:column;align-items:flex-start}
+  .sf-cats{grid-template-columns:repeat(3,1fr)}.sf-cats b{font-size:16px}
+  .sf-prods,.sf-revs,.sf-sub,.sf-contact{grid-template-columns:1fr}.sf-prod .pic{height:300px}
+  .sf-sub .l{padding:32px 22px}.sf-sub h2{font-size:38px}.sf-sub .r{min-height:280px}
+}
 }
 
 /* ===== 03 ИГРЫ ===== */
@@ -1136,57 +1637,241 @@ function selectBot(i){botIdx=i;runId++;const b=BOTS[i];chat.innerHTML='';
   $$('.bot-item').forEach((el,j)=>el.setAttribute('aria-pressed',j===i));
   const d=document.createElement('div');d.className='msg me';d.textContent='/start';chat.append(d);run('start',runId);}
 
-const SITES=[
- {id:'nord',name:'NORD',type:'Архитектурное бюро',url:'nord-arch.ru',hf:'"Cormorant Garamond",Georgia,serif',bf:'"Onest",sans-serif',b:'#f1f0ec',f:'#151515',a:'#151515',on:'#f1f0ec',m:'#6d6d6a',c:'#dedcd5',rad:'2px',layout:'split',art:'arch',
-  desc:'Сайт бюро в духе тихой роскоши: крупная типографика, портфолио проектов, форма заявки.',tags:['Next.js','Headless CMS','GSAP'],
-  hero:['Архитектура · с 2014','Дома, в которых тихо','Проектируем частные дома и интерьеры на стыке природы и бетона.','Смотреть проекты'],
-  feat:[['Частные дома','От эскиза до ключей за 14 месяцев'],['Интерьеры','Материалы, свет и мебель в одной концепции'],['Надзор','Следим за стройкой каждую неделю']],
-  gal:['#c9c5ba','#8f8a7e','#2b2b2b','#e7e4dc','#5f5b52'],quote:['Мы строим так, чтобы через 30 лет дом хотелось оставить детям.','Олег Норд, основатель'],
-  p2:'Проекты',price:[['Дом у озера','Карелия · 420 м²','2025'],['Лофт на Петроградке','Санкт-Петербург · 180 м²','2024'],['Шале в горах','Домбай · 260 м²','2024'],['Офис студии','Москва · 600 м²','2023']]},
- {id:'zerno',name:'Зерно',type:'Кофейня',url:'zerno.coffee',hf:'"Unbounded",sans-serif',bf:'"Onest",sans-serif',b:'#2a1a12',f:'#f6e7d7',a:'#eaa66b',on:'#2a1a12',m:'#c4a88f',c:'#3a261b',rad:'22px',layout:'center',art:'cup',
-  desc:'Тёплый сайт кофейни с меню, онлайн-заказом и картой точек.',tags:['Astro','Telegram Mini App','Stripe'],
-  hero:['Обжариваем сами','Кофе, который будит мягко','Три кофейни в центре и доставка за 25 минут.','Открыть меню'],
-  feat:[['Своя обжарка','Свежие зёрна каждую неделю'],['Предзаказ','Заказ в Telegram, забираешь без очереди'],['Кэшбэк','Каждая 7-я чашка в подарок']],
-  gal:['#5a3a26','#eaa66b','#3a261b','#8a5a3a','#c98b5a'],quote:['Лучший флэт уайт в городе. Захожу каждое утро.','Аня, гость с 2023'],
-  p2:'Меню',price:[['Флэт уайт','Двойной эспрессо и бархатное молоко','290 ₽'],['Раф лаванда','Сливки, лавандовый сироп','340 ₽'],['Фильтр дня','Эфиопия, ягодные ноты','250 ₽'],['Круассан','Печём утром','180 ₽']]},
- {id:'pulse',name:'PULSE',type:'Фитнес-приложение',url:'pulse.fit',hf:'"Unbounded",sans-serif',bf:'"Onest",sans-serif',b:'#0c0d0c',f:'#f2f2f2',a:'#c6ff3d',on:'#0c0d0c',m:'#9a9d97',c:'#181a17',rad:'14px',layout:'split',art:'pulse',
-  desc:'Лендинг фитнес-приложения: анимации, тарифы и запись на пробную тренировку.',tags:['React','Framer Motion','Supabase'],
-  hero:['Тренировки с ИИ-тренером','Сильнее каждую неделю','План подстраивается под пульс, сон и настроение.','Попробовать 7 дней'],
-  feat:[['Умный план','Нагрузка меняется по твоим данным'],['Пульс онлайн','Синхронизация с часами'],['Прогресс','Наглядные графики и рекорды']],
-  gal:['#c6ff3d','#2a2d28','#5d6b3a','#181a17','#8fae2f'],quote:['Минус 6 кг за два месяца без срывов.','Максим, пользователь'],
-  p2:'Тарифы',price:[['Старт','Базовые программы','0 ₽'],['Про','ИИ-тренер и аналитика','490 ₽/мес'],['Команда','До 10 человек','2 900 ₽/мес']]},
- {id:'aurora',name:'Aurora Lab',type:'3D-студия',url:'aurora-lab.io',hf:'"Unbounded",sans-serif',bf:'"Onest",sans-serif',b:'#0b0b1a',f:'#eeeefb',a:'#9b8aff',on:'#0b0b1a',m:'#9d9dbd',c:'#16162b',rad:'28px',layout:'center',art:'orb',
-  desc:'Иммерсивный сайт студии 3D и motion-дизайна с WebGL-сценой.',tags:['Three.js','WebGL','Lenis'],
-  hero:['3D · Motion · WebGL','Делаем экраны живыми','Интерактивные сайты, 3D-визуализации и анимация продуктов.','Смотреть кейсы'],
-  feat:[['WebGL-сайты','3D прямо в браузере'],['Product 3D','Рендеры и анимация товаров'],['AR','Примерка в камере телефона']],
-  gal:['#9b8aff','#2b1f6b','#5ee0ff','#16162b','#ff7ad9'],quote:['Конверсия выросла в 2 раза после запуска 3D-витрины.','Команда Volt Audio'],
-  p2:'Кейсы',price:[['Volt Audio','3D-витрина наушников','2026'],['Метро 2030','AR-навигация','2025'],['Orbit Bank','Анимация приложения','2025']]},
- {id:'flora',name:'Флора',type:'Цветочный магазин',url:'flora-shop.ru',hf:'"Cormorant Garamond",Georgia,serif',bf:'"Onest",sans-serif',b:'#fbe9ec',f:'#3a1621',a:'#d9476d',on:'#fff',m:'#8a5a66',c:'#f6d3da',rad:'999px',layout:'split',art:'flower',
-  desc:'Интернет-магазин букетов с каталогом, корзиной и доставкой за 2 часа.',tags:['Vue','Telegram Bot','ЮKassa'],
-  hero:['Доставка за 2 часа','Цветы, которые говорят за тебя','Собираем букеты из сезонных цветов и привозим с открыткой.','Выбрать букет'],
-  feat:[['Свежие цветы','Привозим с рынка каждое утро'],['Фото перед отправкой','Покажем букет в Telegram'],['Подписка','Цветы домой каждую неделю']],
-  gal:['#f2a7b8','#d9476d','#f6d3da','#7a2a40','#ffc9a8'],quote:['Мама плакала от радости. Спасибо за открытку!','Дарья, покупатель'],
-  p2:'Букеты',price:[['Пионовый рассвет','15 пионов и эвкалипт','4 900 ₽'],['Облако','Гортензия и розы','3 600 ₽'],['Полевой','Сезонные цветы','2 400 ₽']]}
-];
-function art(s){
-  const a=s.a,f=s.f,c=s.c;
-  if(s.art==='arch')return `<div style="position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;gap:18px;padding:0 40px"><i style="width:22%;height:62%;background:#8f8a7e;border-radius:200px 200px 0 0"></i><i style="width:26%;height:88%;background:${f};border-radius:200px 200px 0 0"></i><i style="width:20%;height:48%;background:#bdb8ac;border-radius:200px 200px 0 0"></i></div>`;
-  if(s.art==='cup')return `<div style="position:absolute;inset:0;display:grid;place-items:center"><div style="width:220px;height:220px;border-radius:50%;background:radial-gradient(circle at 50% 50%,#6b3d22 0 40%,#f6e7d7 41% 46%,${a} 47%);box-shadow:0 30px 60px rgba(0,0,0,.4)"></div></div><div style="position:absolute;left:12%;top:20%;width:80px;height:80px;border-radius:50%;background:${a};opacity:.5"></div>`;
-  if(s.art==='pulse')return `<div style="position:absolute;inset:30px;display:flex;align-items:flex-end;gap:10px">${[40,70,55,90,65,100,45,80,60].map(h=>`<i style="flex:1;height:${h}%;border-radius:8px;background:linear-gradient(180deg,${a},#2a2d28)"></i>`).join('')}</div><b style="position:absolute;left:30px;top:24px;font:700 48px var(--hf);color:${a}">142 bpm</b>`;
-  if(s.art==='orb')return `<div style="position:absolute;inset:0;background:radial-gradient(40% 70% at 30% 50%,rgba(94,224,255,.35),transparent),radial-gradient(40% 70% at 70% 50%,rgba(255,122,217,.3),transparent)"></div><div style="position:absolute;left:50%;top:50%;width:200px;height:200px;margin:-100px;border-radius:50%;background:radial-gradient(circle at 32% 28%,#fff,#c9c2ff 20%,#6b5cff 50%,#120f2e 80%)"></div><div style="position:absolute;left:50%;top:50%;width:420px;height:110px;margin:-55px -210px;border-radius:50%;border:2px solid rgba(238,238,251,.4);transform:rotate(-12deg)"></div>`;
-  if(s.art==='flower')return `<div style="position:absolute;inset:0;display:grid;place-items:center"><div style="width:280px;height:280px;border-radius:50%;background:repeating-conic-gradient(${a} 0 18deg,#f2a7b8 18deg 36deg);-webkit-mask:radial-gradient(circle,#000 62%,transparent 63%);mask:radial-gradient(circle,#000 62%,transparent 63%)"></div><div style="position:absolute;width:90px;height:90px;border-radius:50%;background:#ffc9a8"></div></div>`;
+/* ---------- демо-сайты v2: пять отдельных шаблонов ---------- */
+let SVG_UID=0;
+const ARR='<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+const ARR_UR='<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M7 17 17 7M8 7h9v9"/></svg>';
+const CART={};
+
+// NORD: минималистичный дом у воды в сумерках; v — палитра
+function house(v=0){
+  const P=[['#f0b48a','#d98d7a','#6d6f88','#2b2a2a'],['#cfd8de','#a9b7c0','#6f8494','#1f2326'],['#f2d9b8','#e6b48a','#9a7b6a','#2a2523'],['#c8c1d8','#9c93b8','#4d4a68','#1c1b26']][v%4];
+  const id='h'+(++SVG_UID);
+  return `<svg viewBox="0 0 800 450" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="${id}s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${P[2]}"/><stop offset=".55" stop-color="${P[1]}"/><stop offset="1" stop-color="${P[0]}"/></linearGradient><linearGradient id="${id}w" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${P[0]}" stop-opacity=".9"/><stop offset="1" stop-color="${P[3]}"/></linearGradient><linearGradient id="${id}g" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ffd59a"/><stop offset="1" stop-color="#ffb46a"/></linearGradient></defs>
+  <rect width="800" height="450" fill="url(#${id}s)"/><circle cx="600" cy="230" r="46" fill="#fff" opacity=".35"/>
+  <path d="M0 250 L120 205 L230 235 L340 190 L470 228 L600 200 L800 240 V300 H0Z" fill="${P[3]}" opacity=".35"/>
+  <path d="M0 268 L90 250 L180 262 L260 244 L800 262 V300 H0Z" fill="${P[3]}" opacity=".6"/>
+  <g fill="${P[3]}"><path d="M70 300 l22-70 22 70z"/><path d="M100 300 l16-52 16 52z"/><path d="M650 300 l20-62 20 62z"/><path d="M690 300 l14-44 14 44z"/></g>
+  <g id="${id}h"><rect x="250" y="196" width="300" height="12" fill="${P[3]}"/><rect x="268" y="208" width="200" height="88" fill="${P[3]}"/><rect x="468" y="232" width="110" height="64" fill="#3b3836"/>
+  <rect x="282" y="222" width="172" height="62" fill="url(#${id}g)" opacity=".92"/><g stroke="${P[3]}" stroke-width="3"><path d="M325 222v62M368 222v62M411 222v62"/></g><rect x="484" y="246" width="78" height="38" fill="url(#${id}g)" opacity=".7"/><rect x="230" y="292" width="360" height="8" fill="${P[3]}"/></g>
+  <rect y="300" width="800" height="150" fill="url(#${id}w)"/>
+  <g opacity=".28" transform="translate(0 600) scale(1 -1)"><use href="#${id}h"/></g>
+  <g stroke="#fff" stroke-opacity=".25" stroke-width="2"><path d="M120 330h120M420 352h160M260 380h90M560 400h120"/></g></svg>`;
 }
-function renderSite(s,page,thumb){
-  const vars=`--b:${s.b};--f:${s.f};--a:${s.a};--on:${s.on};--m:${s.m};--c:${s.c};--rad:${s.rad};--hf:${s.hf};--bf:${s.bf}`;
-  const pages=['Главная',s.p2,'Контакты'];
-  const nav=`<div class="ds-nav"><span class="ds-logo">${s.name}</span><nav>${pages.map(p=>`<a data-go="${p}" class="${p===page?'on':''}">${p}</a>`).join('')}</nav></div>`;
-  const hero=`<div class="ds-hero ${s.layout==='center'?'center':''}"><div><span class="k">${s.hero[0]}</span><h1>${s.hero[1]}</h1><p>${s.hero[2]}</p><a class="ds-btn" data-go="${s.p2}">${s.hero[3]}</a></div><div class="ds-art">${art(s)}</div></div>`;
-  if(thumb)return `<div class="ds" style="${vars}">${nav}${hero}</div>`;
-  let body='';
-  if(page==='Главная')body=hero+`<div class="ds-sec"><h2>Что мы делаем</h2><div class="ds-feat">${s.feat.map(([t,d])=>`<div><b>${t}</b><p>${d}</p></div>`).join('')}</div></div><div class="ds-sec"><h2>Галерея</h2><div class="ds-gal">${s.gal.map(g=>`<i style="background:${g}"></i>`).join('')}</div></div><div class="ds-sec"><p class="ds-quote">«${s.quote[0]}»<small>${s.quote[1]}</small></p></div>`;
-  else if(page===s.p2)body=`<div class="ds-sec" style="border:0"><h2>${s.p2}</h2><div class="ds-price">${s.price.map(([n,d,p])=>`<div><span><b>${n}</b><br><span>${d}</span></span><em>${p}</em></div>`).join('')}</div><div style="margin-top:36px"><a class="ds-btn" data-go="Контакты">Оставить заявку</a></div></div>`;
-  else body=`<div class="ds-sec" style="border:0"><h2>Контакты</h2><div class="ds-form"><div><p style="color:var(--m);font-size:16px;line-height:1.7">Ответим в течение часа.<br>Ереван, ул. Абовяна, 12<br>Ежедневно 9:00–21:00</p></div><form data-demo><input placeholder="Имя" aria-label="Имя"><input placeholder="Телефон или Telegram" aria-label="Контакт"><textarea rows="4" placeholder="Сообщение" aria-label="Сообщение"></textarea><button class="ds-btn" type="submit">Отправить</button><span class="ok" hidden>Это демо: заявка никуда не ушла, но форма работает 🙂</span></form></div></div>`;
-  return `<div class="ds" style="${vars}">${nav}${body}<div class="ds-foot"><span>© 2026 ${s.name}</span><span>Демо-сайт из портфолио</span></div></div>`;
+// ЗЕРНО: латте-арт сердце
+const LATTE='<svg viewBox="0 0 100 100"><path d="M50 86 C20 64 10 46 18 32 C26 18 44 20 50 34 C56 20 74 18 82 32 C90 46 80 64 50 86Z" fill="#f6e7d7" opacity=".95"/><path d="M50 78 C30 62 24 50 28 40 C33 30 45 32 50 42 C55 32 67 30 72 40 C76 50 70 62 50 78Z" fill="#c88a5a" opacity=".55"/><path d="M50 70 C38 60 34 52 37 46 C40 40 47 42 50 48 C53 42 60 40 63 46 C66 52 62 60 50 70Z" fill="#f6e7d7"/></svg>';
+const ROAST='<svg class="sz-roast" viewBox="0 0 300 100" preserveAspectRatio="none"><path d="M0 95 C60 92 90 70 130 55 C170 40 200 22 240 16 C270 12 290 14 300 14" fill="none" stroke="#ff6a2b" stroke-width="4"/><path d="M0 95 C60 92 90 70 130 55 C170 40 200 22 240 16 C270 12 290 14 300 14 V100 H0Z" fill="#ff6a2b" opacity=".12"/><g fill="#24160f" font-size="9" font-family="Onest"><circle cx="130" cy="55" r="4"/><text x="136" y="72">1-й крэк</text><circle cx="240" cy="16" r="4"/><text x="214" y="36">выгрузка</text></g></svg>';
+// ФЛОРА: букет из SVG-цветов; pal — основной и вторичный цвет
+function bloom(x,y,r,c1,c2,n){let s='';for(let i=0;i<n;i++)s+=`<ellipse cx="${x}" cy="${y-r*.5}" rx="${r*.42}" ry="${r*.62}" fill="${i%2?c2:c1}" transform="rotate(${i*360/n} ${x} ${y})"/>`;
+  for(let i=0;i<n;i++)s+=`<ellipse cx="${x}" cy="${y-r*.28}" rx="${r*.26}" ry="${r*.4}" fill="${c2}" opacity=".85" transform="rotate(${i*360/n+180/n} ${x} ${y})"/>`;return s+`<circle cx="${x}" cy="${y}" r="${r*.2}" fill="#ffd27a"/>`}
+function bouquet(c1='#f2a7b8',c2='#d9476d',paper='#efe2d2',k=0){
+  const L='#7d9a76',L2='#9cb595';
+  const B=[[200,150,58],[140,180,46],[262,182,48],[180,100,40],[236,92,36],[110,128,30],[294,128,30],[200,210,40]];
+  let fl='';B.forEach(([x,y,r],i)=>{const a=i%3===0?c1:i%3===1?c2:'#fff4ec',b=i%3===0?c2:i%3===1?c1:c1;fl+=bloom(x+(k%2?6:0),y,r,a,b,i%2?6:8)});
+  return `<svg viewBox="0 0 400 420"><g stroke="${L}" stroke-width="5" fill="none" stroke-linecap="round"><path d="M200 400 L200 200M200 400 L140 190M200 400 L262 190M200 400 L110 130M200 400 L294 130"/></g>
+  <g fill="${L2}"><ellipse cx="90" cy="170" rx="18" ry="46" transform="rotate(-40 90 170)"/><ellipse cx="312" cy="170" rx="18" ry="46" transform="rotate(40 312 170)"/><ellipse cx="150" cy="70" rx="12" ry="34" transform="rotate(-20 150 70)"/><ellipse cx="258" cy="64" rx="12" ry="34" transform="rotate(24 258 64)"/></g>
+  ${fl}<path d="M110 250 L200 420 L290 250 L250 270 L200 250 L150 270Z" fill="${paper}"/><path d="M110 250 L200 420 L150 270Z" fill="#000" opacity=".06"/><path d="M168 318 Q200 300 232 318 L226 334 Q200 322 174 334Z" fill="${c2}"/></svg>`;
+}
+function ringText(txt,id){return `<svg viewBox="0 0 120 120"><defs><path id="${id}" d="M60 60 m-46 0 a46 46 0 1 1 92 0 a46 46 0 1 1 -92 0"/></defs><text><textPath href="#${id}">${txt}</textPath></text></svg>`}
+
+const SITES=[
+ {id:'nord',name:'NORD',type:'Архитектурное бюро',url:'nord-arch.ru',p2:'Проекты',desc:'Сайт бюро в духе тихой роскоши: крупная типографика, портфолио проектов, форма заявки.',tags:['Next.js','Headless CMS','GSAP']},
+ {id:'zerno',name:'Зерно',type:'Кофейня',url:'zerno.coffee',p2:'Меню',desc:'Тёплый сайт кофейни с меню, онлайн-заказом и картой точек.',tags:['Astro','Telegram Mini App','Stripe']},
+ {id:'pulse',name:'PULSE',type:'Фитнес-приложение',url:'pulse.fit',p2:'Тарифы',desc:'Лендинг фитнес-приложения: анимации, тарифы и запись на пробную тренировку.',tags:['React','Framer Motion','Supabase']},
+ {id:'aurora',name:'Aurora Lab',type:'3D-студия',url:'aurora-lab.io',p2:'Кейсы',desc:'Иммерсивный сайт студии 3D и motion-дизайна с WebGL-сценой.',tags:['Three.js','WebGL','Lenis']},
+ {id:'flora',name:'Флора',type:'Цветочный магазин',url:'flora-shop.ru',p2:'Букеты',desc:'Интернет-магазин букетов с каталогом, корзиной и доставкой за 2 часа.',tags:['Vue','Telegram Bot','ЮKassa']}
+];
+const navLinks=(s,page,cls='')=>['Главная',s.p2,'Контакты'].map(p=>`<a data-go="${p}" class="${p===page?'on':''} ${cls}">${p}</a>`).join('');
+
+/* ===== NORD ===== */
+const NORD_PROJ=[['Дом у озера','Карелия','2025','420 м²',0,'Дома'],['Лофт на Петроградке','Санкт-Петербург','2024','180 м²',3,'Интерьеры'],['Шале в горах','Домбай','2024','260 м²',1,'Дома'],['Офис студии','Москва','2023','600 м²',2,'Общественные'],['Вилла у залива','Хельсинки','2023','340 м²',1,'Дома'],['Квартира-галерея','Москва','2022','140 м²',3,'Интерьеры']];
+function siteNord(s,page,thumb){
+  const nav=`<div class="sn-nav"><span class="sn-logo">NORD</span><nav>${navLinks(s,page)}</nav><a class="sn-btn" data-go="Контакты">Связаться</a></div>`;
+  const hero=`<div class="sn-meta"><span>Бюро<b>Архитектура и интерьер</b></span><span>Студии<b>Санкт-Петербург — Хельсинки</b></span><span>Основано<b>2014</b></span><span>Статус<b>Берём 3 проекта на 2026</b></span></div>
+  <h1 class="sn-h1 serif">Дома, в которых <i>тихо</i></h1>
+  <div class="sn-hero-img">${house(0)}<div class="cap"><span>Дом у озера</span><span>Карелия · 2025</span></div></div>`;
+  if(thumb)return nav+hero;
+  if(page==='Главная')return nav+hero+`
+  <div class="sn-hero-foot"><p class="rv">Проектируем частные дома и интерьеры на стыке природы и бетона. Свет, тишина и честные материалы — от эскиза до ключей.</p><div class="act rv d1"><a class="sn-btn solid" data-go="Проекты">Смотреть проекты ${ARR}</a></div></div>
+  <section class="sn-sec"><div class="sn-lbl"><span>(01) Бюро</span><span>Философия</span></div>
+    <p class="sn-intro serif rv">Мы начинаем не с фасада, а с того, как <span class="chip">${house(1)}</span> утром падает свет и куда смотрит окно <span class="chip">${house(2)}</span> вашей кухни.</p>
+    <div class="sn-stats"><div class="rv"><b>48</b><span>реализованных проектов</span></div><div class="rv d1"><b>12</b><span>архитектурных премий</span></div><div class="rv d2"><b>14</b><span>месяцев от эскиза до ключей</span></div><div class="rv d3"><b>3</b><span>страны</span></div></div></section>
+  <section class="sn-sec"><div class="sn-lbl"><span>(02) Избранное</span><span>2022 — 2025</span></div>
+    <div class="sn-list">${NORD_PROJ.slice(0,4).map((p,i)=>`<a data-go="Проекты" class="rv"><span class="n">0${i+1}</span><span class="t">${p[0]}</span><span class="p">${p[1]} · ${p[3]}</span><span class="p y">${p[2]}</span>${ARR_UR}<span class="pv">${house(p[4])}</span></a>`).join('')}</div></section>
+  <section class="sn-sec"><div class="sn-lbl"><span>(03) Услуги</span><span>Под ключ</span></div>
+    <div class="sn-svc"><div class="rv"><em>01</em><b>Архитектура</b><p>Концепция, рабочий проект и согласования. Дом, вписанный в участок, а не поставленный на него.</p></div><div class="rv d1"><em>02</em><b>Интерьеры</b><p>Материалы, свет и мебель в одной концепции. Собираем образцы и делаем 3D каждой комнаты.</p></div><div class="rv d2"><em>03</em><b>Авторский надзор</b><p>Каждую неделю на объекте. Фотоотчёт и смета без сюрпризов.</p></div></div></section>
+  <section class="sn-sec"><div class="sn-quote"><div class="ph rv"></div><div class="rv d1"><q class="serif">Мы строим так, чтобы через 30 лет дом хотелось оставить детям.</q><small>Олег Норд, основатель бюро</small></div></div></section>
+  <section class="sn-cta"><h2 class="serif rv">Обсудим <i>ваш</i> дом?</h2><a class="sn-btn rv d1" data-go="Контакты">Оставить заявку ${ARR}</a></section>
+  ${nordFoot()}`;
+  if(page===s.p2)return nav+`<section class="sn-sec" style="border:0"><div class="sn-lbl"><span>Проекты</span><span>48 работ</span></div><h1 class="sn-h1 serif" style="padding:0 0 40px">Избранные <i>проекты</i></h1>
+    <div class="sn-chips" data-scope="nordf">${['Все','Дома','Интерьеры','Общественные'].map((c,i)=>`<button class="${i?'':'on'}" data-act="filter" data-f="${c}">${c}</button>`).join('')}</div>
+    <div class="sn-grid" data-items="nordf">${NORD_PROJ.map((p,i)=>`<a class="sn-card rv ${i%2?'d1':''}" data-cat="${p[5]}"><div class="img">${house(p[4])}</div><div class="row"><b>${p[0]}</b><span>${p[2]}</span></div><span>${p[1]} · ${p[3]} · ${p[5]}</span></a>`).join('')}</div></section>${nordFoot()}`;
+  return nav+`<section class="sn-sec" style="border:0"><div class="sn-lbl"><span>Контакты</span><span>Ответим в течение дня</span></div>
+    <div class="sn-form"><div><h1 class="sn-h1 serif" style="padding:0 0 30px;font-size:84px">Расскажите <i>об участке</i></h1>
+      <form data-demo><label>Имя<input placeholder="Как к вам обращаться"></label><label>Контакт<input placeholder="Телефон или Telegram"></label><label>О проекте<textarea rows="3" placeholder="Площадь, место, сроки"></textarea></label><button class="sn-btn solid" type="submit" style="align-self:flex-start">Отправить ${ARR}</button><span class="ok" hidden>Это демо: заявка никуда не ушла, но форма работает 🙂</span></form></div>
+      <aside class="rv"><small>Студия</small><b>Санкт-Петербург,<br>Набережная Мойки, 12</b>hello@nord-arch.ru<br>+7 812 000-00-00<br>Пн–Пт 10:00–19:00<div class="sn-map">${house(1)}</div></aside></div></section>${nordFoot()}`;
+}
+const nordFoot=()=>`<footer class="sn-foot"><div class="cols"><div><b>Студия</b>Санкт-Петербург<br>Хельсинки</div><div><b>Связь</b>hello@nord-arch.ru<br>+7 812 000-00-00</div><div><b>Соцсети</b>Telegram<br>Pinterest</div></div><div class="big">NORD</div></footer>`;
+
+/* ===== ЗЕРНО ===== */
+const ZMENU=[['Флэт уайт','Двойной эспрессо и бархатное молоко',290,'Кофе','#c88a5a','хит'],['Раф лаванда','Сливки, лавандовый сироп',340,'Кофе','#d9c2e6',''],['Фильтр дня','Эфиопия Гуджи, ягодные ноты',250,'Кофе','#7a3b1c','новинка'],['Капучино','Классика на нашей обжарке',260,'Кофе','#d6a77a',''],
+  ['Матча латте','Японская матча и овсяное молоко',320,'Не кофе','#9cc47a',''],['Какао','Бельгийский шоколад 54%',280,'Не кофе','#6b3a22',''],['Круассан','Печём утром на сливочном масле',180,'Выпечка','#e8b35c','хит'],['Синнабон','Корица и сливочный крем',220,'Выпечка','#d99a5c','']];
+function zItem(m,i){return `<div class="sz-item rv ${['','d1','d2','d3'][i%4]}" data-cat="${m[3]}"><div class="pic" style="background:${['#ffd8c2','#e9e0f2','#f3dcc6','#dfe9d3'][i%4]}">${m[5]?`<span class="tag">${m[5]}</span>`:''}<i class="c" style="${m[3]==='Выпечка'?`width:120px;height:70px;border-radius:60% 60% 45% 45%/70% 70% 40% 40%;background:radial-gradient(120% 90% at 50% 20%,#f6c776,${m[4]} 55%,#9a5a22)`:`background:radial-gradient(circle,${m[4]} 0 48%,#fff 50% 62%,#efe2cf 63%)`}"></i></div><b>${m[0]}</b><p>${m[1]}</p><div class="row"><span>${m[2]} ₽</span><button class="sz-add" data-act="add" data-price="${m[2]}" aria-label="Добавить">+</button></div></div>`}
+function siteZerno(s,page,thumb){
+  const n=CART[s.id]||{n:0,sum:0};
+  const nav=`<div class="sz-bar mq"><div>${'<span>доставка за 25 минут</span><span>каждая 7-я чашка в подарок</span><span>свежая обжарка каждую неделю</span>'.repeat(2)}</div><div>${'<span>доставка за 25 минут</span><span>каждая 7-я чашка в подарок</span><span>свежая обжарка каждую неделю</span>'.repeat(2)}</div></div>
+  <div class="sz-nav"><span class="sz-logo">зерно<i></i></span><nav>${navLinks(s,page)}</nav><a class="sz-cart" data-go="Меню">Корзина <b class="cart-n">${n.n}</b></a></div>`;
+  const hero=`<div class="sz-hero"><div><h1>кофе, который будит <span>мягко</span></h1><p>Три кофейни в центре, своя обжарка и доставка за 25 минут. Заказ в Telegram — забираешь без очереди.</p>
+    <div class="sz-acts"><a class="sz-btn" data-go="Меню">Открыть меню ${ARR}</a><a class="sz-btn ghost" data-go="Контакты">Где мы</a></div>
+    <div class="sz-rate"><span class="av"><i style="background:#ffb38a"></i><i style="background:#8fc0a9"></i><i style="background:#f1d46b"></i></span><span><b>4.9 ★</b> · 2 400 отзывов на картах</span></div></div>
+    <div class="sz-art"><div class="plate"><div class="cup">${LATTE}</div><span class="handle"></span></div><span class="badge">${ringText('свежая обжарка · каждую неделю · ','zr'+(++SVG_UID))}</span><span class="sz-promo">−10%<br>на первый<br>заказ</span>
+    <i class="bean" style="left:12%;top:8%;transform:rotate(-30deg)"></i><i class="bean" style="right:8%;bottom:6%;animation-delay:-2s;transform:rotate(40deg) scale(.8)"></i><i class="bean" style="left:40%;bottom:0;animation-delay:-4s;transform:scale(.6)"></i></div></div>`;
+  if(thumb)return nav+hero;
+  const foot=`<footer class="sz-foot"><div class="big">зерно</div><div class="row"><span>© 2026 Зерно · Ереван</span><span>Ежедневно 8:00–22:00</span><span>@zerno_coffee</span></div></footer>`;
+  if(page==='Главная')return nav+hero+`
+  <div class="sz-strip mq"><div>${'<span>флэт уайт</span><span>раф лаванда</span><span>фильтр дня</span><span>круассан</span><span>матча</span>'.repeat(2)}</div><div>${'<span>флэт уайт</span><span>раф лаванда</span><span>фильтр дня</span><span>круассан</span><span>матча</span>'.repeat(2)}</div></div>
+  <section class="sz-sec"><h2 class="sz-h2 rv">почему к нам возвращаются<small>Варим как для себя: свежие зёрна, честное молоко и бариста, которые помнят твой заказ.</small></h2>
+    <div class="sz-bento">
+      <div class="sz-b w2 rv"><h3>своя обжарка</h3><p>Эфиопия Гуджи · обжарка 12 октября</p>${ROAST}</div>
+      <div class="sz-b dark h2 rv d1"><h3>предзаказ в telegram</h3><p>Выбрал — оплатил — забрал. Без очереди и без звонков.</p><div class="sz-phone"><i class="me">Флэт уайт к 9:00</i><i>Принято ✅ Будет готов в 8:58</i><i class="me">Спасибо!</i></div></div>
+      <div class="sz-b orange rv d2"><h3>доставка</h3><p>В пределах центра</p><span class="sz-big">25′</span></div>
+      <div class="sz-b w2 rv"><h3>карта гостя</h3><p>Нажми на кружки — каждая 7-я чашка в подарок</p><div class="sz-stamps">${[1,2,3,4,5,6].map(i=>`<button data-act="stamp" class="${i<4?'on':''}" aria-label="Отметка ${i}">☕</button>`).join('')}<button data-act="stamp" aria-label="Подарок">🎁</button></div></div>
+      <div class="sz-b green rv d1"><h3>3 кофейни</h3><p>Абовяна · Сарьяна · Каскад</p><div class="sz-map"><i style="left:22%;top:40%"></i><i style="left:58%;top:22%"></i><i style="left:74%;top:58%"></i></div></div>
+    </div></section>
+  <section class="sz-sec" style="padding-top:0"><h2 class="sz-h2 rv">любимое гостей<small><a data-go="Меню" style="text-decoration:underline">Всё меню →</a></small></h2><div class="sz-menu">${ZMENU.filter(m=>m[5]||m[0]==='Матча латте').slice(0,4).map(zItem).join('')}</div></section>
+  <section class="sz-sec" style="padding-top:0"><h2 class="sz-h2 rv">говорят гости</h2><div class="sz-revs"><div class="sz-rev rv"><q>Лучший флэт уайт в городе. Захожу каждое утро перед работой.</q><small>Аня · гость с 2023</small></div><div class="sz-rev rv d1"><q>Заказываю в Telegram из такси — к приезду всё готово.</q><small>Давид · Telegram-предзаказ</small></div><div class="sz-rev rv d2"><q>Круассаны как в Париже, только ближе и дешевле.</q><small>Мари · любит выпечку</small></div></div></section>${foot}`;
+  if(page===s.p2)return nav+`<section class="sz-sec"><h2 class="sz-h2">меню<small>Цены за стандартный объём. Альтернативное молоко бесплатно.</small></h2>
+    <div class="sz-tabs" data-scope="zm">${['Всё','Кофе','Не кофе','Выпечка'].map((c,i)=>`<button class="${i?'':'on'}" data-act="filter" data-f="${c==='Всё'?'Все':c}">${c}</button>`).join('')}</div>
+    <div class="sz-menu" data-items="zm">${ZMENU.map(zItem).join('')}</div>
+    <div class="sz-checkout"><span>В корзине: <span class="cart-n">${n.n}</span> · <span class="cart-sum">${n.sum}</span> ₽</span><a class="sz-btn" data-go="Контакты">Оформить в Telegram</a></div></section>${foot}`;
+  return nav+`<section class="sz-sec"><h2 class="sz-h2">где нас найти<small>Все кофейни открыты каждый день с 8:00 до 22:00.</small></h2>
+    <div class="sz-locs">${[['Абовяна','ул. Абовяна, 12 · у метро Республики'],['Сарьяна','ул. Сарьяна, 21 · тихий двор с террасой'],['Каскад','ул. Таманяна, 3 · вид на Каскад']].map((l,i)=>`<div class="sz-loc rv ${i?'d'+i:''}"><div class="m"><i></i></div><div class="t"><b>${l[0]}</b><p>${l[1]}</p><span class="open">● открыто до 22:00</span></div></div>`).join('')}</div></section>
+    <section class="sz-sec" style="padding-top:0"><h2 class="sz-h2">кейтеринг и опт</h2><form class="sz-form" data-demo><input placeholder="Имя"><input placeholder="Телефон или Telegram"><textarea rows="3" placeholder="Сколько гостей и когда?"></textarea><button class="sz-btn" type="submit" style="justify-self:start">Отправить ${ARR}</button><span class="ok" hidden>Это демо: заявка никуда не ушла, но форма работает 🙂</span></form></section>${foot}`;
+}
+
+/* ===== PULSE ===== */
+function sitePulse(s,page,thumb){
+  const nav=`<div class="sp-nav"><span class="sp-logo"><i></i>PULSE</span><nav>${navLinks(s,page)}</nav><a class="sp-btn" data-go="Тарифы">Начать бесплатно</a></div>`;
+  const hero=`<div class="sp-hero"><div><span class="sp-pill"><b>NEW</b> ИИ-тренер теперь понимает голос</span><h1>Сильнее <span>каждую</span> неделю</h1><p>План тренировок подстраивается под пульс, сон и настроение. Как личный тренер, только в кармане.</p>
+    <div class="sp-acts"><a class="sp-store" data-go="Тарифы"><span style="font-size:22px"></span><span>Загрузите в<b>App Store</b></span></a><a class="sp-store dk" data-go="Тарифы"><span style="font-size:20px">▶</span><span>Доступно в<b>Google Play</b></span></a></div>
+    <div class="sp-users"><span class="av"><i style="background:linear-gradient(135deg,#ffb38a,#ff6a6a)"></i><i style="background:linear-gradient(135deg,#8fd3ff,#6b7cff)"></i><i style="background:linear-gradient(135deg,#c8ff3d,#4caf50)"></i><i style="background:linear-gradient(135deg,#f1d46b,#ff9f43)"></i></span><span><b>120 000+</b> тренируются с PULSE</span></div></div>
+    <div class="sp-phone-w"><div class="sp-phone"><div class="sp-screen"><div class="hi">Доброе утро<b>Максим 👋</b></div>
+      <div class="sp-ring"><svg viewBox="0 0 140 140"><circle cx="70" cy="70" r="60" fill="none" stroke="#1e211c" stroke-width="12"/><circle class="bar" cx="70" cy="70" r="60" fill="none" stroke="#c8ff3d" stroke-width="12" stroke-linecap="round"/></svg><div><b>76%</b><span>цель дня</span></div></div>
+      <div class="sp-mini"><small><span>Пульс</span><span style="color:#ff6a6a">● 142</span></small><svg viewBox="0 0 200 40" preserveAspectRatio="none"><path class="sp-ecg2" d="M0 22 H40 L48 22 L54 6 L62 36 L68 22 H110 L118 22 L124 4 L132 38 L138 22 H200" fill="none" stroke="#ff6a6a" stroke-width="2"/></svg></div>
+      <div class="sp-wk"><i>▶</i><div><b>Верх тела · 32 мин</b><span>Нагрузка снижена: плохо спал</span></div></div></div></div>
+      <div class="sp-float" style="left:0;top:16%"><span>Пульс</span><b>142 <em>bpm</em></b></div><div class="sp-float" style="right:0;top:42%;animation-delay:-2s"><span>Сон</span><b>7ч 40м</b></div><div class="sp-float" style="left:4%;bottom:12%;animation-delay:-3.5s"><span>Сила за месяц</span><b><em>+12%</em></b></div></div></div>`;
+  if(thumb)return nav+hero;
+  const foot=`<footer class="sp-foot"><span>© 2026 PULSE</span><span>Сделано для тех, кто не сдаётся</span><span>support@pulse.fit</span></footer>`;
+  if(page==='Главная')return nav+hero+`
+  <div class="sp-logos"><span>Работает с</span><div class="mq"><div>${'<span>Apple Health</span><span>Garmin</span><span>Mi Band</span><span>Polar</span><span>Google Fit</span><span>Strava</span>'.repeat(2)}</div><div>${'<span>Apple Health</span><span>Garmin</span><span>Mi Band</span><span>Polar</span><span>Google Fit</span><span>Strava</span>'.repeat(2)}</div></div></div>
+  <section class="sp-sec"><h2 class="sp-h2 rv">Всё, что нужно, <span>и ничего лишнего</span></h2>
+    <div class="sp-bento">
+      <div class="sp-b h2 rv"><h3>ИИ-тренер в чате</h3><p>Спроси что угодно — он знает твою историю тренировок.</p><div class="sp-chat"><i>Колено побаливает, что делать с ногами сегодня?</i><i class="ai">Убрал выпады и прыжки. Добавил ягодичный мост и велосипед — 25 минут без ударной нагрузки 👌</i><i>Огонь, погнали</i></div></div>
+      <div class="sp-b w4 lime rv d1"><h3>Умный план</h3><p>Нагрузка меняется по твоим данным каждый день.</p><span class="sp-big">+38%</span></div>
+      <div class="sp-b rv d2"><h3>Неделя</h3><div class="sp-bars">${[['Пн',40],['Вт',70],['Ср',30],['Чт',90],['Пт',60],['Сб',100],['Вс',20]].map(([d,h],i)=>`<i data-d="${d}" class="${i===5?'on':''}" style="height:${h}%"></i>`).join('')}</div></div>
+      <div class="sp-b rv d3"><h3>Сон</h3><p>7ч 40м · глубокий 1ч 52м</p><div class="sp-sleep">${[30,60,90,50,80,40,70,100,60,30,50,80,45,65].map(h=>`<i style="height:${h}%;opacity:${.4+h/170}"></i>`).join('')}</div></div>
+    </div></section>
+  <section class="sp-sec" style="padding-top:0"><h2 class="sp-h2 rv">Три шага <span>до первой тренировки</span></h2><div class="sp-steps"><div class="rv"><b>Подключи часы</b><p>Apple Watch, Garmin или Mi Band — данные подтянутся сами.</p></div><div class="rv d1"><b>Расскажи о цели</b><p>Похудеть, набрать силу или просто двигаться больше.</p></div><div class="rv d2"><b>Тренируйся</b><p>План готов через минуту и обновляется каждое утро.</p></div></div>
+    <div class="sp-nums"><div class="rv"><b>4.9</b><span>рейтинг в App Store</span></div><div class="rv d1"><b>120k</b><span>активных пользователей</span></div><div class="rv d2"><b>−6 кг</b><span>в среднем за 2 месяца</span></div><div class="rv d3"><b>15′</b><span>минимальная тренировка</span></div></div></section>
+  <section class="sp-sec" style="padding-top:0"><h2 class="sp-h2 rv">Говорят <span>пользователи</span></h2><div class="sp-revs">${[['Минус 6 кг за два месяца без срывов. Впервые не бросил на третьей неделе.','Максим','Москва','#6b7cff'],['Тренер понял, что я после ночной смены, и сам облегчил план. Это магия.','Лена','медсестра','#ff6a6a'],['Подключил Garmin, и бег наконец перестал быть хаосом.','Артур','марафонец','#c8ff3d']].map((r,i)=>`<div class="sp-rev rv ${i?'d'+i:''}"><span class="st">★★★★★</span><q>${r[0]}</q><div class="who"><i style="background:${r[3]}"></i><span><b>${r[1]}</b>${r[2]}</span></div></div>`).join('')}</div></section>
+  <section class="sp-cta rv"><h2>Первая неделя — бесплатно</h2><p>Без карты и обязательств. Отменить можно в один тап.</p><a class="sp-btn" data-go="Тарифы">Выбрать тариф ${ARR}</a><svg viewBox="0 0 400 200"><path class="sp-ecg2" d="M0 110 H120 L140 110 L156 40 L176 170 L192 110 H260 L276 110 L288 60 L302 150 L314 110 H400" fill="none" stroke="#0a0b0a" stroke-width="6" stroke-linejoin="round"/></svg></section>${foot}`;
+  if(page===s.p2)return nav+`<section class="sp-sec" style="text-align:center"><h1 class="sp-h2" style="margin:0 auto 26px">Тарифы <span>без сюрпризов</span></h1>
+    <div class="sp-toggle"><button class="on" data-act="bill" data-v="mo">Помесячно</button><button data-act="bill" data-v="yr">За год <em>−30%</em></button></div>
+    <div class="sp-plans" style="text-align:left">
+      <div class="sp-plan rv"><h3>Старт</h3><div class="pr">0 ₽<small> / навсегда</small></div><ul><li>Базовые программы</li><li>Трекинг тренировок</li><li>Синхронизация с часами</li></ul><a class="sp-btn ghost" data-go="Контакты">Начать</a></div>
+      <div class="sp-plan hot rv d1"><span class="tg">Популярный</span><h3>Про</h3><div class="pr"><span class="mo">490 ₽</span><span class="yr">340 ₽</span><small> / мес</small></div><ul><li>ИИ-тренер в чате</li><li>План по пульсу и сну</li><li>Питание и КБЖУ</li><li>Без рекламы</li></ul><a class="sp-btn" data-go="Контакты">Попробовать 7 дней</a></div>
+      <div class="sp-plan rv d2"><h3>Команда</h3><div class="pr"><span class="mo">2 900 ₽</span><span class="yr">2 030 ₽</span><small> / мес</small></div><ul><li>До 10 человек</li><li>Общие челленджи</li><li>Панель тренера</li><li>Приоритетная поддержка</li></ul><a class="sp-btn ghost" data-go="Контакты">Связаться</a></div></div></section>
+    <section class="sp-sec" style="padding-top:0"><h2 class="sp-h2">Частые вопросы</h2><div class="sp-faq">
+      <details open><summary>Нужны ли смарт-часы?</summary><p>Нет. С часами план точнее, но приложение работает и без них — по самочувствию, которое ты отмечаешь после тренировки.</p></details>
+      <details><summary>Как отменить подписку?</summary><p>В профиле, в один тап. Деньги за неиспользованные дни вернём.</p></details>
+      <details><summary>Подойдёт новичку?</summary><p>Да. Первая неделя — лёгкая диагностика: тренер смотрит, что тебе по силам, и строит план от этого.</p></details></div></section>${foot}`;
+  return nav+`<section class="sp-sec"><div class="sp-form"><div><h1 class="sp-h2">Остались <span>вопросы?</span></h1><p style="color:var(--mute);font-size:17px;line-height:1.6;max-width:36ch">Пишите — ответим в течение часа. Для команд и фитнес-клубов есть отдельные условия.</p><div class="sp-nums" style="grid-template-columns:1fr 1fr;max-width:420px"><div><b>1ч</b><span>среднее время ответа</span></div><div><b>24/7</b><span>чат в приложении</span></div></div></div>
+    <form data-demo><input placeholder="Имя"><input placeholder="Email или Telegram"><textarea rows="4" placeholder="Сообщение"></textarea><button class="sp-btn" type="submit" style="justify-content:center">Отправить</button><span class="ok" hidden>Это демо: заявка никуда не ушла, но форма работает 🙂</span></form></div></section>${foot}`;
+}
+
+/* ===== AURORA LAB ===== */
+const SA_ART=[
+  `<div style="inset:0;background:radial-gradient(60% 80% at 30% 40%,#5ee0ff55,transparent),radial-gradient(50% 70% at 75% 70%,#ff7ad955,transparent),#0d0c26"></div><div style="left:50%;top:50%;width:150px;height:150px;margin:-75px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#9b8aff 40%,#1b1450 80%);box-shadow:0 0 80px #9b8aff88"></div><div style="left:50%;top:50%;width:260px;height:70px;margin:-35px -130px;border:2px solid #ffffff55;border-radius:50%;transform:rotate(-14deg)"></div>`,
+  `<div style="inset:0;background:linear-gradient(135deg,#1a0f3a,#06061a)"></div><div style="left:18%;top:20%;width:64%;height:60%;border-radius:24px;background:linear-gradient(135deg,#ff7ad9,#9b8aff);transform:perspective(600px) rotateY(-24deg) rotateX(12deg);box-shadow:30px 40px 80px #000a"></div><div style="left:28%;top:32%;width:44%;height:8px;border-radius:8px;background:#ffffffaa;transform:perspective(600px) rotateY(-24deg) rotateX(12deg)"></div>`,
+  `<div style="inset:0;background:#07122a"></div>${[0,1,2,3,4,5].map(i=>`<div style="left:${10+i*14}%;bottom:0;width:9%;height:${30+((i*37)%55)}%;border-radius:12px 12px 0 0;background:linear-gradient(180deg,#5ee0ff,#5ee0ff11)"></div>`).join('')}<div style="left:0;right:0;top:38%;height:2px;background:linear-gradient(90deg,transparent,#5ee0ff,transparent)"></div>`,
+  `<div style="inset:0;background:conic-gradient(from 200deg at 50% 60%,#ff7ad9,#9b8aff,#5ee0ff,#ff7ad9);filter:blur(30px);opacity:.7"></div><div style="inset:0;background:#06061a88"></div><div style="left:50%;top:50%;width:120px;height:120px;margin:-60px;background:#eeeefb;border-radius:30px;transform:rotate(45deg);box-shadow:0 0 60px #fff8"></div>`];
+const SA_CASES=[['Volt Audio','3D-витрина наушников','×2','конверсия',0,['WebGL','Three.js','E-commerce']],['Orbit Bank','Анимация приложения','+41%','удержание',1,['Motion','Lottie','iOS']],['Метро 2030','AR-навигация по станциям','1.2M','запусков',2,['AR','Unity','8th Wall']],['Nova Perfume','Интерактивный запуск аромата','8 мин','время на сайте',3,['WebGL','Shaders','Sound']]];
+function siteAurora(s,page,thumb){
+  const bg=`<div class="sa-aur"><i></i><i></i><i></i></div><div class="sa-spot"></div><div class="sa-grain"></div>`;
+  const nav=`<div class="sa-nav"><span class="sa-logo"><i></i>Aurora Lab</span><nav>${navLinks(s,page)}</nav><a class="sa-btn" data-go="Контакты">Обсудить проект</a></div>`;
+  const hero=`<div class="sa-hero"><span class="sa-pill"><i></i>Принимаем проекты на 2026</span><h1>Делаем экраны <span class="sa-grad">живыми</span></h1><p>Интерактивные сайты, 3D-визуализации и анимация продуктов, после которых бренд запоминают.</p>
+    <div class="sa-acts"><a class="sa-btn" data-go="Кейсы">Смотреть кейсы ${ARR}</a><a class="sa-btn ghost" data-go="Контакты">Бриф за 2 минуты</a></div>
+    <div class="sa-stage"><span class="sa-ring r3"></span><span class="sa-ring r1"></span><span class="sa-ring r2"></span><span class="sa-orb"></span><div class="sa-glass" style="left:8%;top:22%"><span>Сайт дня</span><b>×3</b></div><div class="sa-glass" style="right:8%;top:56%;animation-delay:-3s"><span>FPS на мобильных</span><b>60</b></div></div></div>`;
+  if(thumb)return bg+nav+hero;
+  const foot=`<footer class="sa-foot"><span>© 2026 Aurora Lab</span><span>Ереван · Берлин · онлайн</span><span>hi@aurora-lab.io</span></footer>`;
+  if(page==='Главная')return bg+nav+hero+`
+  <div class="sa-clients mq"><div>${'<span>Volt Audio</span><span>Orbit Bank</span><span>Метро 2030</span><span>Nova</span><span>Kinetik</span><span>Halo</span>'.repeat(2)}</div><div>${'<span>Volt Audio</span><span>Orbit Bank</span><span>Метро 2030</span><span>Nova</span><span>Kinetik</span><span>Halo</span>'.repeat(2)}</div></div>
+  <section class="sa-sec"><span class="sa-k">Избранные кейсы</span><h2 class="sa-h2 rv">Работы, которые <span class="sa-grad">двигают цифры</span></h2>
+    <div class="sa-cases">${SA_CASES.map((c,i)=>`<a class="sa-case rv ${i%2?'d1':''}" data-go="Кейсы"><div class="art">${SA_ART[c[4]]}</div><div class="meta"><div><b>${c[0]}</b><span>${c[1]}</span></div><div style="text-align:right"><em class="sa-grad">${c[2]}</em><br><span>${c[3]}</span></div></div></a>`).join('')}</div></section>
+  <section class="sa-sec" style="padding-top:0"><span class="sa-k">Что делаем</span><h2 class="sa-h2 rv">От идеи <span class="sa-grad">до релиза</span></h2>
+    <div class="sa-svc"><div class="rv"><i>◎</i><b>WebGL-сайты</b><p>3D прямо в браузере, 60 FPS даже на телефоне.</p></div><div class="rv d1"><i>◇</i><b>Product 3D</b><p>Рендеры и анимация товаров для запуска и рекламы.</p></div><div class="rv d2"><i>◐</i><b>Motion</b><p>Анимация интерфейсов и брендов, Lottie и Rive.</p></div><div class="rv d3"><i>✦</i><b>AR</b><p>Примерка и навигация в камере телефона.</p></div></div></section>
+  <section class="sa-sec" style="padding-top:0"><span class="sa-k">Процесс</span><h2 class="sa-h2 rv">Восемь недель <span class="sa-grad">без хаоса</span></h2>
+    <div class="sa-proc"><div class="rv"><em>Неделя 1</em><b>Разбор</b><p>Цели, аудитория, референсы и метрики успеха.</p></div><div class="rv d1"><em>Недели 2–3</em><b>Концепт</b><p>Мудборд, стиль и интерактивный прототип.</p></div><div class="rv d2"><em>Недели 4–7</em><b>Продакшн</b><p>3D, код, шейдеры и оптимизация.</p></div><div class="rv d3"><em>Неделя 8</em><b>Запуск</b><p>Релиз, аналитика и поддержка.</p></div></div></section>
+  <section class="sa-cta rv"><span class="sa-k">Есть идея?</span><h2>Давайте сделаем <span class="sa-grad">вау</span></h2><a class="sa-btn" data-go="Контакты">Заполнить бриф ${ARR}</a></section>${foot}`;
+  if(page===s.p2)return bg+nav+`<section class="sa-sec" style="padding-top:80px"><span class="sa-k">Кейсы</span><h1 class="sa-h2">Проекты <span class="sa-grad">2025–2026</span></h1><div class="sa-big">${SA_CASES.map((c,i)=>`<div class="sa-case rv"><div class="art">${SA_ART[c[4]]}</div><div class="meta"><span>${c[1]}</span><b style="font-size:34px;margin-top:6px">${c[0]}</b><p>Сделали за 8 недель: концепт, 3D, разработка и запуск. Результат — <b class="sa-grad" style="display:inline;font-size:inherit">${c[2]}</b> ${c[3]}.</p><div class="sa-tags">${c[5].map(t=>`<span>${t}</span>`).join('')}</div></div></div>`).join('')}</div></section>${foot}`;
+  return bg+nav+`<section class="sa-sec" style="padding-top:80px"><div class="sa-form"><span class="sa-k">Бриф</span><h1 class="sa-h2">Расскажите <span class="sa-grad">о проекте</span></h1>
+    <label>Что нужно</label><div class="sa-opts" data-multi>${['WebGL-сайт','Product 3D','Motion','AR','Пока не знаю'].map((o,i)=>`<button data-act="opt" class="${i?'':'on'}">${o}</button>`).join('')}</div>
+    <label>Бюджет</label><div class="sa-opts">${['до $10k','$10–30k','$30–60k','$60k+'].map((o,i)=>`<button data-act="opt1" class="${i===1?'on':''}">${o}</button>`).join('')}</div>
+    <form data-demo><label>Имя<input placeholder="Как вас зовут"></label><label>Почта или Telegram<input placeholder="hello@company.com"></label><label>Пара слов о задаче<textarea rows="3" placeholder="Сроки, ссылки, идеи"></textarea></label><button class="sa-btn" type="submit">Отправить бриф ${ARR}</button><span class="ok" hidden>Это демо: заявка никуда не ушла, но форма работает 🙂</span></form></div></section>${foot}`;
+}
+
+/* ===== ФЛОРА ===== */
+const FPAL=[['#f2a7b8','#d9476d','#efe2d2'],['#ffffff','#f6d3da','#d9e4d6'],['#ffc9a8','#f08a5d','#f3e3cf'],['#e3c2ff','#a46bd6','#efe2d2'],['#fff1b8','#f2a7b8','#e7efe2'],['#ffb3b3','#c9304f','#f2dcd6']];
+const FPROD=[['Пионовый рассвет','15 пионов и эвкалипт',4900,0,'Пионы','хит'],['Облако','Гортензия и кустовые розы',3600,1,'Розы',''],['Полевой','Сезонные цветы',2400,4,'Сезонные','−15%'],['Персик','Ранункулюсы и роза Пич Аваланч',4200,2,'Розы','новинка'],['Лаванда','Сухоцветы и лаванда в коробке',3100,3,'Сухоцветы',''],['Алый','25 красных роз',5600,5,'Розы','']];
+function fProd(p,i){const c=FPAL[p[3]];return `<div class="sf-prod rv ${['','d1','d2'][i%3]}" data-cat="${p[4]}"><div class="pic" style="background:${['#f7dfe2','#eef0e8','#fbe6d6','#efe5f6','#f8f1dc','#f6dcdc'][p[3]]}">${p[5]?`<span class="tg">${p[5]}</span>`:''}<button class="like" data-act="like" aria-label="В избранное">♥</button>${bouquet(c[0],c[1],c[2],i)}</div><div class="row"><b>${p[0]}</b><span class="pr">${p[2].toLocaleString('ru-RU')} ₽</span></div><p>${p[1]}</p><button class="sf-btn light" data-act="add" data-price="${p[2]}">В корзину</button></div>`}
+function siteFlora(s,page,thumb){
+  const n=CART[s.id]||{n:0,sum:0};
+  const nav=`<div class="sf-top">Бесплатная доставка от 3 000 ₽ · фото букета перед отправкой</div><div class="sf-nav"><nav>${navLinks(s,page)}</nav><span class="sf-logo">Фл<b>о</b>ра</span><a class="sf-cart" data-go="Букеты">Корзина <b class="cart-n">${n.n}</b></a></div>`;
+  const hero=`<div class="sf-hero"><div><span class="k">🌷 Собираем утром · доставляем за 2 часа</span><h1>Цветы, которые <i>говорят</i> за тебя</h1><p>Букеты из сезонных цветов с рынка. Покажем фото перед отправкой и вложим открытку с твоими словами.</p>
+    <div class="sf-check"><input placeholder="Куда доставить? Например, ул. Абовяна" aria-label="Адрес"><button class="sf-btn" data-act="check">Проверить</button></div><div class="sf-res" hidden>✓ Доставим сегодня за 1 ч 40 мин</div>
+    <div class="sf-trust"><span><b>12 400</b>букетов в этом году</span><span><b>4.9</b>средняя оценка</span><span><b>2 ч</b>доставка</span></div></div>
+    <div class="sf-arch"><div class="fr">${bouquet('#ffffff','#d9476d','#efe2d2',0)}</div><span class="seal">${ringText('свежие цветы · каждое утро · ','fl'+(++SVG_UID))}</span><div class="bdg"><i>📸</i><span><b>Фото перед отправкой</b>в Telegram</span></div></div></div>`;
+  if(thumb)return nav+hero;
+  const foot=`<footer class="sf-foot"><div class="big">Флора</div><div class="row"><span>© 2026 Флора · Ереван</span><span>Ежедневно 9:00–21:00</span><span>@flora_shop</span></div></footer>`;
+  if(page==='Главная')return nav+hero+`
+  <section class="sf-sec" style="padding-top:20px"><div class="sf-cats">${[['Пионы',0],['Розы',5],['Сезонные',4],['Сухоцветы',3],['В коробке',2]].map(([t,k],i)=>`<a data-go="Букеты" class="rv ${['','d1','d2','d3','d4'][i]}"><span class="c">${bouquet(FPAL[k][0],FPAL[k][1],'transparent',i)}</span><b>${t}</b></a>`).join('')}</div></section>
+  <section class="sf-sec" style="padding-top:20px"><div class="sf-h2"><h2>Любимые <i>букеты</i></h2><a data-go="Букеты">Весь каталог →</a></div><div class="sf-prods">${FPROD.slice(0,3).map(fProd).join('')}</div></section>
+  <section class="sf-sec" style="padding-top:20px"><div class="sf-sub rv"><div class="l"><h2>Цветы домой <i>по подписке</i></h2><p>Свежий букет приезжает сам, а ты просто радуешься. Пауза или отмена — в один клик.</p>
+    <div class="sf-plans">${[['Раз в неделю','2 900 ₽'],['Раз в 2 недели','3 200 ₽'],['Раз в месяц','3 600 ₽']].map((p,i)=>`<button data-act="plan" class="${i===1?'on':''}"><span>${p[0]}</span><b>${p[1]}</b></button>`).join('')}</div><a class="sf-btn" data-go="Контакты">Оформить подписку</a></div><div class="r">${bouquet('#fff4ec','#f6d3da','#efe2d2',1)}</div></div></section>
+  <section class="sf-sec" style="padding-top:20px"><div class="sf-h2"><h2>Нам <i>пишут</i></h2></div><div class="sf-revs">${[['Мама плакала от радости. Спасибо за открытку!','Дарья · Пионовый рассвет'],['Прислали фото до отправки — и букет приехал точно таким же.','Арам · Облако'],['Подписка — лучшее, что я себе подарила в этом году.','Нина · подписка'] ].map((r,i)=>`<div class="sf-rev rv ${i?'d'+i:''}"><span class="st">★★★★★</span><q>${r[0]}</q><small>${r[1]}</small></div>`).join('')}</div></section>${foot}`;
+  if(page===s.p2)return nav+`<section class="sf-sec"><div class="sf-h2"><h2>Каталог <i>букетов</i></h2><a data-go="Контакты">Нужен особый букет?</a></div>
+    <div class="sf-chips" data-scope="ff">${['Все','Пионы','Розы','Сезонные','Сухоцветы'].map((c,i)=>`<button class="${i?'':'on'}" data-act="filter" data-f="${c}">${c}</button>`).join('')}</div>
+    <div class="sf-prods" data-items="ff">${FPROD.map(fProd).join('')}</div></section>${foot}`;
+  return nav+`<section class="sf-sec"><div class="sf-h2"><h2>Свяжитесь <i>с нами</i></h2></div><div class="sf-contact"><div class="sf-info"><div><small>Мастерская</small><b>Ереван, ул. Абовяна, 12</b></div><div><small>Telegram</small><b>@flora_shop</b></div><div><small>Время работы</small><b>Ежедневно 9:00–21:00</b></div></div>
+    <form data-demo><input placeholder="Имя"><input placeholder="Телефон или Telegram"><textarea rows="4" placeholder="Какой букет и к какому дню?"></textarea><button class="sf-btn" type="submit">Отправить</button><span class="ok" hidden>Это демо: заявка никуда не ушла, но форма работает 🙂</span></form></div></section>${foot}`;
+}
+
+const SITE_R={nord:[siteNord,'sn'],zerno:[siteZerno,'sz'],pulse:[sitePulse,'sp'],aurora:[siteAurora,'sa'],flora:[siteFlora,'sf']};
+function renderSite(s,page,thumb){const[f,c]=SITE_R[s.id];let h=f(s,page,thumb);
+  // превью лежит внутри кнопки-папки: вложенные кнопки и поля ломают разметку, меняем их на span
+  if(thumb)h=h.replace(/<button/g,'<span').replace(/<\/button>/g,'</span>').replace(/<input[^>]*>/g,'<span style="flex:1"></span>');
+  return `<div class="ds ${c}${thumb?' static':''}" data-site="${s.id}">${h}</div>`}
+
+/* взаимодействия внутри окна сайта */
+function siteInit(root){
+  const els=$$('.rv',root);
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{root:vwBody,threshold:.12});
+  els.forEach(e=>io.observe(e));
+}
+function siteAct(btn){
+  const ds=btn.closest('.ds'),id=ds.dataset.site,act=btn.dataset.act;
+  if(act==='filter'){const sc=btn.parentElement.dataset.scope,f=btn.dataset.f;$$('button',btn.parentElement).forEach(b=>b.classList.toggle('on',b===btn));
+    $$(`[data-items="${sc}"] [data-cat]`,ds).forEach(it=>{it.classList.toggle('hide',f!=='Все'&&it.dataset.cat!==f);it.classList.add('in')})}
+  else if(act==='add'){const c=CART[id]=CART[id]||{n:0,sum:0};c.n++;c.sum+=+btn.dataset.price;
+    $$('.cart-n',ds).forEach(e=>e.textContent=c.n);$$('.cart-sum',ds).forEach(e=>e.textContent=c.sum);
+    const cart=$('.sz-cart,.sf-cart',ds);if(cart){cart.classList.remove('bump');void cart.offsetWidth;cart.classList.add('bump')}
+    btn.classList.add('done');const old=btn.textContent;btn.textContent=btn.classList.contains('sz-add')?'✓':'Добавлено ✓';setTimeout(()=>{btn.classList.remove('done');btn.textContent=old},1100)}
+  else if(act==='stamp'){btn.classList.toggle('on')}
+  else if(act==='bill'){$$('button',btn.parentElement).forEach(b=>b.classList.toggle('on',b===btn));ds.classList.toggle('yearly',btn.dataset.v==='yr')}
+  else if(act==='opt'){btn.classList.toggle('on')}
+  else if(act==='opt1'||act==='plan'){$$('button',btn.parentElement).forEach(b=>b.classList.toggle('on',b===btn))}
+  else if(act==='like'){btn.classList.toggle('on')}
+  else if(act==='check'){const r=$('.sf-res',ds);if(r){r.hidden=false}}
 }
 
 /* ---------- 03 игры: демо «Чемодана» ---------- */
@@ -1256,7 +1941,7 @@ $('#siteFolders').innerHTML=SITES.map((s,i)=>`<button class="folder" type="butto
 </button>`).join('');
 $$('#siteFolders .folder').forEach(f=>f.addEventListener('click',()=>openSite(+f.dataset.s)));
 const vw=$('#vw'),vwBody=$('#vwBody');let vwSite=0,hist=[],hpos=-1;
-function vwShow(page,push=true){const s=SITES[vwSite];vwBody.innerHTML=renderSite(s,page);vwBody.scrollTop=0;
+function vwShow(page,push=true){const s=SITES[vwSite];vwBody.innerHTML=renderSite(s,page);vwBody.scrollTop=0;siteInit(vwBody);
   if(push){hist=hist.slice(0,hpos+1);hist.push(page);hpos=hist.length-1}
   $('#vwUrl').textContent=s.url+(page==='Главная'?'':'/'+page.toLowerCase());$('#vwBack').disabled=hpos<=0;$('#vwFwd').disabled=hpos>=hist.length-1}
 function openSite(i){vwSite=i;hist=[];hpos=-1;vw.classList.remove('full');vwShow('Главная');openModal(vw)}
@@ -1264,7 +1949,8 @@ $('#vwClose').onclick=()=>closeModal(vw);$('#vwMin').onclick=()=>closeModal(vw);
 $('#vwBack').onclick=()=>{if(hpos>0){hpos--;vwShow(hist[hpos],false)}};
 $('#vwFwd').onclick=()=>{if(hpos<hist.length-1){hpos++;vwShow(hist[hpos],false)}};
 vw.addEventListener('click',e=>{if(e.target===vw)closeModal(vw)});
-vwBody.addEventListener('click',e=>{const g=e.target.closest('[data-go]');if(g){e.preventDefault();vwShow(g.dataset.go)}});
+vwBody.addEventListener('click',e=>{const a=e.target.closest('[data-act]');if(a){e.preventDefault();siteAct(a);return}const g=e.target.closest('[data-go]');if(g){e.preventDefault();vwShow(g.dataset.go)}});
+vwBody.addEventListener('pointermove',e=>{const d=e.target.closest('.sa');if(!d)return;const r=d.getBoundingClientRect();d.style.setProperty('--mx',(e.clientX-r.left)+'px');d.style.setProperty('--my',(e.clientY-r.top)+'px')});
 vwBody.addEventListener('submit',e=>{e.preventDefault();const ok=e.target.querySelector('.ok');if(ok)ok.hidden=false});
 $('#mBots').addEventListener('click',e=>{if(e.target.id==='mBots')closeModal($('#mBots'))});
 
@@ -1350,7 +2036,7 @@ let lw=innerWidth;addEventListener('resize',()=>{if(innerWidth!==lw){lw=innerWid
 
 /* ---------- RU / EN: перевод текстовых узлов по словарю, оригиналы храним для обратного переключения ---------- */
 const I18N=(function(){
-  const EN={"Б":"B","П":"P","С":"S","я":"I'm","вс":"Sun","из":"of","пн":"Mon","Бот":"Bot","Про":"Pro","бот":"bot","Боты":"Bots","ИГРЫ":"GAMES","Игра":"Game","Игры":"Games","Идея":"Idea","Илья":"Ilya","Меню":"Menu","Мерч":"Merch","Сайт":"Website","Срок":"Timeline","Худи":"Hoodie","Цены":"Prices","· бот":"· bot","Анонс":"Announcement","Артём":"Artyom","Донат":"Donate","Дуэли":"Duels","Зерно":"Bean","Идея:":"Idea:","Кейсы":"Cases","Лютый":"Fierce","Назад":"Back","Отчёт":"Report","Принт":"Print","Сайты":"Websites","Срок:":"Timeline:","Старт":"Start","Флора":"Flora","Букеты":"Bouquets","Бюджет":"Budget","Вперёд":"Forward","Дизайн":"Design","Кэшбэк":"Cashback","Мастер":"Barber","НИКИТА":"NIKITA","Надзор":"Supervision","Никита":"Nikita","Облако":"Cloud","Срочно":"ASAP","Статус":"Status","Тарифы":"Plans","ЮKassa":"YooKassa","купили":"bought","★ Бриф":"★ Brief","100к ₽+":"100k ₽+","Аукцион":"Auction","Блокнот":"Notebook","Бюджет:":"Budget:","Галерея":"Gallery","Главная":"Home","Закрыть":"Close","Команда":"Team","Кофейня":"Coffee shop","Полевой":"Wildflower","Привет,":"Hi,","Проекты":"Projects","Разделы":"Sections","Чемодан":"Chemodan","в папке":"in the folder","· пример":"· sample","В начало":"Back to top","Диаспоры":"Diasporas","Запустим":"Let's launch it","Контакты":"Contacts","Круассан":"Croissant","Не горит":"No rush","Новичков":"Newcomers","Подписка":"Subscription","Прогресс":"Progress","Редкости":"Rarities","Розыгрыш":"Giveaway","Свернуть":"Collapse","Футболка":"T-shirt","до 30к ₽":"up to 30k ₽","заметили":"noticed","моя игра":"my game","полюбили":"loved","↑ Наверх":"↑ To top","30–100к ₽":"30–100k ₽","3D-студия":"3D studio","490 ₽/мес":"490 ₽/mo","Айдентика":"Identity","Есть идея":"Got an idea","Интерьеры":"Interiors","Отправить":"Send","Предзаказ":"Pre-order","Сообщение":"Message","Твоя идея":"Your idea","Три языка":"Three languages","Флэт уайт":"Flat white","Я человек":"I'm human","вернулись":"revisited","живой чат":"live chat","запомнили":"remembered","обсуждали":"talked about","2–4 недели":"2–4 weeks","Есть идея?":"Got an idea?","Записаться":"Book","Игровой UI":"Game UI","Метро 2030":"Metro 2030","Новый пост":"New post","Оплачено ✓":"Paid ✓","Развернуть":"Expand","Статистика":"Stats","Умный план":"Smart plan","Фильтр дня":"Brew of the day","Что делаем":"What we're building","2 900 ₽/мес":"2,900 ₽/mo","WebGL-сайты":"WebGL sites","Артём · топ":"Artyom · top","Дом у озера":"Lake house","Легендарный":"Legendary","Офис студии":"Studio office","Печём утром":"Baked every morning","Пришёл спам":"Spam came in","Раф лаванда":"Lavender raf","Скопировано":"Copied","Спам удалён":"Spam removed","Чат с ботом":"Chat with the bot","Что делаем:":"Building:","AR-навигация":"AR navigation","А ещё игры 🎮":"And games too 🎮","Завтра 10:00":"Tomorrow 10:00","Открыть меню":"Open menu","Пульс онлайн":"Live heart rate","Свежие цветы":"Fresh flowers","Своя обжарка":"Roasted in-house","Тапнуть кота":"Tap the cat","Частные дома":"Private houses","Чек · Бритва":"Receipt · Britva","Шале в горах":"Mountain chalet","можно гулять":"pets welcome","Esc — закрыть":"Esc to close","БРИФ · ЗАЯВКА":"BRIEF · REQUEST","Выбрать букет":"Choose a bouquet","Гардероб кота":"The cat's wardrobe","Делаю ботов 🤖":"I build bots 🤖","До 10 человек":"Up to 10 people","Зашёл новичок":"A newcomer joined","Карта Армении":"Map of Armenia","Лиги и сезоны":"Leagues & seasons","Листай вниз ↓":"Scroll down ↓","Мерч «Ментор»":"“Mentor” merch","Мой Telegram:":"My Telegram:","Неделя в чате":"A week in the chat","Пакеты валюты":"Currency packs","Пост на 19:00":"Post at 7 pm","Работа крупно":"Full-size view","Сегодня 19:00":"Today 7 pm","Скопировано ✓":"Copied ✓","Что мы делаем":"What we do","Борода — 600 ₽":"Beard — 600 ₽","И сайты с 3D ✨":"And sites with 3D ✨","Просмотр сайта":"Site preview","Сезонные цветы":"Seasonal flowers","Смотреть кейсы":"See case studies","© 2026 · Никита":"© 2026 · Nikita","Боты · Telegram":"Bots · Telegram","Бритва · запись":"Britva · booking","Выбери мастера:":"Pick a barber:","Выдели ник выше":"Select the handle above","Домбай · 260 м²":"Dombay · 260 m²","Кот-маскот игры":"The game's cat mascot","Москва · 600 м²":"Moscow · 600 m²","Обжариваем сами":"We roast our own","Обсудить проект":"Let's talk","Оплачу на месте":"I'll pay there","Оставить заявку":"Send a request","Охват за 7 дней":"Reach over 7 days","Сделано вручную":"Handmade","Скопировать ник":"Copy handle","Хей! Я Никита 👋":"Hey! I'm Nikita 👋","крупно по клику":"click to enlarge","Гортензия и розы":"Hydrangea & roses","Есть идея? Пиши!":"Got an idea? Text me!","Карелия · 420 м²":"Karelia · 420 m²","Кейсы с машинами":"Car cases","Оплатить 1 500 ₽":"Pay 1,500 ₽","Пионовый рассвет":"Peony sunrise","Сайты · Web · 3D":"Sites · Web · 3D","Скопировать бриф":"Copy brief","Смотреть проекты":"View projects","Стрижка + борода":"Haircut + beard","✅ Капча пройдена":"✅ Captcha passed","Аня, гость с 2023":"Anya, guest since 2023","Базовые программы":"Basic programs","Где мой ВНЖ, мяу?":"Where's my residence permit, meow?","Дарья, покупатель":"Daria, customer","Ложных блокировок":"False bans","Смотреть работы ↓":"See my work ↓","Совкомбанк · мерч":"Sovcombank · merch","Страж · модерация":"Strazh · moderation","Стрижка — 1 200 ₽":"Haircut — 1,200 ₽","Фитнес-приложение":"Fitness app","Цветочный магазин":"Flower shop","ЧЕМОДАН · CITYBIZ":"CHEMODAN · CITYBIZ","Архитектурное бюро":"Architecture firm","Беру заказы · 2026":"Open for work · 2026","Доставка за 2 часа":"Delivery in 2 hours","Команда Volt Audio":"Volt Audio team","Комплекс — 1 500 ₽":"Combo — 1,500 ₽","НИКИТА · Портфолио":"NIKITA · Portfolio","Попробовать 7 дней":"Try 7 days free","3D прямо в браузере":"3D right in the browser","@newbie зашёл в чат":"@newbie joined the chat","Анимация приложения":"App animation","Дизайн · UI · Brand":"Design · UI · Brand","Когда опубликовать?":"When should I post it?","Лофт на Петроградке":"Loft in Petrogradka","Свободно в субботу:":"Free on Saturday:","Сканируй с телефона":"Scan with your phone","▶ Играть в Telegram":"▶ Play in Telegram","15 пионов и эвкалипт":"15 peonies & eucalyptus","3D-витрина наушников":"3D headphone showcase","Архитектура · с 2014":"Architecture · since 2014","Выбери шаблон поста:":"Pick a post template:","Делаем экраны живыми":"We bring screens to life","Дома, в которых тихо":"Homes where it's quiet","Ежедневно 9:00–21:00":"Daily 9 am – 9 pm","Максим, пользователь":"Maxim, user","Постер · автопостинг":"Poster · autoposting","Сервисы для Telegram":"Telegram services","Фото перед отправкой":"Photo before delivery","18 образов · листай →":"18 outfits · swipe →","Записаться на субботу":"Book for Saturday","ИИ-тренер и аналитика":"AI coach & analytics","Олег Норд, основатель":"Oleg Nord, founder","Отвечу на все вопросы":"I'll answer all your questions","Сильнее каждую неделю":"Stronger every week","Эфиопия, ягодные ноты":"Ethiopia, berry notes","или найди в Telegram:":"or find it in Telegram:","Готово ✅ Записал тебя.":"Done ✅ You're booked.","Демо-сайт из портфолио":"Portfolio demo site","Разработчик / дизайнер":"Developer / designer","Синхронизация с часами":"Smartwatch sync","Ереван, ул. Абовяна, 12":"12 Abovyan St, Yerevan","Ответим в течение часа.":"We'll reply within an hour.","Запланировано в 3 канала":"Scheduled to 3 channels","Игры · Telegram Mini App":"Games · Telegram Mini App","Курс драма опять скачет…":"The dram rate is jumping again…","Покажем букет в Telegram":"We'll show you the bouquet in Telegram","Санкт-Петербург · 180 м²":"Saint Petersburg · 180 m²","Сливки, лавандовый сироп":"Cream, lavender syrup","Тренировки с ИИ-тренером":"Workouts with an AI coach","сражайся с котами друзей":"battle your friends' cats","QR-код со ссылкой на игру":"QR code with a link to the game","Кофе, который будит мягко":"Coffee that wakes you gently","Покажу, как это работает.":"Let me show you how it works.","Справку о доходах принёс?":"Brought your income statement?","Цветы домой каждую неделю":"Flowers at home every week","Я охраняю чаты от спама 🛡":"I guard chats from spam 🛡","Барев! Тапай, не стесняйся":"Barev! Go on, tap me","Выделено, скопируй вручную":"Selected, copy it manually","Готово ✅ Напомню за 2 часа":"Done ✅ I'll remind you 2 hours before","Каждая 7-я чашка в подарок":"Every 7th cup is on us","Примерка в камере телефона":"Try-on in your phone camera","Рендеры и анимация товаров":"Product renders & animation","Свежие зёрна каждую неделю":"Fresh beans every week","здесь будут 3D-инструменты":"3D tools go here","Делаю всё, чтобы ваш проект":"I make sure your project gets","Запланировано ✅ в 3 канала.":"Scheduled ✅ to 3 channels.","Наглядные графики и рекорды":"Clear charts and records","Мой 3D-аватар, нажми на него":"My 3D avatar, tap it","Привозим с рынка каждое утро":"Brought from the market every morning","Чемодан собран. Едем дальше?":"Suitcase packed. Shall we move on?","здесь будут 3D-окна браузера":"3D browser windows go here","Привет! Хочу обсудить проект.":"Hi! I'd like to discuss a project.","Ещё один визаран — и я эксперт":"One more visa run and I'm an expert","Запишу к мастеру за 30 секунд.":"I'll book you with a barber in 30 seconds.","Касса полная — забери выручку!":"The till is full, collect your cash!","Охват вырос на 38% за неделю 📈":"Reach grew 38% in a week 📈","Позови друзей — вместе веселее":"Invite friends, it's more fun together","Пришлю статистику через сутки.":"I'll send stats in 24 hours.","Цветы, которые говорят за тебя":"Flowers that speak for you","объединяйся с другими игроками":"team up with other players","русский, английский, армянский":"Russian, English, Armenian","В Гюмри кофе вкуснее, проверено":"Coffee tastes better in Gyumri, I checked","Следим за стройкой каждую неделю":"We check the build site every week","перекупай точки у других игроков":"buy out spots from other players","рейтинг обновляется каждый сезон":"rankings reset every season","Нагрузка меняется по твоим данным":"Training load adapts to your data","От эскиза до ключей за 14 месяцев":"From sketch to keys in 14 months","Сеть кофеен — это уже бизнес, мяу":"A coffee chain is a real business, meow","Двойной эспрессо и бархатное молоко":"Double espresso and velvety milk","Ждём тебя! Адрес: ул. Абовяна, 12 📍":"See you! Address: 12 Abovyan St 📍","Привет! Я бот барбершопа «Бритва» 💈":"Hi! I'm the Britva barbershop bot 💈","Хачапури или хоровац? Почему не оба":"Khachapuri or khorovats? Why not both","Минус 6 кг за два месяца без срывов.":"Lost 6 kg in two months, no slip-ups.","Сходи на карту — там кафе без хозяина":"Check the map, there's a café with no owner","Заказ в Telegram, забираешь без очереди":"Order in Telegram, skip the line","Материалы, свет и мебель в одной концепции":"Materials, light and furniture in one concept","Запись в барбершоп с оплатой и напоминаниями":"Barbershop booking with payments and reminders","Привет! Я планирую посты для твоих каналов 📅":"Hi! I schedule posts for your channels 📅","Три кофейни в центре и доставка за 25 минут.":"Three coffee shops downtown and delivery in 25 minutes.","✅ Проверка пройдена. Добро пожаловать в чат!":"✅ Check passed. Welcome to the chat!","Мама плакала от радости. Спасибо за открытку!":"Mom cried with joy. Thanks for the card!","Напомню за 2 часа до визита. Оплатить сейчас?":"I'll remind you 2 hours before. Pay now?","Отложенные посты в несколько каналов и отчёты":"Scheduled posts to several channels, plus reports","Лучший флэт уайт в городе. Захожу каждое утро.":"Best flat white in town. I stop by every morning.","🚫 Удалил сообщение со ссылкой от @crypto_bonus":"🚫 Deleted a message with a link from @crypto_bonus","Капча для новичков, антиспам и логи для админов":"Captcha for newcomers, anti-spam and logs for admins","18 тыс. реальных заведений, захват по геопозиции":"18k real venues, captured by geolocation","План подстраивается под пульс, сон и настроение.":"The plan adapts to your heart rate, sleep and mood.","Бот для записи клиентов с оплатой и напоминаниями":"A booking bot with payments and reminders","Пользователь в муте на 24 часа. Лог ушёл админам.":"User muted for 24 hours. Log sent to admins.","Дальше — карта и бизнесы. Жми «Играть в Telegram»!":"Next up: the map and businesses. Hit “Play in Telegram”!","Конверсия выросла в 2 раза после запуска 3D-витрины.":"Conversion doubled after the 3D showcase launched.","Это демо: заявка никуда не ушла, но форма работает 🙂":"It's a demo: nothing was sent, but the form works 🙂","👋 @newbie, подтверди, что ты не бот. У тебя 60 секунд.":"👋 @newbie, confirm you're not a bot. You have 60 seconds.","Интерактивные сайты, 3D-визуализации и анимация продуктов.":"Interactive sites, 3D visualization and product animation.","Собираем букеты из сезонных цветов и привозим с открыткой.":"We make bouquets from seasonal flowers and deliver them with a card.","Тёплый сайт кофейни с меню, онлайн-заказом и картой точек.":"A cozy coffee shop site with a menu, online ordering and a map of locations.","Иммерсивный сайт студии 3D и motion-дизайна с WebGL-сценой.":"An immersive site for a 3D and motion design studio with a WebGL scene.","Мы строим так, чтобы через 30 лет дом хотелось оставить детям.":"We build so that in 30 years you'll want to leave the house to your kids.","Проектируем частные дома и интерьеры на стыке природы и бетона.":"We design private homes and interiors where nature meets concrete.","Интернет-магазин букетов с каталогом, корзиной и доставкой за 2 часа.":"An online bouquet shop with a catalog, cart and 2-hour delivery.","Лендинг фитнес-приложения: анимации, тарифы и запись на пробную тренировку.":"A fitness app landing page: animations, pricing and a free trial sign-up.","Демо тапа с настоящим котом из игры. Карта, бизнесы и дуэли ждут в Telegram.":"A tap demo with the real cat from the game. The map, businesses and duels are waiting in Telegram.","Каждая папка открывает живой сайт в окне браузера: меню, страницы, формы работают.":"Each folder opens a live site in a browser window: menus, pages and forms all work.","Переезжай, открывай бизнес, захватывай кафе на карте Армении и собирай гардероб кота.":"Move abroad, start a business, capture cafés on the map of Armenia and collect the cat's wardrobe.","Сайт бюро в духе тихой роскоши: крупная типографика, портфолио проектов, форма заявки.":"A quiet-luxury site for an architecture firm: big typography, a project portfolio and a request form.","Мерч, игровые предметы и визуал для брендов. Открой папку, чтобы листать работы крупно.":"Merch, in-game items and brand visuals. Open a folder to browse the work full-size.","Открой папку, и бот ответит прямо здесь. Кнопки нажимаются, сценарии настоящие. Кейсы пока примерные.":"Open a folder and the bot replies right here. Buttons work, flows are real. These cases are samples for now.","Делаю Telegram-ботов, Mini Apps, сайты, игры и дизайн. Это моё портфолио: листай вниз, у каждого направления свой формат.":"I build Telegram bots, Mini Apps, websites, games and design. This is my portfolio: scroll down, every area has its own format.","Кейсы для того же сервера: блистеры как у коллекционных моделек, теги поверх и цвет пламени по редкости — синий «Лютый» и золотой «Легендарный».":"Cases for the same server: blister packs like collectible model cars, graffiti tags on top and flame color by rarity, blue “Fierce” and gold “Legendary”.","Изображения пакетов донат-валюты для RP-сервера Crime Wood в GTA 5: билеты с монетами, граффити-теги и свечение, которое отличает уровни пакетов.":"Donation currency pack art for the Crime Wood GTA 5 RP server: tickets with coins, graffiti tags and a glow that sets the pack tiers apart.","«Чемодан»: мой тайкун про жизнь релоканта в Армении. Кот-маскот, тапы, реальные заведения на карте, аукцион и дуэли. Живёт в боте @CityBiz_Tycoon_bot.":"“Chemodan” (Suitcase): my tycoon game about life as a relocant in Armenia. A cat mascot, taps, real venues on the map, an auction and duels. It lives in the @CityBiz_Tycoon_bot bot.","Коллекция мерча для клуба менторов Совкомбанка: худи с граффити-надписью «Ментор», оверсайз-футболка с манифестом клуба и блокнот наставника. Единый стиль: чёрный, оранжевый спрей и голографические стикеры.":"A merch collection for Sovcombank's mentor club: a hoodie with a graffiti “Mentor” lettering, an oversized tee with the club manifesto and a mentor's notebook. One style throughout: black, orange spray paint and holographic stickers.","Имя":"Name","Контакт":"Contact","Телефон или Telegram":"Phone or Telegram","Открыть папку":"Open folder","Открыть сайт":"Open site","Открыть чат с ботом":"Open chat with bot","Язык / Language":"Language","кейсы":"work","контакты":"contacts","букеты":"bouquets","проекты":"projects","тарифы":"pricing","меню":"menu"};
+  const EN={"Б":"B","П":"P","С":"S","я":"I'm","вс":"Sun","из":"of","пн":"Mon","Бот":"Bot","Про":"Pro","бот":"bot","Боты":"Bots","ИГРЫ":"GAMES","Игра":"Game","Игры":"Games","Идея":"Idea","Илья":"Ilya","Меню":"Menu","Мерч":"Merch","Сайт":"Website","Срок":"Timeline","Худи":"Hoodie","Цены":"Prices","· бот":"· bot","Анонс":"Announcement","Артём":"Artyom","Донат":"Donate","Дуэли":"Duels","Зерно":"Bean","Идея:":"Idea:","Кейсы":"Cases","Лютый":"Fierce","Назад":"Back","Отчёт":"Report","Принт":"Print","Сайты":"Websites","Срок:":"Timeline:","Старт":"Start","Флора":"Flora","Букеты":"Bouquets","Бюджет":"Budget","Вперёд":"Forward","Дизайн":"Design","Кэшбэк":"Cashback","Мастер":"Barber","НИКИТА":"NIKITA","Надзор":"Supervision","Никита":"Nikita","Облако":"Cloud","Срочно":"ASAP","Статус":"Status","Тарифы":"Plans","ЮKassa":"YooKassa","купили":"bought","★ Бриф":"★ Brief","100к ₽+":"100k ₽+","Аукцион":"Auction","Блокнот":"Notebook","Бюджет:":"Budget:","Галерея":"Gallery","Главная":"Home","Закрыть":"Close","Команда":"Team","Кофейня":"Coffee shop","Полевой":"Wildflower","Привет,":"Hi,","Проекты":"Projects","Разделы":"Sections","Чемодан":"Chemodan","в папке":"in the folder","· пример":"· sample","В начало":"Back to top","Диаспоры":"Diasporas","Запустим":"Let's launch it","Контакты":"Contacts","Круассан":"Croissant","Не горит":"No rush","Новичков":"Newcomers","Подписка":"Subscription","Прогресс":"Progress","Редкости":"Rarities","Розыгрыш":"Giveaway","Свернуть":"Collapse","Футболка":"T-shirt","до 30к ₽":"up to 30k ₽","заметили":"noticed","моя игра":"my game","полюбили":"loved","↑ Наверх":"↑ To top","30–100к ₽":"30–100k ₽","3D-студия":"3D studio","490 ₽/мес":"490 ₽/mo","Айдентика":"Identity","Есть идея":"Got an idea","Интерьеры":"Interiors","Отправить":"Send","Предзаказ":"Pre-order","Сообщение":"Message","Твоя идея":"Your idea","Три языка":"Three languages","Флэт уайт":"Flat white","Я человек":"I'm human","вернулись":"revisited","живой чат":"live chat","запомнили":"remembered","обсуждали":"talked about","2–4 недели":"2–4 weeks","Есть идея?":"Got an idea?","Записаться":"Book","Игровой UI":"Game UI","Метро 2030":"Metro 2030","Новый пост":"New post","Оплачено ✓":"Paid ✓","Развернуть":"Expand","Статистика":"Stats","Умный план":"Smart plan","Фильтр дня":"Brew of the day","Что делаем":"What we do","2 900 ₽/мес":"2,900 ₽/mo","WebGL-сайты":"WebGL sites","Артём · топ":"Artyom · top","Дом у озера":"Lake house","Легендарный":"Legendary","Офис студии":"Studio office","Печём утром":"Baked every morning","Пришёл спам":"Spam came in","Раф лаванда":"Lavender raf","Скопировано":"Copied","Спам удалён":"Spam removed","Чат с ботом":"Chat with the bot","Что делаем:":"Building:","AR-навигация":"AR navigation","А ещё игры 🎮":"And games too 🎮","Завтра 10:00":"Tomorrow 10:00","Открыть меню":"Open menu","Пульс онлайн":"Live heart rate","Свежие цветы":"Fresh flowers","Своя обжарка":"Roasted in-house","Тапнуть кота":"Tap the cat","Частные дома":"Private houses","Чек · Бритва":"Receipt · Britva","Шале в горах":"Mountain chalet","можно гулять":"pets welcome","Esc — закрыть":"Esc to close","БРИФ · ЗАЯВКА":"BRIEF · REQUEST","Выбрать букет":"Choose a bouquet","Гардероб кота":"The cat's wardrobe","Делаю ботов 🤖":"I build bots 🤖","До 10 человек":"Up to 10 people","Зашёл новичок":"A newcomer joined","Карта Армении":"Map of Armenia","Лиги и сезоны":"Leagues & seasons","Листай вниз ↓":"Scroll down ↓","Мерч «Ментор»":"“Mentor” merch","Мой Telegram:":"My Telegram:","Неделя в чате":"A week in the chat","Пакеты валюты":"Currency packs","Пост на 19:00":"Post at 7 pm","Работа крупно":"Full-size view","Сегодня 19:00":"Today 7 pm","Скопировано ✓":"Copied ✓","Что мы делаем":"What we do","Борода — 600 ₽":"Beard — 600 ₽","И сайты с 3D ✨":"And sites with 3D ✨","Просмотр сайта":"Site preview","Сезонные цветы":"Seasonal flowers","Смотреть кейсы":"See case studies","© 2026 · Никита":"© 2026 · Nikita","Боты · Telegram":"Bots · Telegram","Бритва · запись":"Britva · booking","Выбери мастера:":"Pick a barber:","Выдели ник выше":"Select the handle above","Домбай · 260 м²":"Dombay · 260 m²","Кот-маскот игры":"The game's cat mascot","Москва · 600 м²":"Moscow · 600 m²","Обжариваем сами":"We roast our own","Обсудить проект":"Let's talk","Оплачу на месте":"I'll pay there","Оставить заявку":"Send a request","Охват за 7 дней":"Reach over 7 days","Сделано вручную":"Handmade","Скопировать ник":"Copy handle","Хей! Я Никита 👋":"Hey! I'm Nikita 👋","крупно по клику":"click to enlarge","Гортензия и розы":"Hydrangea & roses","Есть идея? Пиши!":"Got an idea? Text me!","Карелия · 420 м²":"Karelia · 420 m²","Кейсы с машинами":"Car cases","Оплатить 1 500 ₽":"Pay 1,500 ₽","Пионовый рассвет":"Peony sunrise","Сайты · Web · 3D":"Sites · Web · 3D","Скопировать бриф":"Copy brief","Смотреть проекты":"View projects","Стрижка + борода":"Haircut + beard","✅ Капча пройдена":"✅ Captcha passed","Аня, гость с 2023":"Anya, guest since 2023","Базовые программы":"Basic programs","Где мой ВНЖ, мяу?":"Where's my residence permit, meow?","Дарья, покупатель":"Daria, customer","Ложных блокировок":"False bans","Смотреть работы ↓":"See my work ↓","Совкомбанк · мерч":"Sovcombank · merch","Страж · модерация":"Strazh · moderation","Стрижка — 1 200 ₽":"Haircut — 1,200 ₽","Фитнес-приложение":"Fitness app","Цветочный магазин":"Flower shop","ЧЕМОДАН · CITYBIZ":"CHEMODAN · CITYBIZ","Архитектурное бюро":"Architecture firm","Беру заказы · 2026":"Open for work · 2026","Доставка за 2 часа":"Delivery in 2 hours","Команда Volt Audio":"Volt Audio team","Комплекс — 1 500 ₽":"Combo — 1,500 ₽","НИКИТА · Портфолио":"NIKITA · Portfolio","Попробовать 7 дней":"Try 7 days free","3D прямо в браузере":"3D right in the browser","@newbie зашёл в чат":"@newbie joined the chat","Анимация приложения":"App animation","Дизайн · UI · Brand":"Design · UI · Brand","Когда опубликовать?":"When should I post it?","Лофт на Петроградке":"Loft in Petrogradka","Свободно в субботу:":"Free on Saturday:","Сканируй с телефона":"Scan with your phone","▶ Играть в Telegram":"▶ Play in Telegram","15 пионов и эвкалипт":"15 peonies & eucalyptus","3D-витрина наушников":"3D headphone showcase","Архитектура · с 2014":"Architecture · since 2014","Выбери шаблон поста:":"Pick a post template:","Делаем экраны живыми":"We bring screens to life","Дома, в которых тихо":"Homes where it's quiet","Ежедневно 9:00–21:00":"Daily 9 am – 9 pm","Максим, пользователь":"Maxim, user","Постер · автопостинг":"Poster · autoposting","Сервисы для Telegram":"Telegram services","Фото перед отправкой":"Photo before delivery","18 образов · листай →":"18 outfits · swipe →","Записаться на субботу":"Book for Saturday","ИИ-тренер и аналитика":"AI coach & analytics","Олег Норд, основатель":"Oleg Nord, founder","Отвечу на все вопросы":"I'll answer all your questions","Сильнее каждую неделю":"Stronger every week","Эфиопия, ягодные ноты":"Ethiopia, berry notes","или найди в Telegram:":"or find it in Telegram:","Готово ✅ Записал тебя.":"Done ✅ You're booked.","Демо-сайт из портфолио":"Portfolio demo site","Разработчик / дизайнер":"Developer / designer","Синхронизация с часами":"Smartwatch sync","Ереван, ул. Абовяна, 12":"12 Abovyan St, Yerevan","Ответим в течение часа.":"We'll reply within an hour.","Запланировано в 3 канала":"Scheduled to 3 channels","Игры · Telegram Mini App":"Games · Telegram Mini App","Курс драма опять скачет…":"The dram rate is jumping again…","Покажем букет в Telegram":"We'll show you the bouquet in Telegram","Санкт-Петербург · 180 м²":"Saint Petersburg · 180 m²","Сливки, лавандовый сироп":"Cream, lavender syrup","Тренировки с ИИ-тренером":"Workouts with an AI coach","сражайся с котами друзей":"battle your friends' cats","QR-код со ссылкой на игру":"QR code with a link to the game","Кофе, который будит мягко":"Coffee that wakes you gently","Покажу, как это работает.":"Let me show you how it works.","Справку о доходах принёс?":"Brought your income statement?","Цветы домой каждую неделю":"Flowers at home every week","Я охраняю чаты от спама 🛡":"I guard chats from spam 🛡","Барев! Тапай, не стесняйся":"Barev! Go on, tap me","Выделено, скопируй вручную":"Selected, copy it manually","Готово ✅ Напомню за 2 часа":"Done ✅ I'll remind you 2 hours before","Каждая 7-я чашка в подарок":"Every 7th cup is on us","Примерка в камере телефона":"Try-on in your phone camera","Рендеры и анимация товаров":"Product renders & animation","Свежие зёрна каждую неделю":"Fresh beans every week","здесь будут 3D-инструменты":"3D tools go here","Делаю всё, чтобы ваш проект":"I make sure your project gets","Запланировано ✅ в 3 канала.":"Scheduled ✅ to 3 channels.","Наглядные графики и рекорды":"Clear charts and records","Мой 3D-аватар, нажми на него":"My 3D avatar, tap it","Привозим с рынка каждое утро":"Brought from the market every morning","Чемодан собран. Едем дальше?":"Suitcase packed. Shall we move on?","здесь будут 3D-окна браузера":"3D browser windows go here","Привет! Хочу обсудить проект.":"Hi! I'd like to discuss a project.","Ещё один визаран — и я эксперт":"One more visa run and I'm an expert","Запишу к мастеру за 30 секунд.":"I'll book you with a barber in 30 seconds.","Касса полная — забери выручку!":"The till is full, collect your cash!","Охват вырос на 38% за неделю 📈":"Reach grew 38% in a week 📈","Позови друзей — вместе веселее":"Invite friends, it's more fun together","Пришлю статистику через сутки.":"I'll send stats in 24 hours.","Цветы, которые говорят за тебя":"Flowers that speak for you","объединяйся с другими игроками":"team up with other players","русский, английский, армянский":"Russian, English, Armenian","В Гюмри кофе вкуснее, проверено":"Coffee tastes better in Gyumri, I checked","Следим за стройкой каждую неделю":"We check the build site every week","перекупай точки у других игроков":"buy out spots from other players","рейтинг обновляется каждый сезон":"rankings reset every season","Нагрузка меняется по твоим данным":"Training load adapts to your data","От эскиза до ключей за 14 месяцев":"From sketch to keys in 14 months","Сеть кофеен — это уже бизнес, мяу":"A coffee chain is a real business, meow","Двойной эспрессо и бархатное молоко":"Double espresso and velvety milk","Ждём тебя! Адрес: ул. Абовяна, 12 📍":"See you! Address: 12 Abovyan St 📍","Привет! Я бот барбершопа «Бритва» 💈":"Hi! I'm the Britva barbershop bot 💈","Хачапури или хоровац? Почему не оба":"Khachapuri or khorovats? Why not both","Минус 6 кг за два месяца без срывов.":"Lost 6 kg in two months, no slip-ups.","Сходи на карту — там кафе без хозяина":"Check the map, there's a café with no owner","Заказ в Telegram, забираешь без очереди":"Order in Telegram, skip the line","Материалы, свет и мебель в одной концепции":"Materials, light and furniture in one concept","Запись в барбершоп с оплатой и напоминаниями":"Barbershop booking with payments and reminders","Привет! Я планирую посты для твоих каналов 📅":"Hi! I schedule posts for your channels 📅","Три кофейни в центре и доставка за 25 минут.":"Three coffee shops downtown and delivery in 25 minutes.","✅ Проверка пройдена. Добро пожаловать в чат!":"✅ Check passed. Welcome to the chat!","Мама плакала от радости. Спасибо за открытку!":"Mom cried with joy. Thanks for the card!","Напомню за 2 часа до визита. Оплатить сейчас?":"I'll remind you 2 hours before. Pay now?","Отложенные посты в несколько каналов и отчёты":"Scheduled posts to several channels, plus reports","Лучший флэт уайт в городе. Захожу каждое утро.":"Best flat white in town. I stop by every morning.","🚫 Удалил сообщение со ссылкой от @crypto_bonus":"🚫 Deleted a message with a link from @crypto_bonus","Капча для новичков, антиспам и логи для админов":"Captcha for newcomers, anti-spam and logs for admins","18 тыс. реальных заведений, захват по геопозиции":"18k real venues, captured by geolocation","План подстраивается под пульс, сон и настроение.":"The plan adapts to your heart rate, sleep and mood.","Бот для записи клиентов с оплатой и напоминаниями":"A booking bot with payments and reminders","Пользователь в муте на 24 часа. Лог ушёл админам.":"User muted for 24 hours. Log sent to admins.","Дальше — карта и бизнесы. Жми «Играть в Telegram»!":"Next up: the map and businesses. Hit “Play in Telegram”!","Конверсия выросла в 2 раза после запуска 3D-витрины.":"Conversion doubled after the 3D showcase launched.","Это демо: заявка никуда не ушла, но форма работает 🙂":"It's a demo: nothing was sent, but the form works 🙂","👋 @newbie, подтверди, что ты не бот. У тебя 60 секунд.":"👋 @newbie, confirm you're not a bot. You have 60 seconds.","Интерактивные сайты, 3D-визуализации и анимация продуктов.":"Interactive sites, 3D visualization and product animation.","Собираем букеты из сезонных цветов и привозим с открыткой.":"We make bouquets from seasonal flowers and deliver them with a card.","Тёплый сайт кофейни с меню, онлайн-заказом и картой точек.":"A cozy coffee shop site with a menu, online ordering and a map of locations.","Иммерсивный сайт студии 3D и motion-дизайна с WebGL-сценой.":"An immersive site for a 3D and motion design studio with a WebGL scene.","Мы строим так, чтобы через 30 лет дом хотелось оставить детям.":"We build so that in 30 years you'll want to leave the house to your kids.","Проектируем частные дома и интерьеры на стыке природы и бетона.":"We design private homes and interiors where nature meets concrete.","Интернет-магазин букетов с каталогом, корзиной и доставкой за 2 часа.":"An online bouquet shop with a catalog, cart and 2-hour delivery.","Лендинг фитнес-приложения: анимации, тарифы и запись на пробную тренировку.":"A fitness app landing page: animations, pricing and a free trial sign-up.","Демо тапа с настоящим котом из игры. Карта, бизнесы и дуэли ждут в Telegram.":"A tap demo with the real cat from the game. The map, businesses and duels are waiting in Telegram.","Каждая папка открывает живой сайт в окне браузера: меню, страницы, формы работают.":"Each folder opens a live site in a browser window: menus, pages and forms all work.","Переезжай, открывай бизнес, захватывай кафе на карте Армении и собирай гардероб кота.":"Move abroad, start a business, capture cafés on the map of Armenia and collect the cat's wardrobe.","Сайт бюро в духе тихой роскоши: крупная типографика, портфолио проектов, форма заявки.":"A quiet-luxury site for an architecture firm: big typography, a project portfolio and a request form.","Мерч, игровые предметы и визуал для брендов. Открой папку, чтобы листать работы крупно.":"Merch, in-game items and brand visuals. Open a folder to browse the work full-size.","Открой папку, и бот ответит прямо здесь. Кнопки нажимаются, сценарии настоящие. Кейсы пока примерные.":"Open a folder and the bot replies right here. Buttons work, flows are real. These cases are samples for now.","Делаю Telegram-ботов, Mini Apps, сайты, игры и дизайн. Это моё портфолио: листай вниз, у каждого направления свой формат.":"I build Telegram bots, Mini Apps, websites, games and design. This is my portfolio: scroll down, every area has its own format.","Кейсы для того же сервера: блистеры как у коллекционных моделек, теги поверх и цвет пламени по редкости — синий «Лютый» и золотой «Легендарный».":"Cases for the same server: blister packs like collectible model cars, graffiti tags on top and flame color by rarity, blue “Fierce” and gold “Legendary”.","Изображения пакетов донат-валюты для RP-сервера Crime Wood в GTA 5: билеты с монетами, граффити-теги и свечение, которое отличает уровни пакетов.":"Donation currency pack art for the Crime Wood GTA 5 RP server: tickets with coins, graffiti tags and a glow that sets the pack tiers apart.","«Чемодан»: мой тайкун про жизнь релоканта в Армении. Кот-маскот, тапы, реальные заведения на карте, аукцион и дуэли. Живёт в боте @CityBiz_Tycoon_bot.":"“Chemodan” (Suitcase): my tycoon game about life as a relocant in Armenia. A cat mascot, taps, real venues on the map, an auction and duels. It lives in the @CityBiz_Tycoon_bot bot.","Коллекция мерча для клуба менторов Совкомбанка: худи с граффити-надписью «Ментор», оверсайз-футболка с манифестом клуба и блокнот наставника. Единый стиль: чёрный, оранжевый спрей и голографические стикеры.":"A merch collection for Sovcombank's mentor club: a hoodie with a graffiti “Mentor” lettering, an oversized tee with the club manifesto and a mentor's notebook. One style throughout: black, orange spray paint and holographic stickers.","Имя":"Name","Контакт":"Contact","Телефон или Telegram":"Phone or Telegram","Открыть папку":"Open folder","Открыть сайт":"Open site","Открыть чат с ботом":"Open chat with bot","Язык / Language":"Language","кейсы":"work","контакты":"contacts","букеты":"bouquets","проекты":"projects","тарифы":"pricing","меню":"menu","(01) Бюро":"(01) Studio","(02) Избранное":"(02) Selected","(03) Услуги":"(03) Services","Философия":"Philosophy","Под ключ":"Turnkey","Бюро":"Studio","Студии":"Studios","Основано":"Founded","Архитектура и интерьер":"Architecture & interiors","Санкт-Петербург — Хельсинки":"Saint Petersburg — Helsinki","Берём 3 проекта на 2026":"Taking 3 projects for 2026","Дома, в которых":"Homes where it's","тихо":"quiet","Карелия · 2025":"Karelia · 2025","Связаться":"Get in touch","Проектируем частные дома и интерьеры на стыке природы и бетона. Свет, тишина и честные материалы — от эскиза до ключей.":"We design private homes and interiors where nature meets concrete. Light, silence and honest materials, from sketch to keys.","Мы начинаем не с фасада, а с того, как":"We don't start with the facade, but with how","утром падает свет и куда смотрит окно":"the morning light falls and where the window of","вашей кухни.":"your kitchen looks.","реализованных проектов":"completed projects","архитектурных премий":"architecture awards","месяцев от эскиза до ключей":"months from sketch to keys","страны":"countries","Архитектура":"Architecture","Авторский надзор":"Site supervision","Концепция, рабочий проект и согласования. Дом, вписанный в участок, а не поставленный на него.":"Concept, working drawings and permits. A house that belongs to its site, not one dropped onto it.","Материалы, свет и мебель в одной концепции. Собираем образцы и делаем 3D каждой комнаты.":"Materials, light and furniture in one concept. We gather samples and render every room in 3D.","Каждую неделю на объекте. Фотоотчёт и смета без сюрпризов.":"On site every week. Photo reports and a budget with no surprises.","Олег Норд, основатель бюро":"Oleg Nord, founder of the studio","Обсудим":"Shall we talk about","ваш":"your","дом?":"home?","Студия":"Studio","Связь":"Contact","Соцсети":"Social","Санкт-Петербург":"Saint Petersburg","Хельсинки":"Helsinki","48 работ":"48 works","Избранные":"Selected","Дома":"Houses","Общественные":"Public","Вилла у залива":"Bayside villa","Квартира-галерея":"Gallery apartment","Москва":"Moscow","Карелия · 420 м² · Дома":"Karelia · 420 m² · Houses","Санкт-Петербург · 180 м² · Интерьеры":"Saint Petersburg · 180 m² · Interiors","Домбай · 260 м² · Дома":"Dombay · 260 m² · Houses","Москва · 600 м² · Общественные":"Moscow · 600 m² · Public","Хельсинки · 340 м² · Дома":"Helsinki · 340 m² · Houses","Москва · 140 м² · Интерьеры":"Moscow · 140 m² · Interiors","Хельсинки · 340 м²":"Helsinki · 340 m²","Москва · 140 м²":"Moscow · 140 m²","Ответим в течение дня":"We reply within a day","Расскажите":"Tell us","об участке":"about your plot","Как к вам обращаться":"Your name","О проекте":"About the project","Площадь, место, сроки":"Size, location, timeline","Санкт-Петербург,":"Saint Petersburg,","Набережная Мойки, 12":"12 Moika Embankment","Пн–Пт 10:00–19:00":"Mon–Fri 10 am – 7 pm","доставка за 25 минут":"delivery in 25 minutes","каждая 7-я чашка в подарок":"every 7th cup is free","свежая обжарка каждую неделю":"fresh roast every week","зерно":"zerno","Корзина":"Cart","кофе, который будит":"coffee that wakes you","мягко":"gently","Три кофейни в центре, своя обжарка и доставка за 25 минут. Заказ в Telegram — забираешь без очереди.":"Three coffee shops downtown, our own roastery and 25-minute delivery. Order in Telegram and skip the line.","Где мы":"Find us","· 2 400 отзывов на картах":"· 2,400 reviews on maps","свежая обжарка · каждую неделю ·":"fresh roast · every week · ","на первый":"off your first","заказ":"order","флэт уайт":"flat white","раф лаванда":"lavender raf","фильтр дня":"brew of the day","круассан":"croissant","матча":"matcha","почему к нам возвращаются":"why people come back","Варим как для себя: свежие зёрна, честное молоко и бариста, которые помнят твой заказ.":"We brew like it's for us: fresh beans, honest milk and baristas who remember your order.","своя обжарка":"our own roast","Эфиопия Гуджи · обжарка 12 октября":"Ethiopia Guji · roasted October 12","1-й крэк":"1st crack","выгрузка":"drop","предзаказ в telegram":"pre-order in telegram","Выбрал — оплатил — забрал. Без очереди и без звонков.":"Pick, pay, pick up. No lines, no calls.","Флэт уайт к 9:00":"Flat white for 9 am","Принято ✅ Будет готов в 8:58":"Got it ✅ Ready at 8:58","Спасибо!":"Thanks!","доставка":"delivery","В пределах центра":"Within downtown","карта гостя":"loyalty card","Нажми на кружки — каждая 7-я чашка в подарок":"Tap the cups: every 7th one is free","3 кофейни":"3 coffee shops","Абовяна · Сарьяна · Каскад":"Abovyan · Saryan · Cascade","любимое гостей":"guest favorites","Всё меню →":"Full menu →","хит":"bestseller","новинка":"new","говорят гости":"what guests say","Лучший флэт уайт в городе. Захожу каждое утро перед работой.":"Best flat white in town. I stop by every morning before work.","Аня · гость с 2023":"Anya · guest since 2023","Заказываю в Telegram из такси — к приезду всё готово.":"I order in Telegram from the taxi, and it's ready when I arrive.","Давид · Telegram-предзаказ":"David · Telegram pre-order","Круассаны как в Париже, только ближе и дешевле.":"Croissants like in Paris, only closer and cheaper.","Мари · любит выпечку":"Mari · loves pastries","© 2026 Зерно · Ереван":"© 2026 Zerno · Yerevan","Ежедневно 8:00–22:00":"Daily 8 am – 10 pm","Цены за стандартный объём. Альтернативное молоко бесплатно.":"Prices for the standard size. Plant milk at no extra cost.","Всё":"All","Все":"All","Кофе":"Coffee","Не кофе":"Not coffee","Выпечка":"Pastries","Эфиопия Гуджи, ягодные ноты":"Ethiopia Guji, berry notes","Капучино":"Cappuccino","Классика на нашей обжарке":"A classic on our roast","Матча латте":"Matcha latte","Японская матча и овсяное молоко":"Japanese matcha and oat milk","Какао":"Hot chocolate","Бельгийский шоколад 54%":"Belgian chocolate 54%","Печём утром на сливочном масле":"Baked every morning with real butter","Синнабон":"Cinnamon roll","Корица и сливочный крем":"Cinnamon and cream frosting","В корзине:":"In cart:","Оформить в Telegram":"Check out in Telegram","где нас найти":"where to find us","Все кофейни открыты каждый день с 8:00 до 22:00.":"All coffee shops are open daily from 8 am to 10 pm.","Абовяна":"Abovyan","Сарьяна":"Saryan","Каскад":"Cascade","ул. Абовяна, 12 · у метро Республики":"12 Abovyan St · by Republic Square metro","ул. Сарьяна, 21 · тихий двор с террасой":"21 Saryan St · quiet courtyard with a terrace","ул. Таманяна, 3 · вид на Каскад":"3 Tamanyan St · view of the Cascade","● открыто до 22:00":"● open until 10 pm","кейтеринг и опт":"catering & wholesale","Сколько гостей и когда?":"How many guests and when?","Добавить":"Add","Отметка 1":"Stamp 1","Отметка 2":"Stamp 2","Отметка 3":"Stamp 3","Отметка 4":"Stamp 4","Отметка 5":"Stamp 5","Отметка 6":"Stamp 6","Подарок":"Gift","Начать бесплатно":"Start free","ИИ-тренер теперь понимает голос":"The AI coach now understands voice","Сильнее":"Stronger","каждую":"every","неделю":"week","План тренировок подстраивается под пульс, сон и настроение. Как личный тренер, только в кармане.":"Your training plan adapts to your heart rate, sleep and mood. Like a personal coach, but in your pocket.","Загрузите в":"Download on the","Доступно в":"Get it on","тренируются с PULSE":"train with PULSE","Доброе утро":"Good morning","Максим 👋":"Maxim 👋","цель дня":"daily goal","Пульс":"Heart rate","Верх тела · 32 мин":"Upper body · 32 min","Нагрузка снижена: плохо спал":"Load reduced: poor sleep","Сон":"Sleep","7ч 40м":"7h 40m","Сила за месяц":"Strength this month","Работает с":"Works with","Всё, что нужно,":"Everything you need,","и ничего лишнего":"and nothing you don't","ИИ-тренер в чате":"AI coach in chat","Спроси что угодно — он знает твою историю тренировок.":"Ask anything: it knows your training history.","Колено побаливает, что делать с ногами сегодня?":"My knee hurts a bit, what about leg day today?","Убрал выпады и прыжки. Добавил ягодичный мост и велосипед — 25 минут без ударной нагрузки 👌":"Removed lunges and jumps. Added glute bridges and the bike: 25 minutes, no impact 👌","Огонь, погнали":"Awesome, let's go","Нагрузка меняется по твоим данным каждый день.":"Training load adapts to your data every day.","Неделя":"Week","7ч 40м · глубокий 1ч 52м":"7h 40m · deep 1h 52m","Три шага":"Three steps","до первой тренировки":"to your first workout","Подключи часы":"Connect your watch","Apple Watch, Garmin или Mi Band — данные подтянутся сами.":"Apple Watch, Garmin or Mi Band: your data syncs automatically.","Расскажи о цели":"Share your goal","Похудеть, набрать силу или просто двигаться больше.":"Lose weight, build strength or just move more.","Тренируйся":"Train","План готов через минуту и обновляется каждое утро.":"Your plan is ready in a minute and updates every morning.","рейтинг в App Store":"App Store rating","активных пользователей":"active users","−6 кг":"−6 kg","в среднем за 2 месяца":"on average in 2 months","минимальная тренировка":"shortest workout","Говорят":"What our","пользователи":"users say","Минус 6 кг за два месяца без срывов. Впервые не бросил на третьей неделе.":"Lost 6 kg in two months, no slip-ups. First time I didn't quit in week three.","Максим":"Maxim","Тренер понял, что я после ночной смены, и сам облегчил план. Это магия.":"The coach noticed I'd come off a night shift and eased the plan on its own. It's magic.","Лена":"Lena","медсестра":"nurse","Подключил Garmin, и бег наконец перестал быть хаосом.":"Connected my Garmin and running finally stopped being chaos.","Артур":"Arthur","марафонец":"marathoner","Первая неделя — бесплатно":"First week free","Без карты и обязательств. Отменить можно в один тап.":"No card, no commitment. Cancel with one tap.","Выбрать тариф":"Choose a plan","Сделано для тех, кто не сдаётся":"Made for people who don't give up","без сюрпризов":"with no surprises","Помесячно":"Monthly","За год":"Yearly","/ навсегда":"/ forever","/ мес":"/ mo","Трекинг тренировок":"Workout tracking","Начать":"Start","Популярный":"Popular","План по пульсу и сну":"Plan based on heart rate and sleep","Питание и КБЖУ":"Nutrition and macros","Без рекламы":"No ads","Общие челленджи":"Group challenges","Панель тренера":"Coach dashboard","Приоритетная поддержка":"Priority support","Частые вопросы":"FAQ","Нужны ли смарт-часы?":"Do I need a smartwatch?","Нет. С часами план точнее, но приложение работает и без них — по самочувствию, которое ты отмечаешь после тренировки.":"No. A watch makes the plan more precise, but the app works without one, based on how you rate each workout.","Как отменить подписку?":"How do I cancel?","В профиле, в один тап. Деньги за неиспользованные дни вернём.":"In your profile, with one tap. We refund unused days.","Подойдёт новичку?":"Is it good for beginners?","Да. Первая неделя — лёгкая диагностика: тренер смотрит, что тебе по силам, и строит план от этого.":"Yes. The first week is a light assessment: the coach sees what you can do and builds the plan from there.","Остались":"Still have","вопросы?":"questions?","Пишите — ответим в течение часа. Для команд и фитнес-клубов есть отдельные условия.":"Write to us and we'll reply within an hour. Teams and gyms get special terms.","1ч":"1h","среднее время ответа":"average response time","чат в приложении":"in-app chat","Email или Telegram":"Email or Telegram","Принимаем проекты на 2026":"Booking projects for 2026","Делаем экраны":"We bring screens","живыми":"to life","Интерактивные сайты, 3D-визуализации и анимация продуктов, после которых бренд запоминают.":"Interactive sites, 3D visuals and product animation that make a brand unforgettable.","Бриф за 2 минуты":"Brief in 2 minutes","Сайт дня":"Site of the day","FPS на мобильных":"FPS on mobile","Избранные кейсы":"Selected work","Работы, которые":"Work that","двигают цифры":"moves the numbers","конверсия":"conversion","удержание":"retention","AR-навигация по станциям":"AR navigation in stations","запусков":"launches","Интерактивный запуск аромата":"Interactive fragrance launch","8 мин":"8 min","время на сайте":"time on site","От идеи":"From idea","до релиза":"to release","3D прямо в браузере, 60 FPS даже на телефоне.":"3D right in the browser, 60 FPS even on phones.","Рендеры и анимация товаров для запуска и рекламы.":"Product renders and animation for launches and ads.","Motion":"Motion","Анимация интерфейсов и брендов, Lottie и Rive.":"Interface and brand animation, Lottie and Rive.","Примерка и навигация в камере телефона.":"Try-on and navigation in your phone camera.","Процесс":"Process","Восемь недель":"Eight weeks","без хаоса":"without chaos","Неделя 1":"Week 1","Недели 2–3":"Weeks 2–3","Недели 4–7":"Weeks 4–7","Неделя 8":"Week 8","Разбор":"Discovery","Цели, аудитория, референсы и метрики успеха.":"Goals, audience, references and success metrics.","Концепт":"Concept","Мудборд, стиль и интерактивный прототип.":"Moodboard, style and an interactive prototype.","Продакшн":"Production","3D, код, шейдеры и оптимизация.":"3D, code, shaders and optimization.","Запуск":"Launch","Релиз, аналитика и поддержка.":"Release, analytics and support.","Давайте сделаем":"Let's make something","вау":"wow","Заполнить бриф":"Fill in the brief","Ереван · Берлин · онлайн":"Yerevan · Berlin · online","Сделали за 8 недель: концепт, 3D, разработка и запуск. Результат —":"Done in 8 weeks: concept, 3D, development and launch. Result:","конверсия.":"conversion.","удержание.":"retention.","запусков.":"launches.","время на сайте.":"time on site.","Бриф":"Brief","о проекте":"about your project","Что нужно":"What you need","WebGL-сайт":"WebGL site","Пока не знаю":"Not sure yet","до $10k":"under $10k","Как вас зовут":"Your name","Почта или Telegram":"Email or Telegram","Пара слов о задаче":"A few words about the task","Сроки, ссылки, идеи":"Timeline, links, ideas","Отправить бриф":"Send brief","Бесплатная доставка от 3 000 ₽ · фото букета перед отправкой":"Free delivery over 3,000 ₽ · a photo of your bouquet before it ships","Фл":"Fl","о":"o","ра":"ra","🌷 Собираем утром · доставляем за 2 часа":"🌷 Arranged in the morning · delivered in 2 hours","Цветы, которые":"Flowers that","говорят":"speak","за тебя":"for you","Букеты из сезонных цветов с рынка. Покажем фото перед отправкой и вложим открытку с твоими словами.":"Bouquets of seasonal flowers from the market. We'll send a photo before delivery and add a card with your words.","Куда доставить? Например, ул. Абовяна":"Delivery address, e.g. Abovyan St","Адрес":"Address","Проверить":"Check","✓ Доставим сегодня за 1 ч 40 мин":"✓ We can deliver today in 1 h 40 min","букетов в этом году":"bouquets this year","средняя оценка":"average rating","2 ч":"2 h","свежие цветы · каждое утро ·":"fresh flowers · every morning · ","в Telegram":"in Telegram","Пионы":"Peonies","Розы":"Roses","Сезонные":"Seasonal","Сухоцветы":"Dried flowers","В коробке":"In a box","Любимые":"Favorite","Весь каталог →":"Full catalog →","В избранное":"Add to favorites","В корзину":"Add to cart","Гортензия и кустовые розы":"Hydrangea and spray roses","Персик":"Peach","Ранункулюсы и роза Пич Аваланч":"Ranunculus and Peach Avalanche roses","Лаванда":"Lavender","Сухоцветы и лаванда в коробке":"Dried flowers and lavender in a box","Алый":"Scarlet","25 красных роз":"25 red roses","Цветы домой":"Flowers at home","по подписке":"by subscription","Свежий букет приезжает сам, а ты просто радуешься. Пауза или отмена — в один клик.":"A fresh bouquet arrives on its own, and you just enjoy it. Pause or cancel in one click.","Раз в неделю":"Weekly","Раз в 2 недели":"Every 2 weeks","Раз в месяц":"Monthly","Оформить подписку":"Subscribe","Нам":"What people","пишут":"write to us","Дарья · Пионовый рассвет":"Daria · Peony sunrise","Прислали фото до отправки — и букет приехал точно таким же.":"They sent a photo before delivery, and the bouquet arrived exactly like that.","Арам · Облако":"Aram · Cloud","Подписка — лучшее, что я себе подарила в этом году.":"The subscription is the best gift I've given myself this year.","Нина · подписка":"Nina · subscription","© 2026 Флора · Ереван":"© 2026 Flora · Yerevan","Каталог":"Catalog","Нужен особый букет?":"Need a special bouquet?","Свяжитесь":"Get in","с нами":"touch","Мастерская":"Workshop","Время работы":"Opening hours","Какой букет и к какому дню?":"Which bouquet and for what day?","Добавлено ✓":"Added ✓","букетов":"of bouquets"};
   const norm=t=>t.replace(/\s+/g,' ').trim();
   const subs=Object.keys(EN).filter(k=>k.length>=4).sort((a,b)=>b.length-a.length);
   const RULES=[[/^(\d+) работ[ыа]? в папке$/,'$1 works in the folder'],[/·\s*(\d+) из (\d+)/,'· $1 of $2'],[/^(\d+) образов/,'$1 outfits']];
